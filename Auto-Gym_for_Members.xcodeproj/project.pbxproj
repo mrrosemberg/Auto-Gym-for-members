@@ -12,7 +12,6 @@
 		D5B5238621C03FF900B2EAF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B5238421C03FF900B2EAF2 /* Main.storyboard */; };
 		D5B5238821C03FFA00B2EAF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5B5238721C03FFA00B2EAF2 /* Assets.xcassets */; };
 		D5B5238B21C03FFA00B2EAF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B5238921C03FFA00B2EAF2 /* LaunchScreen.storyboard */; };
-		D5B5241C21C0438E00B2EAF2 /* JMMaskTextField in Resources */ = {isa = PBXBuildFile; fileRef = D5B5240621C0438D00B2EAF2 /* JMMaskTextField */; };
 		D5B5241F21C0443600B2EAF2 /* JMMaskTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B5241D21C0443600B2EAF2 /* JMMaskTextField.swift */; };
 		D5B5242021C0443600B2EAF2 /* JMStringMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B5241E21C0443600B2EAF2 /* JMStringMask.swift */; };
 /* End PBXBuildFile section */
@@ -164,7 +163,6 @@
 		D5B5239221C0402200B2EAF2 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "../../Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 		D5B523BD21C0403F00B2EAF2 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = "../../CryptoSwift-master/CryptoSwift.xcodeproj"; sourceTree = "<group>"; };
 		D5B523CF21C0404900B2EAF2 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = "../../SwiftyJSON-master/SwiftyJSON.xcodeproj"; sourceTree = "<group>"; };
-		D5B5240621C0438D00B2EAF2 /* JMMaskTextField */ = {isa = PBXFileReference; lastKnownFileType = folder; name = JMMaskTextField; path = ../../JMMaskTextField; sourceTree = "<group>"; };
 		D5B5241D21C0443600B2EAF2 /* JMMaskTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JMMaskTextField.swift; sourceTree = "<group>"; };
 		D5B5241E21C0443600B2EAF2 /* JMStringMask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JMStringMask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,7 +181,6 @@
 		D5B5237421C03FF900B2EAF2 = {
 			isa = PBXGroup;
 			children = (
-				D5B5240621C0438D00B2EAF2 /* JMMaskTextField */,
 				D5B523CF21C0404900B2EAF2 /* SwiftyJSON.xcodeproj */,
 				D5B523BD21C0403F00B2EAF2 /* CryptoSwift.xcodeproj */,
 				D5B5239221C0402200B2EAF2 /* Alamofire.xcodeproj */,
@@ -466,7 +463,6 @@
 				D5B5238B21C03FFA00B2EAF2 /* LaunchScreen.storyboard in Resources */,
 				D5B5238821C03FFA00B2EAF2 /* Assets.xcassets in Resources */,
 				D5B5238621C03FF900B2EAF2 /* Main.storyboard in Resources */,
-				D5B5241C21C0438E00B2EAF2 /* JMMaskTextField in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
