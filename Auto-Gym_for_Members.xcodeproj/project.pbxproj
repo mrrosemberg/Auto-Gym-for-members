@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D51A514121C17BF000A59FFB /* warning.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51A514021C17BF000A59FFB /* warning.swift */; };
+		D51A515721C1822700A59FFB /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B523DB21C0404900B2EAF2 /* SwiftyJSON.framework */; };
+		D51A515821C1822700A59FFB /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5B523DB21C0404900B2EAF2 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D51A515C21C1823C00A59FFB /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B523C621C0404000B2EAF2 /* CryptoSwift.framework */; };
+		D51A515D21C1823C00A59FFB /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5B523C621C0404000B2EAF2 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D51A516021C1824D00A59FFB /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B5239E21C0402200B2EAF2 /* Alamofire.framework */; };
+		D51A516121C1824D00A59FFB /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5B5239E21C0402200B2EAF2 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D5B5238121C03FF900B2EAF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B5238021C03FF900B2EAF2 /* AppDelegate.swift */; };
 		D5B5238321C03FF900B2EAF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B5238221C03FF900B2EAF2 /* ViewController.swift */; };
 		D5B5238621C03FF900B2EAF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B5238421C03FF900B2EAF2 /* Main.storyboard */; };
@@ -17,6 +24,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		D51A515921C1822700A59FFB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5B523CF21C0404900B2EAF2 /* SwiftyJSON.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E4FEFDA19575BE100351305;
+			remoteInfo = "SwiftyJSON iOS";
+		};
+		D51A515E21C1823C00A59FFB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5B523BD21C0403F00B2EAF2 /* CryptoSwift.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 754BE45419693E190098E6F3;
+			remoteInfo = CryptoSwift;
+		};
+		D51A516221C1824D00A59FFB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5B5239221C0402200B2EAF2 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
 		D5B5239D21C0402200B2EAF2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D5B5239221C0402200B2EAF2 /* Alamofire.xcodeproj */;
@@ -152,7 +180,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D51A515B21C1822800A59FFB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D51A515821C1822700A59FFB /* SwiftyJSON.framework in Embed Frameworks */,
+				D51A516121C1824D00A59FFB /* Alamofire.framework in Embed Frameworks */,
+				D51A515D21C1823C00A59FFB /* CryptoSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		D51A514021C17BF000A59FFB /* warning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = warning.swift; sourceTree = "<group>"; };
 		D5B5237D21C03FF900B2EAF2 /* Auto-Gym_for_Members.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Auto-Gym_for_Members.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B5238021C03FF900B2EAF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5B5238221C03FF900B2EAF2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +217,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D51A515721C1822700A59FFB /* SwiftyJSON.framework in Frameworks */,
+				D51A516021C1824D00A59FFB /* Alamofire.framework in Frameworks */,
+				D51A515C21C1823C00A59FFB /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +256,7 @@
 				D5B5238721C03FFA00B2EAF2 /* Assets.xcassets */,
 				D5B5238921C03FFA00B2EAF2 /* LaunchScreen.storyboard */,
 				D5B5238C21C03FFA00B2EAF2 /* Info.plist */,
+				D51A514021C17BF000A59FFB /* warning.swift */,
 			);
 			path = "Auto-Gym_for_Members";
 			sourceTree = "<group>";
@@ -262,10 +311,14 @@
 				D5B5237921C03FF900B2EAF2 /* Sources */,
 				D5B5237A21C03FF900B2EAF2 /* Frameworks */,
 				D5B5237B21C03FF900B2EAF2 /* Resources */,
+				D51A515B21C1822800A59FFB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D51A515A21C1822700A59FFB /* PBXTargetDependency */,
+				D51A515F21C1823C00A59FFB /* PBXTargetDependency */,
+				D51A516321C1824D00A59FFB /* PBXTargetDependency */,
 			);
 			name = "Auto-Gym_for_Members";
 			productName = "Auto-Gym_for_Members";
@@ -477,10 +530,29 @@
 				D5B5238121C03FF900B2EAF2 /* AppDelegate.swift in Sources */,
 				D5B5241F21C0443600B2EAF2 /* JMMaskTextField.swift in Sources */,
 				D5B5242021C0443600B2EAF2 /* JMStringMask.swift in Sources */,
+				D51A514121C17BF000A59FFB /* warning.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D51A515A21C1822700A59FFB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SwiftyJSON iOS";
+			targetProxy = D51A515921C1822700A59FFB /* PBXContainerItemProxy */;
+		};
+		D51A515F21C1823C00A59FFB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CryptoSwift;
+			targetProxy = D51A515E21C1823C00A59FFB /* PBXContainerItemProxy */;
+		};
+		D51A516321C1824D00A59FFB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Alamofire iOS";
+			targetProxy = D51A516221C1824D00A59FFB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D5B5238421C03FF900B2EAF2 /* Main.storyboard */ = {
@@ -621,6 +693,7 @@
 		D5B5239021C03FFA00B2EAF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Auto-Gym_for_Members/Info.plist";
@@ -638,6 +711,7 @@
 		D5B5239121C03FFA00B2EAF2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Auto-Gym_for_Members/Info.plist";
