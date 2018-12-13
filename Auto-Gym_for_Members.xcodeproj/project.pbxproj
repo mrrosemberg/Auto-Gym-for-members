@@ -21,6 +21,7 @@
 		D5B5238B21C03FFA00B2EAF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B5238921C03FFA00B2EAF2 /* LaunchScreen.storyboard */; };
 		D5B5241F21C0443600B2EAF2 /* JMMaskTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B5241D21C0443600B2EAF2 /* JMMaskTextField.swift */; };
 		D5B5242021C0443600B2EAF2 /* JMStringMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B5241E21C0443600B2EAF2 /* JMStringMask.swift */; };
+		D5BE690721C2E52A00BBAF0B /* HttpJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BE690621C2E52A00BBAF0B /* HttpJob.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -198,9 +199,10 @@
 
 /* Begin PBXFileReference section */
 		D51A514021C17BF000A59FFB /* warning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = warning.swift; sourceTree = "<group>"; };
+		D56D1E8C21C2EB35006FD8DE /* HttpJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HttpJob.swift; path = "Auto-Gym_for_Members/HttpJob.swift"; sourceTree = "<group>"; };
 		D5B5237D21C03FF900B2EAF2 /* Auto-Gym_for_Members.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Auto-Gym_for_Members.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B5238021C03FF900B2EAF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D5B5238221C03FF900B2EAF2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.java; };
+		D5B5238221C03FF900B2EAF2 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.java; };
 		D5B5238521C03FF900B2EAF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D5B5238721C03FFA00B2EAF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D5B5238A21C03FFA00B2EAF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 		D5B523CF21C0404900B2EAF2 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = "../../SwiftyJSON-master/SwiftyJSON.xcodeproj"; sourceTree = "<group>"; };
 		D5B5241D21C0443600B2EAF2 /* JMMaskTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JMMaskTextField.swift; sourceTree = "<group>"; };
 		D5B5241E21C0443600B2EAF2 /* JMStringMask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JMStringMask.swift; sourceTree = "<group>"; };
+		D5BE690621C2E52A00BBAF0B /* HttpJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpJob.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +232,7 @@
 		D5B5237421C03FF900B2EAF2 = {
 			isa = PBXGroup;
 			children = (
+				D56D1E8C21C2EB35006FD8DE /* HttpJob.swift */,
 				D5B523CF21C0404900B2EAF2 /* SwiftyJSON.xcodeproj */,
 				D5B523BD21C0403F00B2EAF2 /* CryptoSwift.xcodeproj */,
 				D5B5239221C0402200B2EAF2 /* Alamofire.xcodeproj */,
@@ -257,6 +261,7 @@
 				D5B5238921C03FFA00B2EAF2 /* LaunchScreen.storyboard */,
 				D5B5238C21C03FFA00B2EAF2 /* Info.plist */,
 				D51A514021C17BF000A59FFB /* warning.swift */,
+				D5BE690621C2E52A00BBAF0B /* HttpJob.swift */,
 			);
 			path = "Auto-Gym_for_Members";
 			sourceTree = "<group>";
@@ -529,6 +534,7 @@
 				D5B5238321C03FF900B2EAF2 /* ViewController.swift in Sources */,
 				D5B5238121C03FF900B2EAF2 /* AppDelegate.swift in Sources */,
 				D5B5241F21C0443600B2EAF2 /* JMMaskTextField.swift in Sources */,
+				D5BE690721C2E52A00BBAF0B /* HttpJob.swift in Sources */,
 				D5B5242021C0443600B2EAF2 /* JMStringMask.swift in Sources */,
 				D51A514121C17BF000A59FFB /* warning.swift in Sources */,
 			);
@@ -695,14 +701,18 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T6ZRQ479XJ;
 				INFOPLIST_FILE = "Auto-Gym_for_Members/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sysnet.Auto-Gym-for-Members";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -713,14 +723,18 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T6ZRQ479XJ;
 				INFOPLIST_FILE = "Auto-Gym_for_Members/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sysnet.Auto-Gym-for-Members";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -736,7 +750,7 @@
 				D5B5238E21C03FFA00B2EAF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		D5B5238F21C03FFA00B2EAF2 /* Build configuration list for PBXNativeTarget "Auto-Gym_for_Members" */ = {
 			isa = XCConfigurationList;
@@ -745,7 +759,7 @@
 				D5B5239121C03FFA00B2EAF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
