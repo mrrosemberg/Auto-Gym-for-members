@@ -200,7 +200,7 @@
 		D51A514021C17BF000A59FFB /* warning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = warning.swift; sourceTree = "<group>"; };
 		D5B5237D21C03FF900B2EAF2 /* Auto-Gym_for_Members.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Auto-Gym_for_Members.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B5238021C03FF900B2EAF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D5B5238221C03FF900B2EAF2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D5B5238221C03FF900B2EAF2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.java; };
 		D5B5238521C03FF900B2EAF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D5B5238721C03FFA00B2EAF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D5B5238A21C03FFA00B2EAF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
