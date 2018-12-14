@@ -14,8 +14,8 @@
 		D51A515D21C1823C00A59FFB /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5B523C621C0404000B2EAF2 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D51A516021C1824D00A59FFB /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B5239E21C0402200B2EAF2 /* Alamofire.framework */; };
 		D51A516121C1824D00A59FFB /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5B5239E21C0402200B2EAF2 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D5A4CC1221C3EAD0000C9358 /* ConfigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A4CC1121C3EAD0000C9358 /* ConfigController.swift */; };
 		D5B5238121C03FF900B2EAF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B5238021C03FF900B2EAF2 /* AppDelegate.swift */; };
-		D5B5238321C03FF900B2EAF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B5238221C03FF900B2EAF2 /* ViewController.swift */; };
 		D5B5238621C03FF900B2EAF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B5238421C03FF900B2EAF2 /* Main.storyboard */; };
 		D5B5238821C03FFA00B2EAF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5B5238721C03FFA00B2EAF2 /* Assets.xcassets */; };
 		D5B5238B21C03FFA00B2EAF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B5238921C03FFA00B2EAF2 /* LaunchScreen.storyboard */; };
@@ -200,9 +200,9 @@
 /* Begin PBXFileReference section */
 		D51A514021C17BF000A59FFB /* warning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = warning.swift; sourceTree = "<group>"; };
 		D56D1E8C21C2EB35006FD8DE /* HttpJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HttpJob.swift; path = "Auto-Gym_for_Members/HttpJob.swift"; sourceTree = "<group>"; };
+		D5A4CC1121C3EAD0000C9358 /* ConfigController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigController.swift; sourceTree = "<group>"; };
 		D5B5237D21C03FF900B2EAF2 /* Auto-Gym_for_Members.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Auto-Gym_for_Members.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B5238021C03FF900B2EAF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D5B5238221C03FF900B2EAF2 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.java; };
 		D5B5238521C03FF900B2EAF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D5B5238721C03FFA00B2EAF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D5B5238A21C03FFA00B2EAF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -255,7 +255,7 @@
 				D5B5241D21C0443600B2EAF2 /* JMMaskTextField.swift */,
 				D5B5241E21C0443600B2EAF2 /* JMStringMask.swift */,
 				D5B5238021C03FF900B2EAF2 /* AppDelegate.swift */,
-				D5B5238221C03FF900B2EAF2 /* ViewController.swift */,
+				D5A4CC1121C3EAD0000C9358 /* ConfigController.swift */,
 				D5B5238421C03FF900B2EAF2 /* Main.storyboard */,
 				D5B5238721C03FFA00B2EAF2 /* Assets.xcassets */,
 				D5B5238921C03FFA00B2EAF2 /* LaunchScreen.storyboard */,
@@ -531,8 +531,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5B5238321C03FF900B2EAF2 /* ViewController.swift in Sources */,
 				D5B5238121C03FF900B2EAF2 /* AppDelegate.swift in Sources */,
+				D5A4CC1221C3EAD0000C9358 /* ConfigController.swift in Sources */,
 				D5B5241F21C0443600B2EAF2 /* JMMaskTextField.swift in Sources */,
 				D5BE690721C2E52A00BBAF0B /* HttpJob.swift in Sources */,
 				D5B5242021C0443600B2EAF2 /* JMStringMask.swift in Sources */,
@@ -705,7 +705,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T6ZRQ479XJ;
 				INFOPLIST_FILE = "Auto-Gym_for_Members/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -727,7 +727,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T6ZRQ479XJ;
 				INFOPLIST_FILE = "Auto-Gym_for_Members/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

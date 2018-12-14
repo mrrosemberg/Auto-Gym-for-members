@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Config Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Auto_Gym_for_Members" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Config Controller" customClass="ConfigController" customModule="Auto_Gym_for_Members" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,7 +56,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="validarClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VBx-sa-e0T"/>
+                                                    <action selector="validarClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cXf-pr-EFJ"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dt2-sx-a8r">
@@ -175,12 +175,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="lbAcademia" destination="sZp-0K-ueY" id="RxC-iJ-8cj"/>
-                        <outlet property="lbAddress1" destination="9ax-gg-bMD" id="RYC-WE-jwa"/>
-                        <outlet property="lbAddress2" destination="tSU-7l-npG" id="mBm-1O-i9z"/>
-                        <outlet property="txtCnpj" destination="4Ds-WD-fg8" id="f7a-It-XIS"/>
-                        <outlet property="txtMatricula" destination="kdL-uu-8Bu" id="4je-rM-p8K"/>
-                        <outlet property="txtSenha" destination="B3g-Yb-19h" id="4t1-Hl-3A3"/>
+                        <outlet property="lbAcademia" destination="sZp-0K-ueY" id="LOb-v3-7dH"/>
+                        <outlet property="lbAddress1" destination="9ax-gg-bMD" id="1Dk-4O-BZ1"/>
+                        <outlet property="lbAddress2" destination="tSU-7l-npG" id="SBH-sU-shk"/>
+                        <outlet property="txtCnpj" destination="4Ds-WD-fg8" id="LtG-FD-oFk"/>
+                        <outlet property="txtMatricula" destination="kdL-uu-8Bu" id="Muu-VZ-sAS"/>
+                        <outlet property="txtSenha" destination="B3g-Yb-19h" id="TYo-IM-KEC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
