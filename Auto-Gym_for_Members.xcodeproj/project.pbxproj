@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D51A514121C17BF000A59FFB /* warning.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51A514021C17BF000A59FFB /* warning.swift */; };
+		D51A514121C17BF000A59FFB /* Funcoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51A514021C17BF000A59FFB /* Funcoes.swift */; };
 		D51A515721C1822700A59FFB /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B523DB21C0404900B2EAF2 /* SwiftyJSON.framework */; };
 		D51A515821C1822700A59FFB /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5B523DB21C0404900B2EAF2 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D51A515C21C1823C00A59FFB /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B523C621C0404000B2EAF2 /* CryptoSwift.framework */; };
 		D51A515D21C1823C00A59FFB /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5B523C621C0404000B2EAF2 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D51A516021C1824D00A59FFB /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B5239E21C0402200B2EAF2 /* Alamofire.framework */; };
 		D51A516121C1824D00A59FFB /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5B5239E21C0402200B2EAF2 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D5259B5D21C8101700B3811D /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5259B5C21C8101700B3811D /* MainController.swift */; };
+		D5259B5F21C81F2500B3811D /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5259B5E21C81F2500B3811D /* Classes.swift */; };
 		D5A4CC1221C3EAD0000C9358 /* ConfigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A4CC1121C3EAD0000C9358 /* ConfigController.swift */; };
 		D5B5238121C03FF900B2EAF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B5238021C03FF900B2EAF2 /* AppDelegate.swift */; };
 		D5B5238621C03FF900B2EAF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B5238421C03FF900B2EAF2 /* Main.storyboard */; };
@@ -21,7 +23,6 @@
 		D5B5238B21C03FFA00B2EAF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B5238921C03FFA00B2EAF2 /* LaunchScreen.storyboard */; };
 		D5B5241F21C0443600B2EAF2 /* JMMaskTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B5241D21C0443600B2EAF2 /* JMMaskTextField.swift */; };
 		D5B5242021C0443600B2EAF2 /* JMStringMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B5241E21C0443600B2EAF2 /* JMStringMask.swift */; };
-		D5BE690721C2E52A00BBAF0B /* HttpJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BE690621C2E52A00BBAF0B /* HttpJob.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -198,8 +199,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D51A514021C17BF000A59FFB /* warning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = warning.swift; sourceTree = "<group>"; };
-		D56D1E8C21C2EB35006FD8DE /* HttpJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HttpJob.swift; path = "Auto-Gym_for_Members/HttpJob.swift"; sourceTree = "<group>"; };
+		D51A514021C17BF000A59FFB /* Funcoes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Funcoes.swift; sourceTree = "<group>"; };
+		D5259B5B21C7F57B00B3811D /* Auto-Gym.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Auto-Gym.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D5259B5C21C8101700B3811D /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		D5259B5E21C81F2500B3811D /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
 		D5A4CC1121C3EAD0000C9358 /* ConfigController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigController.swift; sourceTree = "<group>"; };
 		D5B5237D21C03FF900B2EAF2 /* Auto-Gym_for_Members.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Auto-Gym_for_Members.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B5238021C03FF900B2EAF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -212,7 +215,6 @@
 		D5B523CF21C0404900B2EAF2 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = "../../SwiftyJSON-master/SwiftyJSON.xcodeproj"; sourceTree = "<group>"; };
 		D5B5241D21C0443600B2EAF2 /* JMMaskTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JMMaskTextField.swift; sourceTree = "<group>"; };
 		D5B5241E21C0443600B2EAF2 /* JMStringMask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JMStringMask.swift; sourceTree = "<group>"; };
-		D5BE690621C2E52A00BBAF0B /* HttpJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpJob.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,7 +234,6 @@
 		D5B5237421C03FF900B2EAF2 = {
 			isa = PBXGroup;
 			children = (
-				D56D1E8C21C2EB35006FD8DE /* HttpJob.swift */,
 				D5B523CF21C0404900B2EAF2 /* SwiftyJSON.xcodeproj */,
 				D5B523BD21C0403F00B2EAF2 /* CryptoSwift.xcodeproj */,
 				D5B5239221C0402200B2EAF2 /* Alamofire.xcodeproj */,
@@ -252,16 +253,18 @@
 		D5B5237F21C03FF900B2EAF2 /* Auto-Gym_for_Members */ = {
 			isa = PBXGroup;
 			children = (
-				D5B5241D21C0443600B2EAF2 /* JMMaskTextField.swift */,
-				D5B5241E21C0443600B2EAF2 /* JMStringMask.swift */,
+				D5259B5B21C7F57B00B3811D /* Auto-Gym.playground */,
 				D5B5238021C03FF900B2EAF2 /* AppDelegate.swift */,
+				D5259B5C21C8101700B3811D /* MainController.swift */,
 				D5A4CC1121C3EAD0000C9358 /* ConfigController.swift */,
 				D5B5238421C03FF900B2EAF2 /* Main.storyboard */,
 				D5B5238721C03FFA00B2EAF2 /* Assets.xcassets */,
 				D5B5238921C03FFA00B2EAF2 /* LaunchScreen.storyboard */,
 				D5B5238C21C03FFA00B2EAF2 /* Info.plist */,
-				D51A514021C17BF000A59FFB /* warning.swift */,
-				D5BE690621C2E52A00BBAF0B /* HttpJob.swift */,
+				D5B5241D21C0443600B2EAF2 /* JMMaskTextField.swift */,
+				D5B5241E21C0443600B2EAF2 /* JMStringMask.swift */,
+				D51A514021C17BF000A59FFB /* Funcoes.swift */,
+				D5259B5E21C81F2500B3811D /* Classes.swift */,
 			);
 			path = "Auto-Gym_for_Members";
 			sourceTree = "<group>";
@@ -532,11 +535,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5B5238121C03FF900B2EAF2 /* AppDelegate.swift in Sources */,
+				D5259B5D21C8101700B3811D /* MainController.swift in Sources */,
 				D5A4CC1221C3EAD0000C9358 /* ConfigController.swift in Sources */,
 				D5B5241F21C0443600B2EAF2 /* JMMaskTextField.swift in Sources */,
-				D5BE690721C2E52A00BBAF0B /* HttpJob.swift in Sources */,
+				D5259B5F21C81F2500B3811D /* Classes.swift in Sources */,
 				D5B5242021C0443600B2EAF2 /* JMStringMask.swift in Sources */,
-				D51A514121C17BF000A59FFB /* warning.swift in Sources */,
+				D51A514121C17BF000A59FFB /* Funcoes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
