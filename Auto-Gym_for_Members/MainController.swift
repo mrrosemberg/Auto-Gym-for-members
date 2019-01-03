@@ -18,13 +18,15 @@ class MainController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        //_=warning(view:self, title:"Aviso", message:"nada", buttons:1)
-        //var people = Pessoa()
-        //people.setNome("1")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        let file = File(fileName: "config", fileExt: "dat")
+        if file.exists(){
+           config = file.read()
+            //TODO Alterar Título e Logo
+        }
+    }
     
     /*
     // MARK: - Navigation

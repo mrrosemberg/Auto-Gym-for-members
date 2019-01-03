@@ -26,7 +26,26 @@ class ConfigController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-        
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let academia = config["academia"]!
+        if academia.isEmpty {
+           lbAcademia.isHidden = true
+           lbAddress1.isHidden = true
+           lbAddress2.isHidden = true
+        }else{
+            self.txtCnpj.text = config["cnpj"]!
+            self.lbAddress1.text = config["server1"]!
+            self.lbAddress2.text = config["server2"]!
+            self.lbAcademia.text = config["academia"]!
+            self.txtMatricula.text = config["user"]!
+            self.txtSenha.text = config["password"]!
+            lbAcademia.isHidden = false
+            lbAddress1.isHidden = false
+            lbAddress2.isHidden = false
+        }
+    }
+    
     func trataResp(){
         //print(self.webData)
         print(self.contentType)
@@ -38,6 +57,9 @@ class ConfigController: UIViewController {
             _=warning(view:self, title:"Erro", message:"Retorno inválido do servidor", buttons: 1)
             return
         }
+        lbAcademia.isHidden = true
+        lbAddress1.isHidden = true
+        lbAddress2.isHidden = true
         var jsonOk = 0
         if let json = try? JSON(data: self.webData.data(using: .utf8)!){
             jsonOk += 1
@@ -61,6 +83,17 @@ class ConfigController: UIViewController {
             }
             if jsonOk<6{
                 _=warning(view:self, title:"Erro", message:"JSON inválido nível: " + String(jsonOk), buttons:1)
+            }else{
+                config["cnpj"]=self.txtCnpj.text!
+                config["server1"]=self.lbAddress1.text!
+                config["server2"]=self.lbAddress2.text!
+                config["academia"]=self.lbAcademia.text!
+                config["icone"]=json["icone"].stringValue
+                config["logo"]=json["logo"].stringValue
+                server = config["server1"]!
+                lbAcademia.isHidden = false
+                lbAddress1.isHidden = false
+                lbAddress2.isHidden = false
             }
             
         }// endif Try
@@ -105,5 +138,31 @@ class ConfigController: UIViewController {
      }//validarClick
    
     @IBAction func actionOk(_ sender: Any) {
-    }
+        if txtMatricula.text==nil || txtMatricula.text!.isEmpty {
+            _=warning(view:self, title:"Erro", message:"Matrícula Inválida", buttons:1)
+            return
+        }//endif validação txtMatricula
+        if txtSenha.text==nil || txtSenha.text!.isEmpty {
+            _=warning(view:self, title:"Erro", message:"Senha Inválida", buttons:1)
+            return
+        }//endif validação txtSenha
+        if lbAcademia.isHidden {
+            return
+        }
+        let substr = ("000000"+txtMatricula.text!).suffix(6)
+        config["user"] = String(substr)
+        config["password"]=txtSenha.text!
+        txtMatricula.text = config["user"]
+        let file = File(fileName:"config", fileExt:"dat")
+        file.write(writeDict: config)
+        if file.getLastError().isEmpty==false {
+            _=warning(view:self, title:"Erro", message:"Erro gravando arquivo config.dat "+file.getLastError(), buttons:1)
+            return
+        }
+        //let sb = UIStoryboard(name: "Main", bundle: nil)
+        //let mainVC = sb.instantiateViewController(withIdentifier: "MainController")as!MainController
+        //navigationController?.popToRootViewController(animated: true)
+        self.dismiss(animated:true, completion: nil)
+    }// actionOk
+    
 }//ConfigController

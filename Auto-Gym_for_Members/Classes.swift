@@ -47,7 +47,11 @@ open class File {
         self.fileExt = fileExt
     }
     
-    func getFileURL(fileName: String) -> String {
+    public func getLastError()->String{
+        return self.lastError
+    }
+    
+    private func getFileURL(fileName: String) -> String {
         let manager = FileManager.default
         let dirURL = try! manager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
         return dirURL.appendingPathComponent(fileName).path
@@ -95,5 +99,21 @@ open class File {
        return dict
     }
     
-    
+    public func exists()->Bool{
+       self.lastError = ""
+       let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+       let url = NSURL(fileURLWithPath: path)
+       if let pathComponent = url.appendingPathComponent(self.fileName + "." + self.fileExt) {
+            let filePath = pathComponent.path
+            let fileManager = FileManager.default
+            if fileManager.fileExists(atPath: filePath) {
+                return true
+            } else {
+                self.lastError = "File not Found"
+            }
+        } else {
+            self.lastError = "Path not Found"
+        }
+        return false
+    }
 }
