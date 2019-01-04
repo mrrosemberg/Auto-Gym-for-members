@@ -29,8 +29,6 @@ open class Pessoa{
     }
 }
 
-
-
 open class File {
     var fileName: String
     var fileExt: String
@@ -115,5 +113,108 @@ open class File {
             self.lastError = "Path not Found"
         }
         return false
+    }
+}
+
+extension URLSession {
+    func synchronousDataTask(urlrequest: URLRequest) -> (data: Data?, response: URLResponse?, error: Error?) {
+        var data: Data?
+        var response: URLResponse?
+        var error: Error?
+        
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        let dataTask = self.dataTask(with: urlrequest) {
+            data = $0
+            response = $1
+            error = $2
+            
+            semaphore.signal()
+        }
+        dataTask.resume()
+        
+        _ = semaphore.wait(timeout: .distantFuture)
+        
+        return (data, response, error)
+    }
+}
+
+open class httpJob{
+    
+    private var server = "127.0.0.1"
+    private var lastError = ""
+    private var path = ""
+    private var parameters = ["":""]
+    private var scheme = "http"
+    private var contentType = "text/plain"
+    private var timeOut = Double(15) // 15 seconds
+    
+    public func setProtocolHttp(){
+        self.scheme = "http"
+    }
+    
+    public func setProtocolHttps(){
+        self.scheme = "https"
+    }
+    
+    public func setServer(_ server:String){
+        self.server = server
+    }
+    
+    public func setPath(_ path:String){
+        self.path = path
+    }
+    
+    public func setParameters(_ param:[String:String]){
+        self.parameters = param
+    }
+    
+    public func setServer(_ timeoutInSeconds:Double){
+        self.timeOut = timeoutInSeconds
+    }
+    
+    public func getContentType()->String{
+        return self.contentType
+    }
+    
+    public func getLastError()->String{
+        return self.lastError
+    }
+    
+    private func makeUrl()->NSURL{
+        //TODO melhorar a passagem dos parâmetros
+        var urlString = self.scheme + "://" + self.server + self.path
+        var count = 0
+        if self.parameters.count>0{
+            for (key, value) in self.parameters{
+                if count==0{
+                    urlString = urlString + ("?" + key + "=" + value)
+                }else{
+                    urlString = urlString + ("&" + key + "=" + value)
+                }
+                count += 1
+            }
+        }
+        //print(urlString)
+        let url = NSURL(string: urlString)
+        return url!
+    }
+    
+    public func execute()->String{
+        let uri = self.makeUrl() as URL
+        var request = URLRequest(url: uri)
+        request.httpMethod = "GET"
+        request.timeoutInterval = self.timeOut
+        let (data, response, error) = URLSession.shared.synchronousDataTask(urlrequest: request)
+        if let erro = error{
+            self.lastError = erro.localizedDescription
+            return ""
+        }else{
+            let ctype = response?.mimeType
+            let outStr = String(data: data!, encoding: String.Encoding.utf8)
+            self.contentType = ctype!
+            self.lastError=""
+            return outStr!
+        }
     }
 }

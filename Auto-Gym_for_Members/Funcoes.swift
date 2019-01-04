@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CryptoSwift
 
 func warning(view:UIViewController, title:String, message:String, buttons:Int)->Int {
     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -29,4 +30,34 @@ func warning(view:UIViewController, title:String, message:String, buttons:Int)->
     
     view.present(alert, animated: true)
     return ret
+}
+
+func base64ImgFromString(_ strBase64:String)->UIImage{
+    let dataDecoded : Data = Data(base64Encoded: strBase64, options: .ignoreUnknownCharacters)!
+    let decodedimage = UIImage(data: dataDecoded)
+    return decodedimage!
+}
+
+func authenticate(usr: String, pwd: String, time: String) -> String{
+    var senha=""
+    var authStr=""
+    senha = (usr + pwd)
+    print(senha + " len: " + String(senha.count))
+    let msg = Digest.sha512(senha.bytes)
+    senha = msg.toHexString().uppercased()
+    print("Senha: " + senha)
+    authStr = senha + usr + time
+    let auth = Digest.sha256(authStr.bytes)
+    authStr = auth.toHexString().uppercased()
+    print("User: " + usr + "; Agora: " + time)
+    print("authStr: " + authStr)
+    return authStr
+}
+
+func currentDateTime() -> String{
+    let formatter = DateFormatter()
+    formatter.dateFormat = "dd/MM/yyyy HH:mm:ss"
+    formatter.timeZone = TimeZone(identifier: "UTC")
+    let myString = formatter.string(from: Date()) // string purpose I add here
+    return myString
 }

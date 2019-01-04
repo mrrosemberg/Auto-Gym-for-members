@@ -213,15 +213,24 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Axu-vP-Qhf">
                                         <rect key="frame" x="0.0" y="117" width="365" height="375"/>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleAspectFit" distribution="equalSpacing" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="st4-3S-XsO" userLabel="Stack View Buttons">
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="st4-3S-XsO" userLabel="Stack View Buttons">
                                         <rect key="frame" x="0.0" y="567" width="365" height="60"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8XC-bg-VhM" userLabel="go">
-                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8XC-bg-VhM" userLabel="go">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="60"/>
                                                 <state key="normal" image="go"/>
+                                                <connections>
+                                                    <action selector="btnGoClick:" destination="HZg-Ov-IJ3" eventType="touchUpInside" id="bxV-wv-EdF"/>
+                                                </connections>
                                             </button>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Concetando Server1" textAlignment="center" lineBreakMode="clip" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Md-cY-XUb">
+                                                <rect key="frame" x="0.0" y="21.5" width="0.0" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOj-EA-jAo" userLabel="config">
-                                                <rect key="frame" x="305" y="0.0" width="60" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="365" height="60"/>
                                                 <state key="normal" image="config"/>
                                                 <connections>
                                                     <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="crossDissolve" id="kRO-K8-DCL"/>
@@ -248,6 +257,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yKX-OL-dy1"/>
                     </view>
+                    <connections>
+                        <outlet property="btnGo" destination="8XC-bg-VhM" id="6g6-7c-UPZ"/>
+                        <outlet property="imgLogo" destination="Axu-vP-Qhf" id="BX8-jP-URf"/>
+                        <outlet property="lbConnect" destination="3Md-cY-XUb" id="wdB-Eg-yKw"/>
+                        <outlet property="lbTitle" destination="RhN-3Q-pKl" id="6Jm-Cn-vRS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GVq-X2-wIC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

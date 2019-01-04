@@ -162,6 +162,7 @@ class ConfigController: UIViewController {
         //let sb = UIStoryboard(name: "Main", bundle: nil)
         //let mainVC = sb.instantiateViewController(withIdentifier: "MainController")as!MainController
         //navigationController?.popToRootViewController(animated: true)
+        server = config["server1"]!
         self.dismiss(animated:true, completion: nil)
     }// actionOk
     
