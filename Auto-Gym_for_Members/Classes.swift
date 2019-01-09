@@ -188,9 +188,9 @@ open class httpJob{
         if self.parameters.count>0{
             for (key, value) in self.parameters{
                 if count==0{
-                    urlString = urlString + ("?" + key + "=" + value)
+                    urlString = urlString + ("?" + key + "=") + value.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
                 }else{
-                    urlString = urlString + ("&" + key + "=" + value)
+                    urlString = urlString + ("&" + key + "=") + value.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
                 }
                 count += 1
             }
@@ -217,4 +217,61 @@ open class httpJob{
             return outStr!
         }
     }
+}
+
+open class Aluno {
+     public var Nome = ""
+     public var CPF = ""
+     public var Nascimento = ""
+     public var foto = ""
+     public var proxvenc = ""
+     public var plano = ""
+     public var email = ""
+     public var idade = 0
+     public var Status = 0
+     public var tolerancia = 0
+     public var atraso = 0
+     public var datainad = ""
+     public var sexo = 0
+}
+
+open class Param{
+     public var accessAero = false
+     public var accessErgo = false
+     public var accessFin = false
+     public var accessMusc = false
+     public var accessTurma = false
+     public var accessAval = false
+     public var status = 0
+     public var validAero = false
+     public var validAval = false
+     public var validSerie = false
+     public var validTurma = false
+}
+
+public class parc{
+    public var data = ""
+    public var valor = ""
+    
+    init(_ data:String, _ valor:String){
+        self.data = data
+        self.valor = valor
+    }
+}
+
+open class Parcela{
+    public var parcela = [parc]()
+    
+    public func addParc(_ data:String, _ valor:String){
+        parcela.append(parc(data,valor))
+    }
+    
+    public func clear(){
+        parcela.removeAll()
+    }
+    
+    public func getParc(_ i : Int)->parc{
+        return parcela[i]
+    }
+    
 }

@@ -42,15 +42,15 @@ func authenticate(usr: String, pwd: String, time: String) -> String{
     var senha=""
     var authStr=""
     senha = (usr + pwd)
-    print(senha + " len: " + String(senha.count))
+    //print(senha + " len: " + String(senha.count))
     let msg = Digest.sha512(senha.bytes)
     senha = msg.toHexString().uppercased()
-    print("Senha: " + senha)
+    //print("Senha: " + senha)
     authStr = senha + usr + time
     let auth = Digest.sha256(authStr.bytes)
     authStr = auth.toHexString().uppercased()
-    print("User: " + usr + "; Agora: " + time)
-    print("authStr: " + authStr)
+    //print("User: " + usr + "; Agora: " + time)
+    //print("authStr: " + authStr)
     return authStr
 }
 
