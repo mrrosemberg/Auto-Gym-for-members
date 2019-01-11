@@ -34,6 +34,7 @@ class MainController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        //print(view.frame.size.width)
         let file = File(fileName: "config", fileExt: "dat")
         if file.exists(){
             config = file.read()
@@ -65,106 +66,123 @@ class MainController: UIViewController {
         if contentType.uppercased().contains("JSON"){
             //_ = warning(view: self, title: "Aviso", message: "Autenticação Ok", buttons:1)
             var jsonOk = 0
+            //print(resposta)
             if let json = try? JSON(data: resposta.data(using: .utf8)!){
                 jsonOk += 1
                 if json["accessaero"].boolValue{
                     myParam.accessAero = json["accessaero"].boolValue
-                    jsonOk += 1 //1
-                }
-                if json["accessergo"].boolValue{
-                    myParam.accessAero = json["accessergo"].boolValue
                     jsonOk += 1 //2
                 }
-                if json["accessfin"].boolValue{
-                    myParam.accessAero = json["accessfin"].boolValue
+                if json["accessergo"].boolValue{
+                    myParam.accessErgo = json["accessergo"].boolValue
                     jsonOk += 1 //3
                 }
-                if json["accessmusc"].boolValue{
-                    myParam.accessAero = json["accessmusc"].boolValue
+                if json["accessfin"].boolValue{
+                    myParam.accessFin = json["accessfin"].boolValue
                     jsonOk += 1 //4
                 }
-                if json["accessaval"].boolValue{
-                    myParam.accessAero = json["accessaval"].boolValue
+                if json["accessmusc"].boolValue{
+                    myParam.accessMusc = json["accessmusc"].boolValue
                     jsonOk += 1 //5
                 }
-                if json["validaero"].boolValue{
-                    myParam.accessAero = json["validaero"].boolValue
+                if json["accessturma"].boolValue{
+                    myParam.accessTurma = json["accessturma"].boolValue
                     jsonOk += 1 //6
                 }
-                if json["validaval"].boolValue{
-                    myParam.accessAero = json["validaval"].boolValue
+                if json["accessaval"].boolValue{
+                    myParam.accessAval = json["accessaval"].boolValue
                     jsonOk += 1 //7
                 }
-                if json["validturma"].boolValue{
-                    myParam.accessAero = json["validturma"].boolValue
+                if json["validaero"].boolValue{
+                    myParam.validAero = json["validaero"].boolValue
                     jsonOk += 1 //8
+                }
+                if json["validaval"].boolValue{
+                    myParam.validAval = json["validaval"].boolValue
+                    jsonOk += 1 //9
+                }
+                if json["validserie"].boolValue{
+                    myParam.validSerie = json["validserie"].boolValue
+                    jsonOk += 1 //10
+                }
+                if json["validturma"].boolValue{
+                    myParam.validTurma = json["validturma"].boolValue
+                    jsonOk += 1 //11
                 }
                 if json["status"].intValue > -1{
                     myParam.status = json["status"].intValue
                     myAluno.Status = myParam.status
-                    jsonOk += 1 //9
+                    jsonOk += 1 //12
                 }
                 if json["cpf"].stringValue.isEmpty==false{
                     myAluno.CPF = json["cpf"].stringValue
-                    jsonOk += 1 //10
+                    jsonOk += 1 //13
                 }
                 if json["email"].stringValue.isEmpty==false{
                     myAluno.email = json["email"].stringValue
-                    jsonOk += 1 //11
+                    jsonOk += 1 //14
                 }
                 if json["datainad"].stringValue.isEmpty==false{
                     myAluno.datainad = json["datainad"].stringValue
-                    jsonOk += 1 //12
+                    jsonOk += 1 //15
                 }
                 if json["foto"].stringValue.isEmpty==false{
                     myAluno.foto = json["foto"].stringValue
-                    jsonOk += 1 //13
+                    jsonOk += 1 //16
                 }
                 if json["nome"].stringValue.isEmpty==false{
                     myAluno.Nome = json["nome"].stringValue
-                    jsonOk += 1 //14
+                    jsonOk += 1 //17
                 }
                 if json["idade"].intValue > -1{
                     myAluno.idade = json["idade"].intValue
-                    jsonOk += 1 //15
+                    jsonOk += 1 //18
                 }
                 if json["nascimento"].stringValue.isEmpty==false{
                     myAluno.Nascimento = json["nascimento"].stringValue
-                    jsonOk += 1 //16
+                    jsonOk += 1 //19
                 }
                 if json["plano"].stringValue.isEmpty==false{
                     myAluno.plano = json["plano"].stringValue
-                    jsonOk += 1 //17
+                    jsonOk += 1 //20
                 }
                 if json["proxvenc"].stringValue.isEmpty==false{
                     myAluno.proxvenc = json["proxvenc"].stringValue
-                    jsonOk += 1 //18
+                    jsonOk += 1 //21
                 }
                 if json["tolerancia"].intValue > -1{
                     myAluno.tolerancia = json["tolerancia"].intValue
-                    jsonOk += 1 //19
+                    jsonOk += 1 //22
                 }
                 if json["sexo"].intValue > -1{
                     myAluno.sexo = json["sexo"].intValue
-                    jsonOk += 1 //20
+                    jsonOk += 1 //23
                 }
+                if json["atraso"].stringValue.isEmpty==false{
+                    myAluno.atraso = json["atraso"].intValue
+                    jsonOk += 1 //24
+                    //print(json["atraso"].intValue)
+                }
+                //print("jsonOk: " + String(jsonOk))
                 parcela.clear()
                 let dict = json["parc"].dictionaryValue
                 if dict.count>0{
                     let list = dict["rows"]!.arrayValue
-                    print(list.count)
+                    //print(list.count)
                     for item in list{
                         parcela.addParc(item["data"].stringValue, item["valor"].stringValue)
                     }
-                    for eachParc in parcela.parcela{
+                    /*for eachParc in parcela.parcela{
                         print("Data: "+eachParc.data + " , Valor: "+eachParc.valor)
-                    }
+                    }*/
                 }
                
-                if jsonOk<20{
+                if jsonOk<24{
                     _=warning(view:self, title:"Erro", message:"JSON inválido nível: " + String(jsonOk), buttons:1)
                 }else{
-                    _ = warning(view: self, title: "Aviso", message: "Autenticação Ok, JSON Ok", buttons:1)
+                    let sb = UIStoryboard(name: "Main", bundle: nil)
+                    guard let menuVC = sb.instantiateViewController(withIdentifier: "MenuController") as? MenuController else {return}
+                    present(menuVC, animated: true, completion: nil)
                 }
             }else{
                 _ = warning(view: self, title: "Erro", message: "JSON de aluno e parâmetro inválido", buttons:1)

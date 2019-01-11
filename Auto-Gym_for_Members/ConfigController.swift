@@ -23,7 +23,8 @@ class ConfigController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
     }
     
@@ -44,6 +45,11 @@ class ConfigController: UIViewController {
             lbAddress1.isHidden = false
             lbAddress2.isHidden = false
         }
+    }
+    
+    override func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     func trataResp(){
