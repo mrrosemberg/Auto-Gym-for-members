@@ -277,6 +277,49 @@ open class Parcela{
     
 }
 
+public class linha {
+    public var color = UIColor.white
+    public var text = ""
+    init(_ color:UIColor, _ text:String){
+        self.color = color
+        self.text = text
+    }
+    init(_ text:String){
+        self.color = UIColor.white
+        self.text = text
+    }
+}
+
+public class lista{
+    var section : String
+    var linhas: [linha]
+    
+    init(_ section:String, _ linhas: [linha]){
+        self.section = section
+        self.linhas = linhas
+    }
+    
+}
+
+open class ListaAluno{
+    public var elemento : [lista]
+    
+    init(_ elemento: [lista])
+    {
+        self.elemento = elemento
+    }
+    
+    public func addLinha(_ elemento: lista){
+        self.elemento.append(elemento)
+    }
+    
+    public func clear(){
+        elemento.removeAll()
+    }
+    
+}
+
+
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))

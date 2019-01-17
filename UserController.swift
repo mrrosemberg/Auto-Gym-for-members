@@ -20,8 +20,6 @@ class UserController: UIViewController, UITabBarDelegate, UITableViewDataSource 
     @IBOutlet weak var lbIdade: UILabel!
     @IBOutlet weak var lbNascimento: UILabel!
     @IBOutlet weak var imgFoto: UIImageView!
-    @IBOutlet weak var logoH: NSLayoutConstraint!
-    @IBOutlet weak var logoW: NSLayoutConstraint!
     @IBOutlet weak var list1: UITableView!
     @IBOutlet weak var lbParcelas: UILabel!
     
@@ -115,5 +113,21 @@ class UserController: UIViewController, UITabBarDelegate, UITableViewDataSource 
     @IBAction func btnBackClick(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    /*@IBOutlet weak var myButton: UIButton! //Underline a button or label
+    
+    let yourAttributes : [NSAttributedStringKey: Any] = [
+        NSAttributedStringKey.font : UIFont.systemFont(ofSize: 14),
+        NSAttributedStringKey.foregroundColor : UIColor.blue,
+        NSAttributedStringKey.underlineStyle : NSUnderlineStyle.styleSingle.rawValue]
+    //.styleDouble.rawValue, .styleThick.rawValue, .styleNone.rawValue
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let attributeString = NSMutableAttributedString(string: "Your button text",
+                                                        attributes: yourAttributes)
+        myButton.setAttributedTitle(attributeString, for: .normal)
+    }*/
 }
 

@@ -2,5 +2,15 @@
 <Timeline
    version = "3.0">
    <TimelineItems>
+      <LoggerValueHistoryTimelineItem
+         documentLocation = "file:///Users/marcio/Documents/Xcode%20Projects/Auto-Gym_for_Members/Auto-Gym_for_Members/Auto-Gym.playground#CharacterRangeLen=0&amp;CharacterRangeLoc=4690&amp;EndingColumnNumber=0&amp;EndingLineNumber=162&amp;StartingColumnNumber=0&amp;StartingLineNumber=162&amp;Timestamp=569268831.579821"
+         selectedRepresentationIndex = "0"
+         shouldTrackSuperviewWidth = "NO">
+      </LoggerValueHistoryTimelineItem>
+      <LoggerValueHistoryTimelineItem
+         documentLocation = "file:///Users/marcio/Documents/Xcode%20Projects/Auto-Gym_for_Members/Auto-Gym_for_Members/Auto-Gym.playground#CharacterRangeLen=0&amp;CharacterRangeLoc=4628&amp;EndingColumnNumber=0&amp;EndingLineNumber=160&amp;StartingColumnNumber=0&amp;StartingLineNumber=160&amp;Timestamp=569268831.580193"
+         selectedRepresentationIndex = "0"
+         shouldTrackSuperviewWidth = "NO">
+      </LoggerValueHistoryTimelineItem>
    </TimelineItems>
 </Timeline>

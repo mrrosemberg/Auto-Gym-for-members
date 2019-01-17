@@ -97,7 +97,7 @@ if let erro = error{
     let outStr = String(data: data!, encoding: String.Encoding.utf8)
     print("Resposta do Primeiro Servidor: " + outStr!)
 }*/
-let date = NSDate()
+/*let date = NSDate()
 print(date)
 let formatter = DateFormatter()
 // initially set the format based on your datepicker date / server String
@@ -112,6 +112,64 @@ formatter.dateFormat = "dd-MMM-yyyy"
 // again convert your date to string
 let myStringafd = formatter.string(from: yourDate!)
 
-print(myStringafd)
+print(myStringafd)*/
+
+public class linha {
+    public var color = UIColor.white
+    public var text = ""
+    init(_ color:UIColor, _ text:String){
+        self.color = color
+        self.text = text
+    }
+    init(_ text:String){
+        self.color = UIColor.white
+        self.text = text
+    }
+}
+
+public class lista{
+    public var section : String
+    public var linhas: [linha]
     
+    init(_ section:String, _ linhas: [linha]){
+        self.section = section
+        self.linhas = linhas
+    }
+    
+}
+
+open class ListaAluno{
+    public var elemento : [lista]
+    
+    init(_ elemento: [lista])
+    {
+        self.elemento = elemento
+    }
+    
+    public func addLinha(_ elemento: lista){
+        self.elemento.append(elemento)
+    }
+    
+    public func clear(){
+        elemento.removeAll()
+    }
+    
+}
+
+
+let list = lista("Dados do Aluno",[linha("Nome: Marcio")])
+
+list.linhas.append(linha("E-mail: marcio@sysnetweb.com.br"))
+
+list.linhas.append(linha("CPF: 909.644.487-04"))
+let alData = ListaAluno([list])
+alData.addLinha(lista("Parcelas do Plano",[linha("Data: 20/10/2018, Valor: 209,90")]))
+alData.elemento[1].linhas.append(linha("Data: 20/11/2018, Valor: 210,00"))
+alData.elemento[1].linhas.append(linha("Data: 20/12/2018, Valor: 210,10"))
+for i in alData.elemento{
+    print("Seção: " + i.section)
+    for j in i.linhas{
+        print("       " + j.text)
+    }
+}
 
