@@ -16,7 +16,9 @@ public var config=["server1":"", "server2":"", "logo":"", "icon":"", "user":"", 
 let myParam = Param() //Coleção de parâmetros
 let myAluno = Aluno() //Dados do Aluno
 let parcela = Parcela() // parcelas do último pagamento
-
+//public var stackVC : [UIViewController]?
+var turmaDetail = ListaSecao([lista("Detalhes da Turma",[linha("Turma: ")])])
+var serie = Serie([Exercicio()],MyMusc())
 
 //Type strucAluno (Nome As String, CPF As String, Nascimento As String, foto As String, proxvenc As String, plano As String, email As String, idade As Int, Status As Int, tolerancia As Int, atraso As Int, datainad As String, sexo As Int)
 //Type strucParam (accessAero As Boolean, accessErgo As Boolean, accessFin As Boolean, accessMusc As Boolean, accessTurma As Boolean, accessAval As Boolean, status As Int, validAero As Boolean, validAval As Boolean, validSerie As Boolean, validTurma As Boolean)
@@ -61,6 +63,7 @@ class MainController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
     func trataResp(_ resposta:String, _ contentType:String){
         lbConnect.isHidden = true
         if contentType.uppercased().contains("JSON"){

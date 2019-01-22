@@ -156,6 +156,37 @@ open class ListaAluno{
     
 }
 
+func diaDaSemanaAbreviado(_ dia: Date)->String{
+    let myCalendar = Calendar(identifier: .gregorian)
+    let weekDay = myCalendar.component(.weekday, from: dia)
+    var ret = ""
+    switch weekDay {
+    case 1:
+        ret = "Dom"
+        break
+    case 2:
+        ret = "Seg"
+        break
+    case 3:
+        ret = "Ter"
+        break
+    case 4:
+        ret = "Qua"
+        break
+    case 5:
+        ret = "Qui"
+        break
+    case 6:
+        ret = "Sex"
+        break
+    case 7:
+        ret = "Sab"
+        break
+    default:
+        ret = ""
+    }
+    return ret
+}
 
 let list = lista("Dados do Aluno",[linha("Nome: Marcio")])
 
@@ -173,3 +204,5 @@ for i in alData.elemento{
     }
 }
 
+let dx = diaDaSemanaAbreviado(Date())
+print("Hoje é " + dx)

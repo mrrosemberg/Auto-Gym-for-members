@@ -301,7 +301,7 @@ public class lista{
     
 }
 
-open class ListaAluno{
+open class ListaSecao{
     public var elemento : [lista]
     
     init(_ elemento: [lista])
@@ -319,6 +319,97 @@ open class ListaAluno{
     
 }
 
+public class Turma{
+    //Type structTurma (turma As String, Professor As String, Sala As String, Atividade As String, Inicio As String, Fim As String, Matriculado As Boolean)
+    var turma:String
+    var professor:String
+    var sala:String
+    var atividade:String
+    var inicio:String
+    var fim:String
+    var matriculado:Bool
+    
+    init(_ turma:String, _ professor:String, _ sala:String, _ atividade:String, _ inicio:String, _ fim:String, _ matriculado:Bool){
+        self.turma = turma
+        self.professor = professor
+        self.sala = sala
+        self.atividade = atividade
+        self.inicio = inicio
+        self.fim = fim
+        self.matriculado = matriculado
+    }
+}
+
+open class Turmas{
+    public var turma : [Turma]
+    public var dayOfWeek = ""
+    
+    init(_ turma: [Turma])
+    {
+        self.turma = turma
+    }
+    
+    public func addTurma(_ turma: Turma){
+        self.turma.append(turma)
+    }
+    
+    public func clear(){
+        turma.removeAll()
+    }
+}
+
+public class MyMusc{
+    public var diaourotina = ""
+    public var fim = ""
+    public var inicio = ""
+    public var nivel = ""
+    public var obs = ""
+    public var professor = ""
+    public var programanum = 0
+    public var qtdimp = 0
+    public var rotina = ""
+    public var tserie = ""
+    public var ultimp = ""
+    public var idade = 0
+    public var dia = 0
+    public var selectedSeq = 0
+}
+
+public class Exercicio{
+    public var seq = 0
+    public var exercicio = ""
+    public var regiao = ""
+    public var series = ""
+    public var carga = ""
+    public var repeticoes = ""
+    public var regulagem = ""
+    public var segunda = false
+    public var terca = false
+    public var quarta = false
+    public var quinta = false
+    public var sexta = false
+    public var sabado = false
+    public var domingo = false
+}
+
+open class Serie {
+   public var exercicios : [Exercicio]
+   public var header : MyMusc
+   
+    init(_ exercicios: [Exercicio],_ header: MyMusc)
+    {
+        self.exercicios = exercicios
+        self.header = header
+    }
+    
+    public func addExercicio(_ exercicio: Exercicio){
+        self.exercicios.append(exercicio)
+    }
+    
+    public func clear(){
+        exercicios.removeAll()
+    }
+}
 
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {

@@ -29,6 +29,7 @@ class MenuController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        //stackVC = [self]
         lbTurma.isEnabled = (myParam.accessTurma && myParam.validTurma)
         btnTurma.isEnabled = (myParam.accessTurma && myParam.validTurma)
         lbMusc.isEnabled = (myParam.accessMusc && myParam.validSerie)
@@ -46,11 +47,11 @@ class MenuController: UIViewController {
     }
     
     @IBAction func btnTurmaClick(_ sender: Any) {
-    
+        
     }
     
     @IBAction func btnMuscClick(_ sender: Any) {
-    
+       
     }
     
     @IBAction func btnAeroClick(_ sender: Any) {

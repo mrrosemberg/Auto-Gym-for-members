@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D504FC4D21F60DD600963712 /* TurmaDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D504FC4C21F60DD600963712 /* TurmaDetailController.swift */; };
 		D50BCA7121EE19ED00154B0E /* AltUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50BCA7021EE19ED00154B0E /* AltUserController.swift */; };
 		D50ECC9021F0C5E700EF0B86 /* TurmaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50ECC8F21F0C5E700EF0B86 /* TurmaController.swift */; };
 		D519991421E6652600BC42F5 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D519991321E6652600BC42F5 /* MenuController.swift */; };
@@ -17,6 +18,8 @@
 		D51A515D21C1823C00A59FFB /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5B523C621C0404000B2EAF2 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D51A516021C1824D00A59FFB /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B5239E21C0402200B2EAF2 /* Alamofire.framework */; };
 		D51A516121C1824D00A59FFB /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5B5239E21C0402200B2EAF2 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D520435621F77F3B00CDD1D9 /* MuscDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D520435521F77F3B00CDD1D9 /* MuscDetailController.swift */; };
+		D520436A21F7936C00CDD1D9 /* ExMuscController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D520436921F7936C00CDD1D9 /* ExMuscController.swift */; };
 		D5259B5D21C8101700B3811D /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5259B5C21C8101700B3811D /* MainController.swift */; };
 		D5259B5F21C81F2500B3811D /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5259B5E21C81F2500B3811D /* Classes.swift */; };
 		D5A4CC1221C3EAD0000C9358 /* ConfigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A4CC1121C3EAD0000C9358 /* ConfigController.swift */; };
@@ -26,6 +29,7 @@
 		D5B5238B21C03FFA00B2EAF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B5238921C03FFA00B2EAF2 /* LaunchScreen.storyboard */; };
 		D5B5241F21C0443600B2EAF2 /* JMMaskTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B5241D21C0443600B2EAF2 /* JMMaskTextField.swift */; };
 		D5B5242021C0443600B2EAF2 /* JMStringMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B5241E21C0443600B2EAF2 /* JMStringMask.swift */; };
+		D5DEAAC321F64109000920B4 /* MuscController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DEAAC221F64109000920B4 /* MuscController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -202,10 +206,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D504FC4C21F60DD600963712 /* TurmaDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TurmaDetailController.swift; path = ../TurmaDetailController.swift; sourceTree = "<group>"; };
 		D50BCA7021EE19ED00154B0E /* AltUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltUserController.swift; sourceTree = "<group>"; };
 		D50ECC8F21F0C5E700EF0B86 /* TurmaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurmaController.swift; sourceTree = "<group>"; };
 		D519991321E6652600BC42F5 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		D51A514021C17BF000A59FFB /* Funcoes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Funcoes.swift; sourceTree = "<group>"; };
+		D520435521F77F3B00CDD1D9 /* MuscDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuscDetailController.swift; sourceTree = "<group>"; };
+		D520436921F7936C00CDD1D9 /* ExMuscController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExMuscController.swift; sourceTree = "<group>"; };
 		D5259B5B21C7F57B00B3811D /* Auto-Gym.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Auto-Gym.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D5259B5C21C8101700B3811D /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		D5259B5E21C81F2500B3811D /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
@@ -221,6 +228,7 @@
 		D5B523CF21C0404900B2EAF2 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = "../../SwiftyJSON-master/SwiftyJSON.xcodeproj"; sourceTree = "<group>"; };
 		D5B5241D21C0443600B2EAF2 /* JMMaskTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JMMaskTextField.swift; sourceTree = "<group>"; };
 		D5B5241E21C0443600B2EAF2 /* JMStringMask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JMStringMask.swift; sourceTree = "<group>"; };
+		D5DEAAC221F64109000920B4 /* MuscController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuscController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +274,10 @@
 				D519991321E6652600BC42F5 /* MenuController.swift */,
 				D50BCA7021EE19ED00154B0E /* AltUserController.swift */,
 				D50ECC8F21F0C5E700EF0B86 /* TurmaController.swift */,
+				D504FC4C21F60DD600963712 /* TurmaDetailController.swift */,
+				D5DEAAC221F64109000920B4 /* MuscController.swift */,
+				D520435521F77F3B00CDD1D9 /* MuscDetailController.swift */,
+				D520436921F7936C00CDD1D9 /* ExMuscController.swift */,
 				D5B5238421C03FF900B2EAF2 /* Main.storyboard */,
 				D5B5238721C03FFA00B2EAF2 /* Assets.xcassets */,
 				D5B5238921C03FFA00B2EAF2 /* LaunchScreen.storyboard */,
@@ -546,11 +558,15 @@
 				D50BCA7121EE19ED00154B0E /* AltUserController.swift in Sources */,
 				D50ECC9021F0C5E700EF0B86 /* TurmaController.swift in Sources */,
 				D519991421E6652600BC42F5 /* MenuController.swift in Sources */,
+				D5DEAAC321F64109000920B4 /* MuscController.swift in Sources */,
+				D520436A21F7936C00CDD1D9 /* ExMuscController.swift in Sources */,
 				D5B5238121C03FF900B2EAF2 /* AppDelegate.swift in Sources */,
 				D5259B5D21C8101700B3811D /* MainController.swift in Sources */,
 				D5A4CC1221C3EAD0000C9358 /* ConfigController.swift in Sources */,
+				D504FC4D21F60DD600963712 /* TurmaDetailController.swift in Sources */,
 				D5B5241F21C0443600B2EAF2 /* JMMaskTextField.swift in Sources */,
 				D5259B5F21C81F2500B3811D /* Classes.swift in Sources */,
+				D520435621F77F3B00CDD1D9 /* MuscDetailController.swift in Sources */,
 				D5B5242021C0443600B2EAF2 /* JMStringMask.swift in Sources */,
 				D51A514121C17BF000A59FFB /* Funcoes.swift in Sources */,
 			);

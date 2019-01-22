@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-class AltUserController: UIViewController, UITabBarDelegate, UITableViewDataSource {
+class AltUserController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var imgFoto: UIImageView!
     @IBOutlet weak var list1: UITableView!
     
-    var alData = ListaAluno([lista("Dados do Aluno",[linha("Nome: "+myAluno.Nome)])])
+    var alData = ListaSecao([lista("Dados do Aluno",[linha("Nome: "+myAluno.Nome)])])
     
     public func numberOfSections(in tableView: UITableView) -> Int {
         return alData.elemento.count
