@@ -375,6 +375,23 @@ public class MyMusc{
     public var selectedSeq = 0
 }
 
+public class MyAero{
+    public var diaourotina = ""
+    public var fim = ""
+    public var inicio = ""
+    public var nivel = ""
+    public var obs = ""
+    public var professor = ""
+    public var aeronum = 0
+    public var qtdimp = 0
+    public var rotina = ""
+    public var ultimp = ""
+    public var idade = 0
+    public var dia = 0
+    public var zonaalvo = ""
+    public var selectedSeq = 0
+}
+
 public class Exercicio{
     public var seq = 0
     public var exercicio = ""
@@ -382,6 +399,22 @@ public class Exercicio{
     public var series = ""
     public var carga = ""
     public var repeticoes = ""
+    public var regulagem = ""
+    public var segunda = false
+    public var terca = false
+    public var quarta = false
+    public var quinta = false
+    public var sexta = false
+    public var sabado = false
+    public var domingo = false
+}
+
+public class ExAero{
+    public var seq = 0
+    public var exbio = ""
+    public var fc = ""
+    public var tempo = ""
+    public var borg = ""
     public var regulagem = ""
     public var segunda = false
     public var terca = false
@@ -403,6 +436,25 @@ open class Serie {
     }
     
     public func addExercicio(_ exercicio: Exercicio){
+        self.exercicios.append(exercicio)
+    }
+    
+    public func clear(){
+        exercicios.removeAll()
+    }
+}
+
+open class Aero {
+    public var exercicios : [ExAero]
+    public var header : MyAero
+    
+    init(_ exercicios: [ExAero],_ header: MyAero)
+    {
+        self.exercicios = exercicios
+        self.header = header
+    }
+    
+    public func addExercicio(_ exercicio: ExAero){
         self.exercicios.append(exercicio)
     }
     

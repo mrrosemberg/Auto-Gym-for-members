@@ -1,8 +1,8 @@
 //
-//  ExMuscController.swift
+//  ExAeroController.swift
 //  Auto-Gym_for_Members
 //
-//  Created by Marcio R. Rosemberg on 22/01/19.
+//  Created by Marcio R. Rosemberg on 23/01/19.
 //  Copyright © 2019 Marcio R. Rosemberg. All rights reserved.
 //
 
@@ -18,7 +18,7 @@ fileprivate class Det{
     }
 }
 
-class ExMuscController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ExAeroController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var list1: UITableView!
     
@@ -56,18 +56,18 @@ class ExMuscController: UIViewController, UITableViewDelegate, UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         exDet.removeAll()
-        var ex = Exercicio()
-        for item in serie.exercicios{
-            if item.seq==serie.header.selectedSeq{
+        var ex = ExAero()
+        for item in aero.exercicios{
+            if item.seq==aero.header.selectedSeq{
                 ex = item
                 break
             }
         }
-        exDet.append(Det("Exercício:", ex.exercicio))
-        exDet.append(Det("Região Muscular:", ex.regiao))
-        exDet.append(Det("Séries:", ex.series))
-        exDet.append(Det("Repetições:", ex.repeticoes))
-        exDet.append(Det("Carga:", ex.carga))
+        exDet.append(Det("Exercício:", ex.exbio))
+        exDet.append(Det("Zona Alvo:", aero.header.zonaalvo))
+        exDet.append(Det("Frequencia Cardíaca:", ex.fc))
+        exDet.append(Det("Tempo de Execução:", ex.tempo))
+        exDet.append(Det("Escala de Borag:", ex.borg))
         exDet.append(Det("Regulagem:", ex.regulagem))
         
         // Do any additional setup after loading the view.

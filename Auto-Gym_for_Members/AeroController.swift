@@ -1,8 +1,8 @@
 //
-//  MuscController.swift
+//  AeroController.swift
 //  Auto-Gym_for_Members
 //
-//  Created by Marcio R. Rosemberg on 21/01/19.
+//  Created by Marcio R. Rosemberg on 23/01/19.
 //  Copyright © 2019 Marcio R. Rosemberg. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import UIKit
 
 import SwiftyJSON
 
-class MuscController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AeroController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var btnSeg: UIButton!
     @IBOutlet weak var btnTer: UIButton!
@@ -23,24 +23,24 @@ class MuscController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var list1: UITableView!
     @IBOutlet weak var lbTitle: UILabel!
     
-    var serieData = ListaSecao([lista("Dados do Aluno",[linha("Nome: "+myAluno.Nome)])])
+    var aeroData = ListaSecao([lista("Dados do Aluno",[linha("Nome: "+myAluno.Nome)])])
     
     public func numberOfSections(in tableView: UITableView) -> Int {
-        return serieData.elemento.count
+        return aeroData.elemento.count
     }
     
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return serieData.elemento[section].section
+        return aeroData.elemento[section].section
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return serie.exercicios.count
-        return serieData.elemento[section].linhas.count
+        //return aero.exercicios.count
+        return aeroData.elemento[section].linhas.count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
-        cell.textLabel?.text = serieData.elemento[indexPath.section].linhas[indexPath.row].text
+        cell.textLabel?.text = aeroData.elemento[indexPath.section].linhas[indexPath.row].text
         cell.textLabel?.numberOfLines = 2
         cell.textLabel?.lineBreakMode = .byWordWrapping
         cell.textLabel?.font = UIFont.init(name: "System", size: 15)
@@ -52,7 +52,7 @@ class MuscController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.pegaSerie()
+        self.pegaAero()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,13 +60,13 @@ class MuscController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func allRegular(){
-        let seg = (serie.header.diaourotina=="rotina" ? "RtA" : "Seg")
-        let ter = (serie.header.diaourotina=="rotina" ? "RtB" : "Ter")
-        let qua = (serie.header.diaourotina=="rotina" ? "RtC" : "Qua")
-        let qui = (serie.header.diaourotina=="rotina" ? "RtD" : "Qui")
-        let sex = (serie.header.diaourotina=="rotina" ? "RtE" : "Sex")
-        let sab = (serie.header.diaourotina=="rotina" ? "RtF" : "Sab")
-        let dom = (serie.header.diaourotina=="rotina" ? "RtG" : "Dom")
+        let seg = (aero.header.diaourotina=="rotina" ? "RtA" : "Seg")
+        let ter = (aero.header.diaourotina=="rotina" ? "RtB" : "Ter")
+        let qua = (aero.header.diaourotina=="rotina" ? "RtC" : "Qua")
+        let qui = (aero.header.diaourotina=="rotina" ? "RtD" : "Qui")
+        let sex = (aero.header.diaourotina=="rotina" ? "RtE" : "Sex")
+        let sab = (aero.header.diaourotina=="rotina" ? "RtF" : "Sab")
+        let dom = (aero.header.diaourotina=="rotina" ? "RtG" : "Dom")
         
         let yourAttributes : [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15),
@@ -126,7 +126,7 @@ class MuscController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.dismiss(animated: true, completion: nil)
     }
     
-    func pegaSerie(){
+    func pegaAero(){
         let job = httpJob()
         let aluno = config["user"]!
         let senha = config["password"]!
@@ -134,9 +134,9 @@ class MuscController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let authStr = authenticate(usr: aluno, pwd: senha, time: agora)
         job.setServer(server)
         job.setPath("/vfp/APPAluno.avfp")
-        job.setParameters(["objeto":"webSerie","aluno":aluno,"timestamp":agora,"sha-256":authStr, "dia":"8"])
+        job.setParameters(["objeto":"webAero","aluno":aluno,"timestamp":agora,"sha-256":authStr, "dia":"8"])
         let resp = job.execute()
-        serie.clear()
+        aero.clear()
         if resp.isEmpty{
             _ = warning(view: self, title: "Erro", message: "Servidor não respondeu", buttons: 1)
             return
@@ -144,50 +144,49 @@ class MuscController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if job.getContentType().uppercased().contains("JSON"){
                 //var jsonOk = 0
                 if let json = try? JSON(data: resp.data(using: .utf8)!){
-                    //print(resp)
-                    serie.header.diaourotina = json["diaourotina"].stringValue
-                    serie.header.fim = json["fim"].stringValue
-                    serie.header.idade = json["idade"].intValue
-                    serie.header.inicio = json["inicio"].stringValue
-                    serie.header.nivel = json["nivel"].stringValue.lowercased()
-                    serie.header.obs = json["obs"].stringValue.lowercased()
-                    serie.header.professor = json["professor"].stringValue
-                    serie.header.programanum = json["programanum"].intValue
-                    serie.header.qtdimp = json["qtdimp"].intValue
-                    serie.header.rotina = json["rotina"].stringValue
-                    serie.header.tserie = json["tserie"].stringValue.lowercased()
-                    serie.header.ultimp = json["ultimp"].stringValue
-                    if serie.header.diaourotina.lowercased() == "rotina"{
-                        lbTitle.text = "Rotinas do Programa de Musculação"
+                    print(resp)
+                    aero.header.diaourotina = json["diaourotina"].stringValue
+                    aero.header.fim = json["fim"].stringValue
+                    aero.header.idade = json["idade"].intValue
+                    aero.header.inicio = json["inicio"].stringValue
+                    aero.header.nivel = json["nivel"].stringValue.lowercased()
+                    aero.header.obs = json["obs"].stringValue.lowercased()
+                    aero.header.professor = json["professor"].stringValue
+                    aero.header.aeronum = json["aeronum"].intValue
+                    aero.header.qtdimp = json["qtdimp"].intValue
+                    aero.header.rotina = json["rotina"].stringValue
+                    aero.header.ultimp = json["ultimp"].stringValue
+                    aero.header.zonaalvo = json["zonaalvo"].stringValue
+                    if aero.header.diaourotina.lowercased() == "rotina"{
+                        lbTitle.text = "Rotinas do Programa Aeróbio"
                     }else{
-                        lbTitle.text = "Séries do Programa de Musculação"
+                        lbTitle.text = "Séries do Programa Aeróbio"
                     }
-                    var aux = "Programa: " + String(serie.header.programanum)
-                    serieData = ListaSecao([lista("Cabeçalho do Programa",[linha(aux)])])
-                    aux = "Validade: " + serie.header.inicio + " a " + serie.header.fim
-                    serieData.elemento[0].linhas.append(linha(aux))
-                    aux = "Nível: " + serie.header.nivel
-                    serieData.elemento[0].linhas.append(linha(aux))
-                    aux = "Tipo de Série: " + serie.header.tserie
-                    serieData.elemento[0].linhas.append(linha(aux))
-                    aux = "Professor: " + serie.header.professor
-                    serieData.elemento[0].linhas.append(linha(aux))
-                    aux = "Qtd. Acessos: " + String(serie.header.qtdimp)
-                    serieData.elemento[0].linhas.append(linha(aux))
-                    aux = "Último Acesso: " + serie.header.ultimp
-                    serieData.elemento[0].linhas.append(linha(aux))
-                    aux = "Obs.: " + serie.header.obs
-                    serieData.elemento[0].linhas.append(linha(aux))
+                    var aux = "Programa: " + String(aero.header.aeronum)
+                    aeroData = ListaSecao([lista("Cabeçalho do Programa",[linha(aux)])])
+                    aux = "Validade: " + aero.header.inicio + " a " + aero.header.fim
+                    aeroData.elemento[0].linhas.append(linha(aux))
+                    aux = "Nível: " + aero.header.nivel
+                    aeroData.elemento[0].linhas.append(linha(aux))
+                    aux = "Zona Alvo: " + aero.header.zonaalvo
+                    aeroData.elemento[0].linhas.append(linha(aux))
+                    aux = "Professor: " + aero.header.professor
+                    aeroData.elemento[0].linhas.append(linha(aux))
+                    aux = "Qtd. Acessos: " + String(aero.header.qtdimp)
+                    aeroData.elemento[0].linhas.append(linha(aux))
+                    aux = "Último Acesso: " + aero.header.ultimp
+                    aeroData.elemento[0].linhas.append(linha(aux))
+                    aux = "Obs.: " + aero.header.obs
+                    aeroData.elemento[0].linhas.append(linha(aux))
                     let dict = json["lista"].dictionaryValue
                     let list = dict["rows"]!.arrayValue
                     for item in list{
-                        let ex = Exercicio()
-                        ex.carga = item["carga"].stringValue
-                        ex.exercicio = item["exercicio"].stringValue.lowercased()
-                        ex.regiao = item["regiao"].stringValue.lowercased()
+                        let ex = ExAero()
+                        ex.fc = item["fc"].stringValue
+                        ex.exbio = item["exbio"].stringValue.lowercased()
                         ex.regulagem = item["regulagem"].stringValue
-                        ex.repeticoes = item["repeticoes"].stringValue
-                        ex.series = item["series"].stringValue
+                        ex.tempo = item["tempo"].stringValue
+                        ex.borg = item["borg"].stringValue
                         ex.seq = item["seq"].intValue
                         ex.domingo = item["domingo"].boolValue
                         ex.segunda = item["segunda"].boolValue
@@ -196,7 +195,7 @@ class MuscController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         ex.quinta = item["quinta"].boolValue
                         ex.sexta = item["sexta"].boolValue
                         ex.sabado = item["sabado"].boolValue
-                        serie.addExercicio(ex)
+                        aero.addExercicio(ex)
                     }
                     btnSeg.isHidden = true
                     btnTer.isHidden = true
@@ -205,7 +204,7 @@ class MuscController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     btnSex.isHidden = true
                     btnSab.isHidden = true
                     btnDom.isHidden = true
-                    for item in serie.exercicios{
+                    for item in aero.exercicios{
                         if item.domingo{
                             btnDom.isHidden = false
                         }
@@ -231,9 +230,14 @@ class MuscController: UIViewController, UITableViewDelegate, UITableViewDataSour
                             break
                         }
                     }
-                    self.loadDiaRotina(0)
+                    let myCalendar = Calendar(identifier: .gregorian)
+                    var dia = myCalendar.component(.weekday, from: Date())
+                    if aero.header.diaourotina=="rotina"{
+                        dia = 0
+                    }
+                    self.loadDiaRotina(dia)
                 }else{
-                    _ = warning(view: self, title: "Erro", message: "JSON do programa de musculação inválido", buttons: 1)
+                    _ = warning(view: self, title: "Erro", message: "JSON de exercícios aeróbios inválido", buttons: 1)
                     return
                 }
             }else{
@@ -245,33 +249,30 @@ class MuscController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func loadDiaRotina(_ dia:Int){
         var dia = dia
-        if dia==0 && serie.header.diaourotina=="rotina"{
-            if serie.header.rotina.uppercased()=="A"{
+        if dia==0{
+            if aero.header.rotina.uppercased()=="A"{
                 dia=2
             }
-            if serie.header.rotina.uppercased()=="B"{
+            if aero.header.rotina.uppercased()=="B"{
                 dia=3
             }
-            if serie.header.rotina.uppercased()=="C"{
+            if aero.header.rotina.uppercased()=="C"{
                 dia=4
             }
-            if serie.header.rotina.uppercased()=="D"{
+            if aero.header.rotina.uppercased()=="D"{
                 dia=5
             }
-            if serie.header.rotina.uppercased()=="E"{
+            if aero.header.rotina.uppercased()=="E"{
                 dia=6
             }
-            if serie.header.rotina.uppercased()=="F"{
+            if aero.header.rotina.uppercased()=="F"{
                 dia=7
             }
-            if serie.header.rotina.uppercased()=="G"{
+            if aero.header.rotina.uppercased()=="G"{
                 dia=1
             }
         }
-        else{
-            let myCalendar = Calendar(identifier: .gregorian)
-            dia = myCalendar.component(.weekday, from: Date())
-        }
+        
         allRegular()
         if dia==2 {
             boldAndUnderlineButtom(btnSeg)
@@ -294,8 +295,8 @@ class MuscController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if dia==1 {
             boldAndUnderlineButtom(btnDom)
         }
-        serie.header.dia = dia
-        performSegue(withIdentifier: "MuscDetailController", sender: nil)
+        aero.header.dia = dia
+        performSegue(withIdentifier: "AeroDetailController", sender: nil)
     }
     
 }

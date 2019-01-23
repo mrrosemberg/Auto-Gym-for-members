@@ -41,28 +41,4 @@ class MenuController: UIViewController {
         lbSenha.isEnabled = (myAluno.Status==2)
         btnSenha.isEnabled = (myAluno.Status==2)
     }
-    
-    @IBAction func btnInicioClick(_ sender: Any) {
-        self.dismiss(animated:true, completion: nil)
-    }
-    
-    @IBAction func btnTurmaClick(_ sender: Any) {
-        
-    }
-    
-    @IBAction func btnMuscClick(_ sender: Any) {
-       
-    }
-    
-    @IBAction func btnAeroClick(_ sender: Any) {
-    
-    }
-    
-    @IBAction func btnAvalClick(_ sender: Any) {
-    
-    }
-    
-    @IBAction func btnSenhaClick(_ sender: Any) {
-    
-    }
 }

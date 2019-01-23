@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D504FC4D21F60DD600963712 /* TurmaDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D504FC4C21F60DD600963712 /* TurmaDetailController.swift */; };
 		D50BCA7121EE19ED00154B0E /* AltUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50BCA7021EE19ED00154B0E /* AltUserController.swift */; };
 		D50ECC9021F0C5E700EF0B86 /* TurmaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50ECC8F21F0C5E700EF0B86 /* TurmaController.swift */; };
 		D519991421E6652600BC42F5 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D519991321E6652600BC42F5 /* MenuController.swift */; };
@@ -22,6 +21,10 @@
 		D520436A21F7936C00CDD1D9 /* ExMuscController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D520436921F7936C00CDD1D9 /* ExMuscController.swift */; };
 		D5259B5D21C8101700B3811D /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5259B5C21C8101700B3811D /* MainController.swift */; };
 		D5259B5F21C81F2500B3811D /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5259B5E21C81F2500B3811D /* Classes.swift */; };
+		D574FD4021F8AC9900B8044E /* TurmaDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D574FD3F21F8AC9900B8044E /* TurmaDetailController.swift */; };
+		D574FD4221F8B5B900B8044E /* AeroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D574FD4121F8B5B900B8044E /* AeroController.swift */; };
+		D574FD4421F8B5DE00B8044E /* AeroDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D574FD4321F8B5DE00B8044E /* AeroDetailController.swift */; };
+		D574FD4621F8B60900B8044E /* ExAeroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D574FD4521F8B60900B8044E /* ExAeroController.swift */; };
 		D5A4CC1221C3EAD0000C9358 /* ConfigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A4CC1121C3EAD0000C9358 /* ConfigController.swift */; };
 		D5B5238121C03FF900B2EAF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B5238021C03FF900B2EAF2 /* AppDelegate.swift */; };
 		D5B5238621C03FF900B2EAF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B5238421C03FF900B2EAF2 /* Main.storyboard */; };
@@ -206,7 +209,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D504FC4C21F60DD600963712 /* TurmaDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TurmaDetailController.swift; path = ../TurmaDetailController.swift; sourceTree = "<group>"; };
 		D50BCA7021EE19ED00154B0E /* AltUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltUserController.swift; sourceTree = "<group>"; };
 		D50ECC8F21F0C5E700EF0B86 /* TurmaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurmaController.swift; sourceTree = "<group>"; };
 		D519991321E6652600BC42F5 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
@@ -216,6 +218,10 @@
 		D5259B5B21C7F57B00B3811D /* Auto-Gym.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Auto-Gym.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D5259B5C21C8101700B3811D /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		D5259B5E21C81F2500B3811D /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
+		D574FD3F21F8AC9900B8044E /* TurmaDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurmaDetailController.swift; sourceTree = "<group>"; };
+		D574FD4121F8B5B900B8044E /* AeroController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AeroController.swift; sourceTree = "<group>"; };
+		D574FD4321F8B5DE00B8044E /* AeroDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AeroDetailController.swift; sourceTree = "<group>"; };
+		D574FD4521F8B60900B8044E /* ExAeroController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExAeroController.swift; sourceTree = "<group>"; };
 		D5A4CC1121C3EAD0000C9358 /* ConfigController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigController.swift; sourceTree = "<group>"; };
 		D5B5237D21C03FF900B2EAF2 /* Auto-Gym_for_Members.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Auto-Gym_for_Members.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B5238021C03FF900B2EAF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -274,10 +280,13 @@
 				D519991321E6652600BC42F5 /* MenuController.swift */,
 				D50BCA7021EE19ED00154B0E /* AltUserController.swift */,
 				D50ECC8F21F0C5E700EF0B86 /* TurmaController.swift */,
-				D504FC4C21F60DD600963712 /* TurmaDetailController.swift */,
+				D574FD3F21F8AC9900B8044E /* TurmaDetailController.swift */,
 				D5DEAAC221F64109000920B4 /* MuscController.swift */,
 				D520435521F77F3B00CDD1D9 /* MuscDetailController.swift */,
 				D520436921F7936C00CDD1D9 /* ExMuscController.swift */,
+				D574FD4121F8B5B900B8044E /* AeroController.swift */,
+				D574FD4321F8B5DE00B8044E /* AeroDetailController.swift */,
+				D574FD4521F8B60900B8044E /* ExAeroController.swift */,
 				D5B5238421C03FF900B2EAF2 /* Main.storyboard */,
 				D5B5238721C03FFA00B2EAF2 /* Assets.xcassets */,
 				D5B5238921C03FFA00B2EAF2 /* LaunchScreen.storyboard */,
@@ -558,15 +567,18 @@
 				D50BCA7121EE19ED00154B0E /* AltUserController.swift in Sources */,
 				D50ECC9021F0C5E700EF0B86 /* TurmaController.swift in Sources */,
 				D519991421E6652600BC42F5 /* MenuController.swift in Sources */,
+				D574FD4421F8B5DE00B8044E /* AeroDetailController.swift in Sources */,
 				D5DEAAC321F64109000920B4 /* MuscController.swift in Sources */,
 				D520436A21F7936C00CDD1D9 /* ExMuscController.swift in Sources */,
 				D5B5238121C03FF900B2EAF2 /* AppDelegate.swift in Sources */,
 				D5259B5D21C8101700B3811D /* MainController.swift in Sources */,
 				D5A4CC1221C3EAD0000C9358 /* ConfigController.swift in Sources */,
-				D504FC4D21F60DD600963712 /* TurmaDetailController.swift in Sources */,
 				D5B5241F21C0443600B2EAF2 /* JMMaskTextField.swift in Sources */,
 				D5259B5F21C81F2500B3811D /* Classes.swift in Sources */,
+				D574FD4021F8AC9900B8044E /* TurmaDetailController.swift in Sources */,
 				D520435621F77F3B00CDD1D9 /* MuscDetailController.swift in Sources */,
+				D574FD4621F8B60900B8044E /* ExAeroController.swift in Sources */,
+				D574FD4221F8B5B900B8044E /* AeroController.swift in Sources */,
 				D5B5242021C0443600B2EAF2 /* JMStringMask.swift in Sources */,
 				D51A514121C17BF000A59FFB /* Funcoes.swift in Sources */,
 			);
