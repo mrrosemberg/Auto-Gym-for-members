@@ -182,9 +182,7 @@ class MainController: UIViewController {
                 if jsonOk<24{
                     _=warning(view:self, title:"Erro", message:"JSON inválido nível: " + String(jsonOk), buttons:1)
                 }else{
-                    let sb = UIStoryboard(name: "Main", bundle: nil)
-                    guard let menuVC = sb.instantiateViewController(withIdentifier: "MenuController") as? MenuController else {return}
-                    present(menuVC, animated: true, completion: nil)
+                    performSegue(withIdentifier: "MenuController", sender: nil)
                 }
             }else{
                 _ = warning(view: self, title: "Erro", message: "JSON de aluno e parâmetro inválido", buttons:1)

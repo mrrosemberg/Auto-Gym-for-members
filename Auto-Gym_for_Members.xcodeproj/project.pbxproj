@@ -33,6 +33,7 @@
 		D5B5241F21C0443600B2EAF2 /* JMMaskTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B5241D21C0443600B2EAF2 /* JMMaskTextField.swift */; };
 		D5B5242021C0443600B2EAF2 /* JMStringMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B5241E21C0443600B2EAF2 /* JMStringMask.swift */; };
 		D5DEAAC321F64109000920B4 /* MuscController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DEAAC221F64109000920B4 /* MuscController.swift */; };
+		D5F02C4B21F9F5C2006B7D7D /* PasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F02C4A21F9F5C2006B7D7D /* PasswordController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -235,6 +236,7 @@
 		D5B5241D21C0443600B2EAF2 /* JMMaskTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JMMaskTextField.swift; sourceTree = "<group>"; };
 		D5B5241E21C0443600B2EAF2 /* JMStringMask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JMStringMask.swift; sourceTree = "<group>"; };
 		D5DEAAC221F64109000920B4 /* MuscController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuscController.swift; sourceTree = "<group>"; };
+		D5F02C4A21F9F5C2006B7D7D /* PasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +289,7 @@
 				D574FD4121F8B5B900B8044E /* AeroController.swift */,
 				D574FD4321F8B5DE00B8044E /* AeroDetailController.swift */,
 				D574FD4521F8B60900B8044E /* ExAeroController.swift */,
+				D5F02C4A21F9F5C2006B7D7D /* PasswordController.swift */,
 				D5B5238421C03FF900B2EAF2 /* Main.storyboard */,
 				D5B5238721C03FFA00B2EAF2 /* Assets.xcassets */,
 				D5B5238921C03FFA00B2EAF2 /* LaunchScreen.storyboard */,
@@ -578,6 +581,7 @@
 				D574FD4021F8AC9900B8044E /* TurmaDetailController.swift in Sources */,
 				D520435621F77F3B00CDD1D9 /* MuscDetailController.swift in Sources */,
 				D574FD4621F8B60900B8044E /* ExAeroController.swift in Sources */,
+				D5F02C4B21F9F5C2006B7D7D /* PasswordController.swift in Sources */,
 				D574FD4221F8B5B900B8044E /* AeroController.swift in Sources */,
 				D5B5242021C0443600B2EAF2 /* JMStringMask.swift in Sources */,
 				D51A514121C17BF000A59FFB /* Funcoes.swift in Sources */,

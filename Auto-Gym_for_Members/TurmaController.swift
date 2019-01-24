@@ -185,7 +185,6 @@ class TurmaController: UIViewController, UITableViewDelegate, UITableViewDataSou
                     let dict = json["turma"].dictionaryValue
                     let list = dict["rows"]!.arrayValue
                     for item in list{
-                        parcela.addParc(item["data"].stringValue, item["valor"].stringValue)
                         turmaData.addTurma(Turma(item["turma"].stringValue, item["professor"].stringValue, item["sala"].stringValue, item["atividade"].stringValue, item["inicio"].stringValue, item["fim"].stringValue, item["matriculado"].boolValue))
                     }
                     list1.reloadData()

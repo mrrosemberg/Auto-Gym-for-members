@@ -93,3 +93,49 @@ func diaDaSemanaAbreviado(_ dia: Date)->String{
     }
     return ret
 }
+
+func hexToBytes(_ string: String) -> [UInt8] {
+    let length = string.count
+    if length < 2 {
+        return [0]
+    }
+    var bytes = [UInt8]()
+    let lowstr = string.lowercased()
+    bytes.reserveCapacity(length/2)
+    var index = lowstr.startIndex
+    for _ in 0..<length/2 {
+        let nextIndex = lowstr.index(index, offsetBy: 2)
+        if let b = UInt8(lowstr[index..<nextIndex], radix: 16) {
+            bytes.append(b)
+        } else {
+            return [0]
+        }
+        index = nextIndex
+    }
+    return bytes
+}
+
+func stringXor(_ str1 : String,_ str2 : String) -> String{ // assumes str2 will never be shorter than str1
+    let data1 = hexToBytes(str1)
+    let data2 = hexToBytes(str2)
+    var bytes = [UInt8]()
+    bytes.reserveCapacity(data1.count)
+    for i in 0 ..< data1.count{
+        let b = data1[i]^data2[i]
+        bytes.append(b)
+    }
+    return bytes.toHexString().uppercased()
+}
+
+func makeNewPassword(_ novaSenha : String,_ usr : String,_ senhaAntiga : String,_ time : String) -> String{
+    var senha = usr + senhaAntiga
+    var msg = Digest.sha512(senha.bytes)
+    var chave = msg.toHexString().uppercased() + time
+    msg = Digest.sha512(chave.bytes)
+    chave = msg.toHexString().uppercased()
+    senha = usr + novaSenha
+    msg = Digest.sha512(senha.bytes)
+    var ret = msg.toHexString().uppercased()
+    ret = stringXor(chave,ret)
+    return ret
+}

@@ -245,32 +245,34 @@ class MuscController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func loadDiaRotina(_ dia:Int){
         var dia = dia
-        if dia==0 && serie.header.diaourotina=="rotina"{
-            if serie.header.rotina.uppercased()=="A"{
-                dia=2
+        //print("Parâmento dia: "+String(dia))
+        if dia==0{
+            if serie.header.diaourotina=="rotina"{
+                if serie.header.rotina.uppercased()=="A"{
+                    dia=2
+                }
+                if serie.header.rotina.uppercased()=="B"{
+                    dia=3
+                }
+                if serie.header.rotina.uppercased()=="C"{
+                    dia=4
+                }
+                if serie.header.rotina.uppercased()=="D"{
+                    dia=5
+                }
+                if serie.header.rotina.uppercased()=="E"{
+                    dia=6
+                }
+                if serie.header.rotina.uppercased()=="F"{
+                    dia=7
+                }
+                if serie.header.rotina.uppercased()=="G"{
+                    dia=1
+                }
+            }else{
+                let myCalendar = Calendar(identifier: .gregorian)
+                dia = myCalendar.component(.weekday, from: Date())
             }
-            if serie.header.rotina.uppercased()=="B"{
-                dia=3
-            }
-            if serie.header.rotina.uppercased()=="C"{
-                dia=4
-            }
-            if serie.header.rotina.uppercased()=="D"{
-                dia=5
-            }
-            if serie.header.rotina.uppercased()=="E"{
-                dia=6
-            }
-            if serie.header.rotina.uppercased()=="F"{
-                dia=7
-            }
-            if serie.header.rotina.uppercased()=="G"{
-                dia=1
-            }
-        }
-        else{
-            let myCalendar = Calendar(identifier: .gregorian)
-            dia = myCalendar.component(.weekday, from: Date())
         }
         allRegular()
         if dia==2 {
@@ -295,6 +297,7 @@ class MuscController: UIViewController, UITableViewDelegate, UITableViewDataSour
             boldAndUnderlineButtom(btnDom)
         }
         serie.header.dia = dia
+        //print("serie.header.dia: "+String(serie.header.dia))
         performSegue(withIdentifier: "MuscDetailController", sender: nil)
     }
     

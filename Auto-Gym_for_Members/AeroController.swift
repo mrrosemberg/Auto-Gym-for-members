@@ -144,7 +144,7 @@ class AeroController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if job.getContentType().uppercased().contains("JSON"){
                 //var jsonOk = 0
                 if let json = try? JSON(data: resp.data(using: .utf8)!){
-                    print(resp)
+                   //print(resp)
                     aero.header.diaourotina = json["diaourotina"].stringValue
                     aero.header.fim = json["fim"].stringValue
                     aero.header.idade = json["idade"].intValue

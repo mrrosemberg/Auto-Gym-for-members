@@ -31,8 +31,8 @@ class AltUserController: UIViewController, UITableViewDelegate, UITableViewDataS
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
         // TODO cell como especificar a seção.
-        cell.textLabel?.text = alData.elemento[indexPath.section].linhas[indexPath.row].text
-        cell.textLabel?.textColor = alData.elemento[indexPath.section].linhas[indexPath.row].color
+        cell.textLabel?.text = self.alData.elemento[indexPath.section].linhas[indexPath.row].text
+        cell.textLabel?.textColor = self.alData.elemento[indexPath.section].linhas[indexPath.row].color
         cell.backgroundColor = UIColor.clear
         cell.textLabel?.adjustsFontSizeToFitWidth = true
         return(cell)
@@ -40,7 +40,7 @@ class AltUserController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.alData = ListaSecao([lista("Dados do Aluno",[linha("Nome: "+myAluno.Nome)])])
         self.alData.elemento[0].linhas.append(linha("Nascimento: " + myAluno.Nascimento))
         self.alData.elemento[0].linhas.append(linha("Idade: " + String(myAluno.idade)))
         self.alData.elemento[0].linhas.append(linha("CPF: " + myAluno.CPF))
