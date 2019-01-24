@@ -117,8 +117,8 @@ class ConfigController: UIViewController {
         configuration.timeoutIntervalForRequest = 15
         configuration.timeoutIntervalForResource = 15
         alamoFireManager = Alamofire.SessionManager(configuration: configuration)
-        //alamoFireManager!.request("http://sysnetweb.com.br:4080/vfp/validacnpj.avfp", method:.get, parameters: param)
-        alamoFireManager!.request("http://10.1.1.5/vfp/validacnpj.avfp", method:.get, parameters: param)
+        alamoFireManager!.request("http://sysnetweb.com.br:4080/vfp/validacnpj.avfp", method:.get, parameters: param)
+        //alamoFireManager!.request("http://10.1.1.5/vfp/validacnpj.avfp", method:.get, parameters: param)
             .validate(statusCode: 200..<300)
             .responseString {
                 response in

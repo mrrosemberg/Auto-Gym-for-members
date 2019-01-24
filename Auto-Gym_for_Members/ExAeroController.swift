@@ -67,7 +67,7 @@ class ExAeroController: UIViewController, UITableViewDelegate, UITableViewDataSo
         exDet.append(Det("Zona Alvo:", aero.header.zonaalvo))
         exDet.append(Det("Frequencia Cardíaca:", ex.fc))
         exDet.append(Det("Tempo de Execução:", ex.tempo))
-        exDet.append(Det("Escala de Borag:", ex.borg))
+        exDet.append(Det("Escala de Borg:", ex.borg))
         exDet.append(Det("Regulagem:", ex.regulagem))
         
         // Do any additional setup after loading the view.
