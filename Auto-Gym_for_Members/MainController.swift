@@ -18,6 +18,7 @@ let parcela = Parcela() // parcelas do último pagamento
 var turmaDetail = ListaSecao([lista("Detalhes da Turma",[linha("Turma: ")])])
 var serie = Serie([Exercicio()],MyMusc())
 var aero = Aero([ExAero()],MyAero())
+var rawAval = ""
 
 //Type strucAluno (Nome As String, CPF As String, Nascimento As String, foto As String, proxvenc As String, plano As String, email As String, idade As Int, Status As Int, tolerancia As Int, atraso As Int, datainad As String, sexo As Int)
 //Type strucParam (accessAero As Boolean, accessErgo As Boolean, accessFin As Boolean, accessMusc As Boolean, accessTurma As Boolean, accessAval As Boolean, status As Int, validAero As Boolean, validAval As Boolean, validSerie As Boolean, validTurma As Boolean)
@@ -182,6 +183,9 @@ class MainController: UIViewController {
                 if jsonOk<24{
                     _=warning(view:self, title:"Erro", message:"JSON inválido nível: " + String(jsonOk), buttons:1)
                 }else{
+                    if self.pegaAval()==false{
+                       return
+                    }
                     performSegue(withIdentifier: "MenuController", sender: nil)
                 }
             }else{
@@ -192,6 +196,34 @@ class MainController: UIViewController {
             _ = warning(view: self, title: "Erro", message: resposta, buttons:1)
         }// contentType
     }// trataResp
+    
+    func pegaAval()->Bool{
+        if (myParam.accessAval && myParam.validAval) == false{
+            return true
+        }
+        let job = httpJob()
+        let aluno = config["user"]!
+        let senha = config["password"]!
+        let agora = currentDateTime()
+        let authStr = authenticate(usr: aluno, pwd: senha, time: agora)
+        job.setServer(server)
+        job.setPath("/vfp/APPAluno.avfp")
+        job.setParameters(["objeto":"webAval","aluno":aluno,"timestamp":agora,"sha-256":authStr])
+        lbConnect.text = "Carregando Avaliações..."
+        lbConnect.isHidden = false
+        rawAval = job.execute()
+        lbConnect.isHidden = true
+        if rawAval.isEmpty{
+            _ = warning(view: self, title: "Erro", message: "Sem conexão com o servidor", buttons:1)
+            return false
+        }
+        if job.getContentType().lowercased().contains("json")==false{
+            myParam.validAval=false
+            print(rawAval)
+            return true
+        }
+        return true // valid json
+    }
     
     @IBAction func btnGoClick(_ sender: Any) {
         let job = httpJob()

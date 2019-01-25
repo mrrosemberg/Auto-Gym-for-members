@@ -34,6 +34,9 @@
 		D5B5242021C0443600B2EAF2 /* JMStringMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B5241E21C0443600B2EAF2 /* JMStringMask.swift */; };
 		D5DEAAC321F64109000920B4 /* MuscController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DEAAC221F64109000920B4 /* MuscController.swift */; };
 		D5F02C4B21F9F5C2006B7D7D /* PasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F02C4A21F9F5C2006B7D7D /* PasswordController.swift */; };
+		D5F03B8221FB3CAE007D794A /* AvalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F03B8121FB3CAE007D794A /* AvalController.swift */; };
+		D5F7539C21FB3415005D5A85 /* AvalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F7539A21FB3415005D5A85 /* AvalCell.swift */; };
+		D5F7539D21FB3415005D5A85 /* AvalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5F7539B21FB3415005D5A85 /* AvalCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -237,6 +240,9 @@
 		D5B5241E21C0443600B2EAF2 /* JMStringMask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JMStringMask.swift; sourceTree = "<group>"; };
 		D5DEAAC221F64109000920B4 /* MuscController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuscController.swift; sourceTree = "<group>"; };
 		D5F02C4A21F9F5C2006B7D7D /* PasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordController.swift; sourceTree = "<group>"; };
+		D5F03B8121FB3CAE007D794A /* AvalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvalController.swift; sourceTree = "<group>"; };
+		D5F7539A21FB3415005D5A85 /* AvalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvalCell.swift; sourceTree = "<group>"; };
+		D5F7539B21FB3415005D5A85 /* AvalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvalCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,7 +296,10 @@
 				D574FD4321F8B5DE00B8044E /* AeroDetailController.swift */,
 				D574FD4521F8B60900B8044E /* ExAeroController.swift */,
 				D5F02C4A21F9F5C2006B7D7D /* PasswordController.swift */,
+				D5F03B8121FB3CAE007D794A /* AvalController.swift */,
 				D5B5238421C03FF900B2EAF2 /* Main.storyboard */,
+				D5F7539A21FB3415005D5A85 /* AvalCell.swift */,
+				D5F7539B21FB3415005D5A85 /* AvalCell.xib */,
 				D5B5238721C03FFA00B2EAF2 /* Assets.xcassets */,
 				D5B5238921C03FFA00B2EAF2 /* LaunchScreen.storyboard */,
 				D5B5238C21C03FFA00B2EAF2 /* Info.plist */,
@@ -555,6 +564,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5B5238B21C03FFA00B2EAF2 /* LaunchScreen.storyboard in Resources */,
+				D5F7539D21FB3415005D5A85 /* AvalCell.xib in Resources */,
 				D5B5238821C03FFA00B2EAF2 /* Assets.xcassets in Resources */,
 				D5B5238621C03FF900B2EAF2 /* Main.storyboard in Resources */,
 			);
@@ -568,7 +578,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D50BCA7121EE19ED00154B0E /* AltUserController.swift in Sources */,
+				D5F7539C21FB3415005D5A85 /* AvalCell.swift in Sources */,
 				D50ECC9021F0C5E700EF0B86 /* TurmaController.swift in Sources */,
+				D5F03B8221FB3CAE007D794A /* AvalController.swift in Sources */,
 				D519991421E6652600BC42F5 /* MenuController.swift in Sources */,
 				D574FD4421F8B5DE00B8044E /* AeroDetailController.swift in Sources */,
 				D5DEAAC321F64109000920B4 /* MuscController.swift in Sources */,
