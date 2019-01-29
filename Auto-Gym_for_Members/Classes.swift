@@ -9,26 +9,37 @@
 import Foundation
 import UIKit
 
-open class Pessoa{
-    var id = 0
-    var nome = ""
+/*public class RawTurma{
+    public var dia : Int
+    public var rawTurma : String
+    public var contentType : String
+    public var validJson : Bool
     
-    public func getId()->Int{
-        return self.id
+    init(){
+        self.dia = 0
+        self.rawTurma = ""
+        self.contentType = ""
+        self.validJson = false
     }
     
-    public func setId(_ id:Int){
-        self.id = id
+    init(_ dia:Int,_ rawTurma:String,_ contentType:String,_ validJson:Bool){
+        self.dia = dia
+        self.rawTurma = rawTurma
+        self.contentType = contentType
+        self.validJson = validJson
     }
+ }
 
-    public func getNome()->String{
-        return self.nome
+public class SemanaTurma{
+    public var turmas : [RawTurma]
+    
+    init(){
+        self.turmas = [RawTurma()]
     }
-
-    public func setNome(_ nome:String){
-        self.nome = nome
+    init(_ dia:Int,_ rawTurma:String,_ contentType:String,_ validJson:Bool){
+        self.turmas = [RawTurma(dia, rawTurma, contentType, validJson)]
     }
-}
+}*/
 
 open class File {
     var fileName: String

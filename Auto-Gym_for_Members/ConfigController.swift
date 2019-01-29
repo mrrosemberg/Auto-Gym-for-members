@@ -7,11 +7,9 @@
 //
 
 import UIKit
-import Alamofire
 import SwiftyJSON
 
 class ConfigController: UIViewController {
-    var alamoFireManager : SessionManager?
     var contentType = "text/plain"
     var webData = ""
     @IBOutlet weak var txtSenha: JMMaskTextField!
@@ -53,8 +51,6 @@ class ConfigController: UIViewController {
     }
     
     func trataResp(){
-        //print(self.webData)
-        print(self.contentType)
         if self.contentType.contains("text"){
             _=warning(view:self, title:"Erro", message:self.webData, buttons: 1)
             return
@@ -108,39 +104,18 @@ class ConfigController: UIViewController {
     
 
     @IBAction func validarClick(_ sender: Any) {
-        if txtCnpj.text==nil || txtCnpj.text!.isEmpty || txtCnpj.text!.count != 18 || txtCnpj.text!.contains(" "){
-            _=warning(view:self, title:"Erro", message:"CNPJ Inválido", buttons:1)
+        let job = httpJob()
+        job.setServer("sysnetweb.com.br:4080")
+        job.setPath("/vfp/validacnpj.avfp")
+        job.setParameters(["cnpj":txtCnpj.text!])
+        self.webData = job.execute()
+        if self.webData.isEmpty{
+            _ = warning(view: self, title: "Erro", message: job.getLastError(), buttons: 1)
             return
-        }//endif validação txtCnpj
-        let param = ["cnpj":txtCnpj.text!]
-        let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 15
-        configuration.timeoutIntervalForResource = 15
-        alamoFireManager = Alamofire.SessionManager(configuration: configuration)
-        alamoFireManager!.request("http://sysnetweb.com.br:4080/vfp/validacnpj.avfp", method:.get, parameters: param)
-        //alamoFireManager!.request("http://10.1.1.5/vfp/validacnpj.avfp", method:.get, parameters: param)
-            .validate(statusCode: 200..<300)
-            .responseString {
-                response in
-                if response.result.isFailure {
-                    if let err = response.error?.localizedDescription {
-                        _=warning(view: self, title:"Erro", message: "Sem conexão com o servidor"+err, buttons: 1)
-                        return
-                    }
-                    _=warning(view: self, title:"Erro", message: "Sem conexão com o servidor", buttons: 1)
-                        return
-                } //endif result.isFailure
-                if let data = response.data, let dados = String(data: data, encoding: .utf8){
-                    self.webData = dados
-                    if let cType = response.response?.allHeaderFields["Content-Type"] as? String {
-                        self.contentType = cType.lowercased()
-                    }
-                }else{
-                    _=warning(view: self, title:"Erro", message: "Sem resposta do servidor", buttons: 1)
-                    return
-                }//endif response.data
-                self.trataResp()
-        }//alamofireManager
+        }else{
+            self.contentType = job.getContentType()
+            self.trataResp()
+        }
      }//validarClick
    
     @IBAction func actionOk(_ sender: Any) {
@@ -165,9 +140,6 @@ class ConfigController: UIViewController {
             _=warning(view:self, title:"Erro", message:"Erro gravando arquivo config.dat "+file.getLastError(), buttons:1)
             return
         }
-        //let sb = UIStoryboard(name: "Main", bundle: nil)
-        //let mainVC = sb.instantiateViewController(withIdentifier: "MainController")as!MainController
-        //navigationController?.popToRootViewController(animated: true)
         server = config["server1"]!
         self.dismiss(animated:true, completion: nil)
     }// actionOk

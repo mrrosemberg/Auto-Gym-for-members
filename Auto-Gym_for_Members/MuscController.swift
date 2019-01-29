@@ -52,7 +52,7 @@ class MuscController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.pegaSerie()
+        self.montaSerie()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -126,121 +126,99 @@ class MuscController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.dismiss(animated: true, completion: nil)
     }
     
-    func pegaSerie(){
-        let job = httpJob()
-        let aluno = config["user"]!
-        let senha = config["password"]!
-        let agora = currentDateTime()
-        let authStr = authenticate(usr: aluno, pwd: senha, time: agora)
-        job.setServer(server)
-        job.setPath("/vfp/APPAluno.avfp")
-        job.setParameters(["objeto":"webSerie","aluno":aluno,"timestamp":agora,"sha-256":authStr, "dia":"8"])
-        let resp = job.execute()
+    func montaSerie(){
         serie.clear()
-        if resp.isEmpty{
-            _ = warning(view: self, title: "Erro", message: "Servidor não respondeu", buttons: 1)
+        if rawSerie.isEmpty{
             return
+        }
+        guard let json = try? JSON(data: rawSerie.data(using: .utf8)!) else {return}
+        serie.header.diaourotina = json["diaourotina"].stringValue
+        serie.header.fim = json["fim"].stringValue
+        serie.header.idade = json["idade"].intValue
+        serie.header.inicio = json["inicio"].stringValue
+        serie.header.nivel = json["nivel"].stringValue.lowercased()
+        serie.header.obs = json["obs"].stringValue.lowercased()
+        serie.header.professor = json["professor"].stringValue
+        serie.header.programanum = json["programanum"].intValue
+        serie.header.qtdimp = json["qtdimp"].intValue
+        serie.header.rotina = json["rotina"].stringValue
+        serie.header.tserie = json["tserie"].stringValue.lowercased()
+        serie.header.ultimp = json["ultimp"].stringValue
+        if serie.header.diaourotina.lowercased() == "rotina"{
+            lbTitle.text = "Rotinas do Programa de Musculação"
         }else{
-            if job.getContentType().uppercased().contains("JSON"){
-                //var jsonOk = 0
-                if let json = try? JSON(data: resp.data(using: .utf8)!){
-                    //print(resp)
-                    serie.header.diaourotina = json["diaourotina"].stringValue
-                    serie.header.fim = json["fim"].stringValue
-                    serie.header.idade = json["idade"].intValue
-                    serie.header.inicio = json["inicio"].stringValue
-                    serie.header.nivel = json["nivel"].stringValue.lowercased()
-                    serie.header.obs = json["obs"].stringValue.lowercased()
-                    serie.header.professor = json["professor"].stringValue
-                    serie.header.programanum = json["programanum"].intValue
-                    serie.header.qtdimp = json["qtdimp"].intValue
-                    serie.header.rotina = json["rotina"].stringValue
-                    serie.header.tserie = json["tserie"].stringValue.lowercased()
-                    serie.header.ultimp = json["ultimp"].stringValue
-                    if serie.header.diaourotina.lowercased() == "rotina"{
-                        lbTitle.text = "Rotinas do Programa de Musculação"
-                    }else{
-                        lbTitle.text = "Séries do Programa de Musculação"
-                    }
-                    var aux = "Programa: " + String(serie.header.programanum)
-                    serieData = ListaSecao([lista("Cabeçalho do Programa",[linha(aux)])])
-                    aux = "Validade: " + serie.header.inicio + " a " + serie.header.fim
-                    serieData.elemento[0].linhas.append(linha(aux))
-                    aux = "Nível: " + serie.header.nivel
-                    serieData.elemento[0].linhas.append(linha(aux))
-                    aux = "Tipo de Série: " + serie.header.tserie
-                    serieData.elemento[0].linhas.append(linha(aux))
-                    aux = "Professor: " + serie.header.professor
-                    serieData.elemento[0].linhas.append(linha(aux))
-                    aux = "Qtd. Acessos: " + String(serie.header.qtdimp)
-                    serieData.elemento[0].linhas.append(linha(aux))
-                    aux = "Último Acesso: " + serie.header.ultimp
-                    serieData.elemento[0].linhas.append(linha(aux))
-                    aux = "Obs.: " + serie.header.obs
-                    serieData.elemento[0].linhas.append(linha(aux))
-                    let dict = json["lista"].dictionaryValue
-                    let list = dict["rows"]!.arrayValue
-                    for item in list{
-                        let ex = Exercicio()
-                        ex.carga = item["carga"].stringValue
-                        ex.exercicio = item["exercicio"].stringValue.lowercased()
-                        ex.regiao = item["regiao"].stringValue.lowercased()
-                        ex.regulagem = item["regulagem"].stringValue
-                        ex.repeticoes = item["repeticoes"].stringValue
-                        ex.series = item["series"].stringValue
-                        ex.seq = item["seq"].intValue
-                        ex.domingo = item["domingo"].boolValue
-                        ex.segunda = item["segunda"].boolValue
-                        ex.terca = item["terca"].boolValue
-                        ex.quarta = item["quarta"].boolValue
-                        ex.quinta = item["quinta"].boolValue
-                        ex.sexta = item["sexta"].boolValue
-                        ex.sabado = item["sabado"].boolValue
-                        serie.addExercicio(ex)
-                    }
-                    btnSeg.isHidden = true
-                    btnTer.isHidden = true
-                    btnQua.isHidden = true
-                    btnQui.isHidden = true
-                    btnSex.isHidden = true
-                    btnSab.isHidden = true
-                    btnDom.isHidden = true
-                    for item in serie.exercicios{
-                        if item.domingo{
-                            btnDom.isHidden = false
-                        }
-                        if item.segunda{
-                            btnSeg.isHidden = false
-                        }
-                        if item.terca{
-                            btnTer.isHidden = false
-                        }
-                        if item.quarta{
-                            btnQua.isHidden = false
-                        }
-                        if item.quinta{
-                            btnQui.isHidden = false
-                        }
-                        if item.sexta{
-                            btnSex.isHidden = false
-                        }
-                        if item.sabado{
-                            btnSab.isHidden = false
-                        }
-                        if btnDom.isHidden==false && btnSeg.isHidden==false && btnTer.isHidden==false && btnQua.isHidden==false && btnQui.isHidden==false && btnSex.isHidden==false && btnSab.isHidden==false{
-                            break
-                        }
-                    }
-                    self.loadDiaRotina(0)
-                }else{
-                    _ = warning(view: self, title: "Erro", message: "JSON do programa de musculação inválido", buttons: 1)
-                    return
-                }
-            }else{
-                _ = warning(view: self, title: "Erro", message: resp, buttons: 1)
+            lbTitle.text = "Séries do Programa de Musculação"
+        }
+        var aux = "Programa: " + String(serie.header.programanum)
+        serieData = ListaSecao([lista("Cabeçalho do Programa",[linha(aux)])])
+        aux = "Validade: " + serie.header.inicio + " a " + serie.header.fim
+        serieData.elemento[0].linhas.append(linha(aux))
+        aux = "Nível: " + serie.header.nivel
+        serieData.elemento[0].linhas.append(linha(aux))
+        aux = "Tipo de Série: " + serie.header.tserie
+        serieData.elemento[0].linhas.append(linha(aux))
+        aux = "Professor: " + serie.header.professor
+        serieData.elemento[0].linhas.append(linha(aux))
+        aux = "Qtd. Acessos: " + String(serie.header.qtdimp)
+        serieData.elemento[0].linhas.append(linha(aux))
+        aux = "Último Acesso: " + serie.header.ultimp
+        serieData.elemento[0].linhas.append(linha(aux))
+        aux = "Obs.: " + serie.header.obs
+        serieData.elemento[0].linhas.append(linha(aux))
+        let dict = json["lista"].dictionaryValue
+        let list = dict["rows"]!.arrayValue
+        for item in list{
+            let ex = Exercicio()
+            ex.carga = item["carga"].stringValue
+            ex.exercicio = item["exercicio"].stringValue.lowercased()
+            ex.regiao = item["regiao"].stringValue.lowercased()
+            ex.regulagem = item["regulagem"].stringValue
+            ex.repeticoes = item["repeticoes"].stringValue
+            ex.series = item["series"].stringValue
+            ex.seq = item["seq"].intValue
+            ex.domingo = item["domingo"].boolValue
+            ex.segunda = item["segunda"].boolValue
+            ex.terca = item["terca"].boolValue
+            ex.quarta = item["quarta"].boolValue
+            ex.quinta = item["quinta"].boolValue
+            ex.sexta = item["sexta"].boolValue
+            ex.sabado = item["sabado"].boolValue
+            serie.addExercicio(ex)
+        }
+        btnSeg.isHidden = true
+        btnTer.isHidden = true
+        btnQua.isHidden = true
+        btnQui.isHidden = true
+        btnSex.isHidden = true
+        btnSab.isHidden = true
+        btnDom.isHidden = true
+        for item in serie.exercicios{
+            if item.domingo{
+                btnDom.isHidden = false
+            }
+            if item.segunda{
+                btnSeg.isHidden = false
+            }
+            if item.terca{
+                btnTer.isHidden = false
+            }
+            if item.quarta{
+                btnQua.isHidden = false
+            }
+            if item.quinta{
+                btnQui.isHidden = false
+            }
+            if item.sexta{
+                btnSex.isHidden = false
+            }
+            if item.sabado{
+                btnSab.isHidden = false
+            }
+            if btnDom.isHidden==false && btnSeg.isHidden==false && btnTer.isHidden==false && btnQua.isHidden==false && btnQui.isHidden==false && btnSex.isHidden==false && btnSab.isHidden==false{
+                break
             }
         }
-        return
+        self.loadDiaRotina(0)
     }
     
     func loadDiaRotina(_ dia:Int){

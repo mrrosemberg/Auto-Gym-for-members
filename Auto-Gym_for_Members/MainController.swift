@@ -19,10 +19,9 @@ var turmaDetail = ListaSecao([lista("Detalhes da Turma",[linha("Turma: ")])])
 var serie = Serie([Exercicio()],MyMusc())
 var aero = Aero([ExAero()],MyAero())
 var rawAval = ""
-
-//Type strucAluno (Nome As String, CPF As String, Nascimento As String, foto As String, proxvenc As String, plano As String, email As String, idade As Int, Status As Int, tolerancia As Int, atraso As Int, datainad As String, sexo As Int)
-//Type strucParam (accessAero As Boolean, accessErgo As Boolean, accessFin As Boolean, accessMusc As Boolean, accessTurma As Boolean, accessAval As Boolean, status As Int, validAero As Boolean, validAval As Boolean, validSerie As Boolean, validTurma As Boolean)
-
+var rawSerie = ""
+var rawAero = ""
+var rawTurmas = ""
 
 class MainController: UIViewController {
     
@@ -164,20 +163,14 @@ class MainController: UIViewController {
                 if json["atraso"].stringValue.isEmpty==false{
                     myAluno.atraso = json["atraso"].intValue
                     jsonOk += 1 //24
-                    //print(json["atraso"].intValue)
                 }
-                //print("jsonOk: " + String(jsonOk))
                 parcela.clear()
                 let dict = json["parc"].dictionaryValue
                 if dict.count>0{
                     let list = dict["rows"]!.arrayValue
-                    //print(list.count)
                     for item in list{
                         parcela.addParc(item["data"].stringValue, item["valor"].stringValue)
                     }
-                    /*for eachParc in parcela.parcela{
-                        print("Data: "+eachParc.data + " , Valor: "+eachParc.valor)
-                    }*/
                 }
                
                 if jsonOk<24{
@@ -185,6 +178,15 @@ class MainController: UIViewController {
                 }else{
                     if self.pegaAval()==false{
                        return
+                    }
+                    if self.pegaAero()==false{
+                        return
+                    }
+                    if self.pegaSerie()==false{
+                        return
+                    }
+                    if self.pegaTurmas()==false{
+                        return
                     }
                     performSegue(withIdentifier: "MenuController", sender: nil)
                 }
@@ -197,6 +199,7 @@ class MainController: UIViewController {
         }// contentType
     }// trataResp
     
+    //Carrega Avaliações Funcionais
     func pegaAval()->Bool{
         if (myParam.accessAval && myParam.validAval) == false{
             return true
@@ -219,10 +222,119 @@ class MainController: UIViewController {
         }
         if job.getContentType().lowercased().contains("json")==false{
             myParam.validAval=false
-            print(rawAval)
+            //print(rawAval)
             return true
         }
         return true // valid json
+    }
+    
+    //Programa Aeróbio
+    func pegaAero()->Bool{
+        if (myParam.accessAero && myParam.validAero) == false{
+            return true
+        }
+        let job = httpJob()
+        let aluno = config["user"]!
+        let senha = config["password"]!
+        let agora = currentDateTime()
+        let authStr = authenticate(usr: aluno, pwd: senha, time: agora)
+        job.setServer(server)
+        job.setPath("/vfp/APPAluno.avfp")
+        job.setParameters(["objeto":"webAero","aluno":aluno,"timestamp":agora,"sha-256":authStr, "dia":"8"])
+        lbConnect.text = "Carregando Séries"
+        lbConnect.isHidden = false
+        rawAero = job.execute()
+        lbConnect.isHidden = true
+        aero.clear()
+        if rawAero.isEmpty{
+            _ = warning(view: self, title: "Erro", message: "Servidor não respondeu", buttons: 1)
+            return false
+        }else{
+            if job.getContentType().uppercased().contains("JSON"){
+                //var jsonOk = 0
+                if let _ = try? JSON(data: rawAero.data(using: .utf8)!){
+                    return true
+                }else{
+                    myParam.validAero = false
+                    return true
+                }
+            }else{
+                myParam.validAero = false
+                return true
+            }
+        }
+    }
+    
+    // Série de Musculação
+    func pegaSerie()->Bool{
+        if (myParam.accessMusc && myParam.validSerie) == false{
+            return true
+        }
+        let job = httpJob()
+        let aluno = config["user"]!
+        let senha = config["password"]!
+        let agora = currentDateTime()
+        let authStr = authenticate(usr: aluno, pwd: senha, time: agora)
+        job.setServer(server)
+        job.setPath("/vfp/APPAluno.avfp")
+        job.setParameters(["objeto":"webSerie","aluno":aluno,"timestamp":agora,"sha-256":authStr, "dia":"8"])
+        lbConnect.text = "Carregando Séries"
+        lbConnect.isHidden = false
+        rawSerie = job.execute()
+        lbConnect.isHidden = true
+        serie.clear()
+        if rawAero.isEmpty{
+            _ = warning(view: self, title: "Erro", message: "Servidor não respondeu", buttons: 1)
+            return false
+        }else{
+            if job.getContentType().uppercased().contains("JSON"){
+                //var jsonOk = 0
+                if let _ = try? JSON(data: rawSerie.data(using: .utf8)!){
+                    return true
+                }else{
+                    myParam.validSerie = false
+                    return true
+                }
+            }else{
+                myParam.validSerie = false
+                return true
+            }
+        }
+    }
+    
+    // Turmas
+    func pegaTurmas()->Bool{
+        if (myParam.accessTurma && myParam.validTurma) == false{
+            return true
+        }
+        let job = httpJob()
+        let aluno = config["user"]!
+        let senha = config["password"]!
+        let agora = currentDateTime()
+        let authStr = authenticate(usr: aluno, pwd: senha, time: agora)
+        job.setServer(server)
+        job.setPath("/vfp/APPAluno.avfp")
+        job.setParameters(["objeto":"webTurma","aluno":aluno,"timestamp":agora,"sha-256":authStr, "dia":"8"])
+        lbConnect.text = "Carregando Turmas..."
+        lbConnect.isHidden = false
+        rawTurmas = job.execute()
+        lbConnect.isHidden = true
+        if rawTurmas.isEmpty{
+            _ = warning(view: self, title: "Erro", message: "Servidor não respondeu", buttons: 1)
+            return false
+        }else{
+            if job.getContentType().uppercased().contains("JSON"){
+                if let _ = try? JSON(data: rawTurmas.data(using: .utf8)!){
+                    return true
+                }else{
+                    myParam.validTurma = false
+                    return true
+                }
+            }else{
+                myParam.validTurma = false
+                return true
+            }
+        }
     }
     
     @IBAction func btnGoClick(_ sender: Any) {

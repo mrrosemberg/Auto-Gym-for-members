@@ -21,6 +21,7 @@ class TurmaController: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var btnDom: UIButton!
     @IBOutlet weak var list1: UITableView!
     var turmaData = Turmas([Turma("", "", "", "", "", "", false)])
+    var firstTime = true
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return turmaData.turma.count
@@ -58,13 +59,17 @@ class TurmaController: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.turmaData.clear()
         self.loadTurmas(0)
-        //stackVC?.append(self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         list1.contentInset = UIEdgeInsets(top: 0, left: -15, bottom: 0, right: 0)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if self.turmaData.turma.count<1 && self.firstTime{
+            _ = warning(view: self, title: "Aviso", message: "Não há turmas para o dia de hoje", buttons: 1)
+        }
     }
     
     func allRegular(){
@@ -135,68 +140,71 @@ class TurmaController: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func loadTurmas(_ dia:Int){
-        let job = httpJob()
-        let aluno = config["user"]!
-        let senha = config["password"]!
-        let agora = currentDateTime()
-        let authStr = authenticate(usr: aluno, pwd: senha, time: agora)
-        job.setServer(server)
-        job.setPath("/vfp/APPAluno.avfp")
-        job.setParameters(["objeto":"webTurma","aluno":aluno,"timestamp":agora,"sha-256":authStr, "dia":String(dia)])
-        let resp = job.execute()
         turmaData.clear()
-        if resp.isEmpty{
-            _ = warning(view: self, title: "Erro", message: "Servidor não respondeu", buttons: 1)
-            return
-        }else{
-            if job.getContentType().uppercased().contains("JSON"){
-                //var jsonOk = 0
-                if let json = try? JSON(data: resp.data(using: .utf8)!){
-                    //print(resp)
-                    turmaData.dayOfWeek = json["dayofweek"].stringValue
-                    if dia==2 || (dia==0 && turmaData.dayOfWeek.lowercased().contains("seg")){
-                        allRegular()
-                        boldAndUnderlineButtom(btnSeg)
-                    }
-                    if dia==3 || (dia==0 && turmaData.dayOfWeek.lowercased().contains("ter")){
-                        allRegular()
-                        boldAndUnderlineButtom(btnTer)
-                    }
-                    if dia==4 || (dia==0 && turmaData.dayOfWeek.lowercased().contains("qua")){
-                        allRegular()
-                        boldAndUnderlineButtom(btnQua)
-                    }
-                    if dia==5 || (dia==0 && turmaData.dayOfWeek.lowercased().contains("qui")){
-                        allRegular()
-                        boldAndUnderlineButtom(btnQui)
-                    }
-                    if dia==6 || (dia==0 && turmaData.dayOfWeek.lowercased().contains("sex")){
-                        allRegular()
-                        boldAndUnderlineButtom(btnSex)
-                    }
-                    if dia==7 || (dia==0 && turmaData.dayOfWeek.lowercased().contains("sab")){
-                        allRegular()
-                        boldAndUnderlineButtom(btnSab)
-                    }
-                    if dia==1 || (dia==0 && turmaData.dayOfWeek.lowercased().contains("dom")){
-                        allRegular()
-                        boldAndUnderlineButtom(btnDom)
-                    }
-                    let dict = json["turma"].dictionaryValue
-                    let list = dict["rows"]!.arrayValue
-                    for item in list{
-                        turmaData.addTurma(Turma(item["turma"].stringValue, item["professor"].stringValue, item["sala"].stringValue, item["atividade"].stringValue, item["inicio"].stringValue, item["fim"].stringValue, item["matriculado"].boolValue))
-                    }
-                    list1.reloadData()
-                }else{
-                    _ = warning(view: self, title: "Erro", message: "JSON de turmas coletivas inválido", buttons: 1)
-                    return
+        var dia = dia
+        self.firstTime = dia==0 ? true : false
+        if rawTurmas.isEmpty==false{
+            guard let json = try? JSON(data: rawTurmas.data(using: .utf8)!) else {return}
+            turmaData.dayOfWeek = json["dayofweek"].stringValue
+            allRegular()
+            if dia==2 || (dia==0 && turmaData.dayOfWeek.lowercased().contains("seg")){
+                dia = 2
+                boldAndUnderlineButtom(btnSeg)
+            }
+            if dia==3 || (dia==0 && turmaData.dayOfWeek.lowercased().contains("ter")){
+                dia = 3
+                boldAndUnderlineButtom(btnTer)
+            }
+            if dia==4 || (dia==0 && turmaData.dayOfWeek.lowercased().contains("qua")){
+                dia = 4
+                boldAndUnderlineButtom(btnQua)
+            }
+            if dia==5 || (dia==0 && turmaData.dayOfWeek.lowercased().contains("qui")){
+                dia = 5
+                boldAndUnderlineButtom(btnQui)
+            }
+            if dia==6 || (dia==0 && turmaData.dayOfWeek.lowercased().contains("sex")){
+                dia = 6
+                boldAndUnderlineButtom(btnSex)
+            }
+            if dia==7 || (dia==0 && turmaData.dayOfWeek.lowercased().contains("sab")){
+                dia = 7
+                boldAndUnderlineButtom(btnSab)
+            }
+            if dia==1 || (dia==0 && turmaData.dayOfWeek.lowercased().contains("dom")){
+                dia = 1
+                boldAndUnderlineButtom(btnDom)
+            }
+            let dict = json["turma"].dictionaryValue
+            let list = dict["rows"]!.arrayValue
+            for item in list{
+                if (dia==1 && item["domf"].stringValue>"00:00") {
+                    turmaData.addTurma(Turma(item["turma"].stringValue, item["professor"].stringValue, item["sala"].stringValue, item["atividade"].stringValue, item["domi"].stringValue, item["domf"].stringValue, item["matriculado"].boolValue))
                 }
-            }else{
-                _ = warning(view: self, title: "Erro", message: resp, buttons: 1)
+                if (dia==2 && item["segf"].stringValue>"00:00") {
+                    turmaData.addTurma(Turma(item["turma"].stringValue, item["professor"].stringValue, item["sala"].stringValue, item["atividade"].stringValue, item["segi"].stringValue, item["segf"].stringValue, item["matriculado"].boolValue))
+                }
+                if (dia==3 && item["terf"].stringValue>"00:00") {
+                    turmaData.addTurma(Turma(item["turma"].stringValue, item["professor"].stringValue, item["sala"].stringValue, item["atividade"].stringValue, item["teri"].stringValue, item["terf"].stringValue, item["matriculado"].boolValue))
+                }
+                if (dia==4 && item["quaf"].stringValue>"00:00") {
+                    turmaData.addTurma(Turma(item["turma"].stringValue, item["professor"].stringValue, item["sala"].stringValue, item["atividade"].stringValue, item["quai"].stringValue, item["quaf"].stringValue, item["matriculado"].boolValue))
+                }
+                if (dia==5 && item["quif"].stringValue>"00:00") {
+                    turmaData.addTurma(Turma(item["turma"].stringValue, item["professor"].stringValue, item["sala"].stringValue, item["atividade"].stringValue, item["quii"].stringValue, item["quif"].stringValue, item["matriculado"].boolValue))
+                }
+                if (dia==6 && item["sexf"].stringValue>"00:00") {
+                    turmaData.addTurma(Turma(item["turma"].stringValue, item["professor"].stringValue, item["sala"].stringValue, item["atividade"].stringValue, item["sexi"].stringValue, item["sexf"].stringValue, item["matriculado"].boolValue))
+                }
+                if (dia==7 && item["sabf"].stringValue>"00:00") {
+                    turmaData.addTurma(Turma(item["turma"].stringValue, item["professor"].stringValue, item["sala"].stringValue, item["atividade"].stringValue, item["sabi"].stringValue, item["sabf"].stringValue, item["matriculado"].boolValue))
+                }
+            }
+            list1.reloadData()
+            if self.firstTime==false && self.turmaData.turma.count<1{
+                _ = warning(view: self, title: "Aviso", message: "Não há turmas para o dia selecionado", buttons: 1)
             }
         }
-        return
     }
         
 }

@@ -58,10 +58,9 @@ class PasswordController: UIViewController {
             if job.getContentType().uppercased().contains("JSON"){
                 //var jsonOk = 0
                 if let json = try? JSON(data: resp.data(using: .utf8)!){
-                    print(resp)
                     if json["success"].boolValue == false{
-                        print("Chave: "+json["chave"].stringValue)
-                        print("Senha decifrada no servidor: "+json["senhaplain"].stringValue)
+                        //print("Chave: "+json["chave"].stringValue)
+                        //print("Senha decifrada no servidor: "+json["senhaplain"].stringValue)
                         _ = warning(view: self, title: "Erro", message: "Senha não foi alterada", buttons: 1)
                         return false
                     }
