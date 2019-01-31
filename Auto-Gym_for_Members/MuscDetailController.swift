@@ -28,8 +28,11 @@ class MuscDetailController: UIViewController, UITableViewDelegate, UITableViewDa
         return listaMusc.count
     }
     
-    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    //public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
+        let view = UIView()
+        view.backgroundColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1)
         var ret = "Lista de Exercícios - "
         
         if serie.header.diaourotina == "rotina"{
@@ -78,8 +81,15 @@ class MuscDetailController: UIViewController, UITableViewDelegate, UITableViewDa
                 ret.append("Sábado")
             }
         }
-        
-        return ret
+        let lbl = UILabel()
+        lbl.font = UIFont.boldSystemFont(ofSize: 17)
+        lbl.textColor = UIColor.black
+        lbl.adjustsFontSizeToFitWidth=true
+        lbl.frame = CGRect(x: 15, y: 0, width:300, height:30)
+        lbl.text = ret
+        view.addSubview(lbl)
+        return view
+       // return ret
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

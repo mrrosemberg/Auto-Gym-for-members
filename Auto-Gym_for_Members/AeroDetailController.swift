@@ -28,8 +28,10 @@ class AeroDetailController: UIViewController, UITableViewDelegate, UITableViewDa
         return listaAero.count
     }
     
-    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
+        let view = UIView()
+        view.backgroundColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1)
         var ret = "Exercícios Aeróbios - "
         
         if aero.header.diaourotina == "rotina"{
@@ -78,8 +80,15 @@ class AeroDetailController: UIViewController, UITableViewDelegate, UITableViewDa
                 ret.append("Sábado")
             }
         }
-        
-        return ret
+        let lbl = UILabel()
+        lbl.font = UIFont.boldSystemFont(ofSize: 17)
+        lbl.textColor = UIColor.black
+        lbl.adjustsFontSizeToFitWidth=true
+        lbl.frame = CGRect(x: 15, y: 0, width:300, height:30)
+        lbl.text = ret
+        view.addSubview(lbl)
+        return view
+        //return ret
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
