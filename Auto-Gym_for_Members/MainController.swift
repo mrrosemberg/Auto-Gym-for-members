@@ -51,6 +51,7 @@ class MainController: UIViewController {
                 btnGo.isHidden = false
             }
         }
+        lbConnect.isHidden = true
     }
     
     /*
@@ -64,7 +65,7 @@ class MainController: UIViewController {
     */
     
     func trataResp(_ resposta:String, _ contentType:String){
-        lbConnect.isHidden = true
+        lbConnect.setCaption("Carregando Dados...")
         if contentType.uppercased().contains("JSON"){
             //_ = warning(view: self, title: "Aviso", message: "Autenticação Ok", buttons:1)
             var jsonOk = 0
@@ -212,12 +213,10 @@ class MainController: UIViewController {
         job.setServer(server)
         job.setPath("/vfp/APPAluno.avfp")
         job.setParameters(["objeto":"webAval","aluno":aluno,"timestamp":agora,"sha-256":authStr])
-        lbConnect.text = "Carregando Avaliações..."
-        lbConnect.isHidden = false
         rawAval = job.execute()
-        lbConnect.isHidden = true
         if rawAval.isEmpty{
             _ = warning(view: self, title: "Erro", message: "Sem conexão com o servidor", buttons:1)
+            lbConnect.setCaption(" ")
             return false
         }
         if job.getContentType().lowercased().contains("json")==false{
@@ -241,13 +240,11 @@ class MainController: UIViewController {
         job.setServer(server)
         job.setPath("/vfp/APPAluno.avfp")
         job.setParameters(["objeto":"webAero","aluno":aluno,"timestamp":agora,"sha-256":authStr, "dia":"8"])
-        lbConnect.text = "Carregando Séries"
-        lbConnect.isHidden = false
         rawAero = job.execute()
-        lbConnect.isHidden = true
         aero.clear()
         if rawAero.isEmpty{
             _ = warning(view: self, title: "Erro", message: "Servidor não respondeu", buttons: 1)
+            lbConnect.setCaption(" ")
             return false
         }else{
             if job.getContentType().uppercased().contains("JSON"){
@@ -278,13 +275,11 @@ class MainController: UIViewController {
         job.setServer(server)
         job.setPath("/vfp/APPAluno.avfp")
         job.setParameters(["objeto":"webSerie","aluno":aluno,"timestamp":agora,"sha-256":authStr, "dia":"8"])
-        lbConnect.text = "Carregando Séries"
-        lbConnect.isHidden = false
         rawSerie = job.execute()
-        lbConnect.isHidden = true
         serie.clear()
         if rawAero.isEmpty{
             _ = warning(view: self, title: "Erro", message: "Servidor não respondeu", buttons: 1)
+            lbConnect.setCaption(" ")
             return false
         }else{
             if job.getContentType().uppercased().contains("JSON"){
@@ -315,12 +310,10 @@ class MainController: UIViewController {
         job.setServer(server)
         job.setPath("/vfp/APPAluno.avfp")
         job.setParameters(["objeto":"webTurma","aluno":aluno,"timestamp":agora,"sha-256":authStr, "dia":"8"])
-        lbConnect.text = "Carregando Turmas..."
-        lbConnect.isHidden = false
         rawTurmas = job.execute()
-        lbConnect.isHidden = true
         if rawTurmas.isEmpty{
             _ = warning(view: self, title: "Erro", message: "Servidor não respondeu", buttons: 1)
+            lbConnect.setCaption(" ")
             return false
         }else{
             if job.getContentType().uppercased().contains("JSON"){
@@ -338,6 +331,7 @@ class MainController: UIViewController {
     }
     
     @IBAction func btnGoClick(_ sender: Any) {
+        lbConnect.setCaption("Conectando Servidor1...")
         let job = httpJob()
         server = config["server1"]!
         //server = "192.168.0.5:9000"
@@ -349,20 +343,18 @@ class MainController: UIViewController {
         job.setServer(server)
         job.setPath("/vfp/APPAluno.avfp")
         job.setParameters(["objeto":"webAuthAluno","aluno":aluno,"timestamp":agora,"sha-256":authStr])
-        lbConnect.text = "Conectando Servidor1..."
-        lbConnect.isHidden = false
         var resp = job.execute()
         if resp.isEmpty{
-           lbConnect.text = "Conectando Servidor2..."
+            lbConnect.setCaption("Conectando Servidor2...")
             server = config["server2"]!
             job.setServer(server)
             resp = job.execute()
             if resp.isEmpty{
                 _ = warning(view: self, title: "Erro", message: "Sem conexão com o servidor", buttons:1)
-                lbConnect.isHidden = true
+                lbConnect.setCaption(" ")
                 return
             }else{
-               self.trataResp(resp, job.getContentType())
+                self.trataResp(resp, job.getContentType())
             }
         }else{
             self.trataResp(resp, job.getContentType())

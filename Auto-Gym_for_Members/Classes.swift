@@ -485,3 +485,13 @@ extension UIViewController {
         view.endEditing(true)
     }
 }
+
+extension UILabel{
+    func setCaption(_ to: String) {
+        DispatchQueue.main.async {
+            self.text = to
+            self.isHidden = false
+            self.setNeedsDisplay()
+        }
+    }
+}
