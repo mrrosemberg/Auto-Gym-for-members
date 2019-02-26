@@ -48,8 +48,8 @@ class PasswordController: UIViewController {
         let authStr = authenticate(usr: aluno, pwd: senha, time: agora)
         let novaSenha = makeNewPassword(senha1.text!, aluno, senha, agora)
         job.setServer(server)
-        job.setPath("/vfp/APPAluno.avfp")
-        job.setParameters(["objeto":"websenha","aluno":aluno,"timestamp":agora,"sha-256":authStr, "senha":novaSenha])
+        job.setPath("/asp/aspgym.aspx")
+        job.setParameters(["objeto":"aspsenha","aluno":aluno,"timestamp":agora,"sha-256":authStr, "senha":novaSenha])
         let resp = job.execute()
         if resp.isEmpty{
             _ = warning(view: self, title: "Erro", message: "Servidor não respondeu", buttons: 1)
