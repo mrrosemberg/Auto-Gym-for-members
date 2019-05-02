@@ -23,6 +23,8 @@
 		D574FD4221F8B5B900B8044E /* AeroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D574FD4121F8B5B900B8044E /* AeroController.swift */; };
 		D574FD4421F8B5DE00B8044E /* AeroDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D574FD4321F8B5DE00B8044E /* AeroDetailController.swift */; };
 		D574FD4621F8B60900B8044E /* ExAeroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D574FD4521F8B60900B8044E /* ExAeroController.swift */; };
+		D5A2A194227B4BF300F61239 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A2A188227B4BF300F61239 /* GoogleMobileAds.framework */; };
+		D5A2A195227B5BA500F61239 /* GoogleMobileAds.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5A2A188227B4BF300F61239 /* GoogleMobileAds.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D5A4CC1221C3EAD0000C9358 /* ConfigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A4CC1121C3EAD0000C9358 /* ConfigController.swift */; };
 		D5B5238121C03FF900B2EAF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B5238021C03FF900B2EAF2 /* AppDelegate.swift */; };
 		D5B5238621C03FF900B2EAF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B5238421C03FF900B2EAF2 /* Main.storyboard */; };
@@ -141,15 +143,16 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		D51A515B21C1822800A59FFB /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				D5A2A195227B5BA500F61239 /* GoogleMobileAds.framework in Embed Frameworks */,
 				D51A515821C1822700A59FFB /* SwiftyJSON.framework in Embed Frameworks */,
 				D51A515D21C1823C00A59FFB /* CryptoSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -167,6 +170,7 @@
 		D574FD4121F8B5B900B8044E /* AeroController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AeroController.swift; sourceTree = "<group>"; };
 		D574FD4321F8B5DE00B8044E /* AeroDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AeroDetailController.swift; sourceTree = "<group>"; };
 		D574FD4521F8B60900B8044E /* ExAeroController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExAeroController.swift; sourceTree = "<group>"; };
+		D5A2A188227B4BF300F61239 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		D5A4CC1121C3EAD0000C9358 /* ConfigController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigController.swift; sourceTree = "<group>"; };
 		D5B5237D21C03FF900B2EAF2 /* Auto-Gym_for_Members.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Auto-Gym_for_Members.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B5238021C03FF900B2EAF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -190,6 +194,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5A2A194227B4BF300F61239 /* GoogleMobileAds.framework in Frameworks */,
 				D51A515721C1822700A59FFB /* SwiftyJSON.framework in Frameworks */,
 				D51A515C21C1823C00A59FFB /* CryptoSwift.framework in Frameworks */,
 			);
@@ -201,6 +206,7 @@
 		D5B5237421C03FF900B2EAF2 = {
 			isa = PBXGroup;
 			children = (
+				D5A2A188227B4BF300F61239 /* GoogleMobileAds.framework */,
 				D5B523CF21C0404900B2EAF2 /* SwiftyJSON.xcodeproj */,
 				D5B523BD21C0403F00B2EAF2 /* CryptoSwift.xcodeproj */,
 				D5B5237F21C03FF900B2EAF2 /* Auto-Gym_for_Members */,
@@ -629,6 +635,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T6ZRQ479XJ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Auto-Gym_for_Members/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -651,6 +661,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T6ZRQ479XJ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Auto-Gym_for_Members/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -9,8 +9,10 @@
 import UIKit
 import SwiftyJSON
 import CryptoSwift
+import GoogleMobileAds
 
 public var server=""
+//public var googleAdDisplayed = false
 public var config=["server1":"", "server2":"", "logo":"", "icon":"", "user":"", "password":"", "academia":"", "cnpj":""]
 let myParam = Param() //Coleção de parâmetros
 let myAluno = Aluno() //Dados do Aluno
@@ -22,8 +24,12 @@ var rawAval = ""
 var rawSerie = ""
 var rawAero = ""
 var rawTurmas = ""
+let adId = "ca-app-pub-3940256099942544/4411468910"
+var qtdFalhasGoogleAd = 0
 
-class MainController: UIViewController {
+class MainController: UIViewController, GADInterstitialDelegate {
+    
+    var interstitial: GADInterstitial!
     
     @IBOutlet weak var imgLogo: UIImageView!
     @IBOutlet weak var lbTitle: UILabel!
@@ -32,6 +38,11 @@ class MainController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        interstitial = GADInterstitial(adUnitID: adId)
+        let request = GADRequest()
+        interstitial.load(request)
+        interstitial = createAndLoadInterstitial()
+        interstitial.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -189,7 +200,21 @@ class MainController: UIViewController {
                     if self.pegaTurmas()==false{
                         return
                     }
-                    performSegue(withIdentifier: "MenuController", sender: nil)
+                    if interstitial.isReady{
+                        interstitial.present(fromRootViewController: self)
+                    }
+                    else{
+                        if qtdFalhasGoogleAd>0{
+                            performSegue(withIdentifier: "MenuController", sender: nil)
+                            qtdFalhasGoogleAd = 0
+                        }
+                        else{
+                            _ = warning(view: self, title: "Erro", message: "Rede sobrecarregada. Tente novamente", buttons: 1)
+                            qtdFalhasGoogleAd += 1
+                        }
+                        
+                    }
+                    
                 }
             }else{
                 _ = warning(view: self, title: "Erro", message: "JSON de aluno e parâmetro inválido", buttons:1)
@@ -360,4 +385,46 @@ class MainController: UIViewController {
             self.trataResp(resp, job.getContentType())
         }
     }// action Go
+    
+    func createAndLoadInterstitial() -> GADInterstitial{
+        let interstitial = GADInterstitial(adUnitID: adId)
+        interstitial.delegate = self
+        interstitial.load(GADRequest())
+        return interstitial
+    }
+    /// Tells the delegate an ad request succeeded.
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+        print("interstitialDidReceiveAd")
+    }
+    
+    /// Tells the delegate an ad request failed.
+    func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
+        print("interstitial:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+    
+    /// Tells the delegate that an interstitial will be presented.
+    func interstitialWillPresentScreen(_ ad: GADInterstitial) {
+        //print("interstitialWillPresentScreen")
+        return
+    }
+    
+    /// Tells the delegate the interstitial is to be animated off the screen.
+    func interstitialWillDismissScreen(_ ad: GADInterstitial) {
+        //print("interstitialWillDismissScreen")
+        return
+    }
+    
+    /// Tells the delegate the interstitial had been animated off the screen.
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        //print("interstitialDidDismissScreen")
+        performSegue(withIdentifier: "MenuController", sender: nil)
+    }
+    
+    /// Tells the delegate that a user click will open another app
+    /// (such as the App Store), backgrounding the current app.
+    func interstitialWillLeaveApplication(_ ad: GADInterstitial) {
+        //print("interstitialWillLeaveApplication")
+        return
+    }
+
 }

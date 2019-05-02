@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import GoogleMobileAds
 
 class MenuController: UIViewController {
     
@@ -41,4 +42,5 @@ class MenuController: UIViewController {
         lbSenha.isEnabled = (myAluno.Status==2)
         btnSenha.isEnabled = (myAluno.Status==2)
     }
+    
 }
