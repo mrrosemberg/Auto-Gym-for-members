@@ -11,10 +11,8 @@
 		D50ECC9021F0C5E700EF0B86 /* TurmaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50ECC8F21F0C5E700EF0B86 /* TurmaController.swift */; };
 		D519991421E6652600BC42F5 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D519991321E6652600BC42F5 /* MenuController.swift */; };
 		D51A514121C17BF000A59FFB /* Funcoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51A514021C17BF000A59FFB /* Funcoes.swift */; };
-		D51A515721C1822700A59FFB /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B523DB21C0404900B2EAF2 /* SwiftyJSON.framework */; };
-		D51A515821C1822700A59FFB /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5B523DB21C0404900B2EAF2 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D51A515C21C1823C00A59FFB /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B523C621C0404000B2EAF2 /* CryptoSwift.framework */; };
-		D51A515D21C1823C00A59FFB /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5B523C621C0404000B2EAF2 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D51A57242280C6DF00FEDBA1 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D51A57032280C49400FEDBA1 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D51A57252280C6F900FEDBA1 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D51A571A2280C4AC00FEDBA1 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D520435621F77F3B00CDD1D9 /* MuscDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D520435521F77F3B00CDD1D9 /* MuscDetailController.swift */; };
 		D520436A21F7936C00CDD1D9 /* ExMuscController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D520436921F7936C00CDD1D9 /* ExMuscController.swift */; };
 		D5259B5D21C8101700B3811D /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5259B5C21C8101700B3811D /* MainController.swift */; };
@@ -40,103 +38,89 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D51A515921C1822700A59FFB /* PBXContainerItemProxy */ = {
+		D51A57022280C49400FEDBA1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D5B523CF21C0404900B2EAF2 /* SwiftyJSON.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 2E4FEFDA19575BE100351305;
-			remoteInfo = "SwiftyJSON iOS";
-		};
-		D51A515E21C1823C00A59FFB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D5B523BD21C0403F00B2EAF2 /* CryptoSwift.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 754BE45419693E190098E6F3;
-			remoteInfo = CryptoSwift;
-		};
-		D5B523C521C0404000B2EAF2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D5B523BD21C0403F00B2EAF2 /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 754BE45519693E190098E6F3;
-			remoteInfo = CryptoSwift;
-		};
-		D5B523C721C0404000B2EAF2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D5B523BD21C0403F00B2EAF2 /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 75211F92207249D8004E41F8;
-			remoteInfo = "CryptoSwift-TestHostApp";
-		};
-		D5B523C921C0404000B2EAF2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D5B523BD21C0403F00B2EAF2 /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 754BE46019693E190098E6F3;
-			remoteInfo = Tests;
-		};
-		D5B523CB21C0404000B2EAF2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D5B523BD21C0403F00B2EAF2 /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7595C14A2072E48C00EA1A5F;
-			remoteInfo = "TestsPerformance-Mac";
-		};
-		D5B523CD21C0404000B2EAF2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D5B523BD21C0403F00B2EAF2 /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7564F0602072EAEB00CA5A96;
-			remoteInfo = "TestsPerformance-iOS";
-		};
-		D5B523DA21C0404900B2EAF2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D5B523CF21C0404900B2EAF2 /* SwiftyJSON.xcodeproj */;
+			containerPortal = D51A56F72280C49400FEDBA1 /* SwiftyJSON.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 2E4FEFDB19575BE100351305;
 			remoteInfo = "SwiftyJSON iOS";
 		};
-		D5B523DC21C0404900B2EAF2 /* PBXContainerItemProxy */ = {
+		D51A57042280C49400FEDBA1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D5B523CF21C0404900B2EAF2 /* SwiftyJSON.xcodeproj */;
+			containerPortal = D51A56F72280C49400FEDBA1 /* SwiftyJSON.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 2E4FEFE619575BE100351305;
 			remoteInfo = "SwiftyJSON iOS Tests";
 		};
-		D5B523DE21C0404900B2EAF2 /* PBXContainerItemProxy */ = {
+		D51A57062280C49400FEDBA1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D5B523CF21C0404900B2EAF2 /* SwiftyJSON.xcodeproj */;
+			containerPortal = D51A56F72280C49400FEDBA1 /* SwiftyJSON.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 9C7DFC5B1A9102BD005AA3F7;
 			remoteInfo = "SwiftyJSON macOS";
 		};
-		D5B523E021C0404900B2EAF2 /* PBXContainerItemProxy */ = {
+		D51A57082280C49400FEDBA1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D5B523CF21C0404900B2EAF2 /* SwiftyJSON.xcodeproj */;
+			containerPortal = D51A56F72280C49400FEDBA1 /* SwiftyJSON.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 9C7DFC651A9102BD005AA3F7;
 			remoteInfo = "SwiftyJSON macOS Tests";
 		};
-		D5B523E221C0404900B2EAF2 /* PBXContainerItemProxy */ = {
+		D51A570A2280C49400FEDBA1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D5B523CF21C0404900B2EAF2 /* SwiftyJSON.xcodeproj */;
+			containerPortal = D51A56F72280C49400FEDBA1 /* SwiftyJSON.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = E4D7CCE81B9465A700EE7221;
 			remoteInfo = "SwiftyJSON watchOS";
 		};
-		D5B523E421C0404900B2EAF2 /* PBXContainerItemProxy */ = {
+		D51A570C2280C49400FEDBA1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D5B523CF21C0404900B2EAF2 /* SwiftyJSON.xcodeproj */;
+			containerPortal = D51A56F72280C49400FEDBA1 /* SwiftyJSON.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 7236B4F61BAC14150020529B;
 			remoteInfo = "SwiftyJSON tvOS";
 		};
-		D5B523E621C0404900B2EAF2 /* PBXContainerItemProxy */ = {
+		D51A570E2280C49400FEDBA1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D5B523CF21C0404900B2EAF2 /* SwiftyJSON.xcodeproj */;
+			containerPortal = D51A56F72280C49400FEDBA1 /* SwiftyJSON.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = A8580F741BCF5C5B00DA927B;
 			remoteInfo = "SwiftyJSON tvOS Tests";
+		};
+		D51A57192280C4AC00FEDBA1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D51A57102280C4AC00FEDBA1 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE45519693E190098E6F3;
+			remoteInfo = CryptoSwift;
+		};
+		D51A571B2280C4AC00FEDBA1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D51A57102280C4AC00FEDBA1 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 75211F92207249D8004E41F8;
+			remoteInfo = "CryptoSwift-TestHostApp";
+		};
+		D51A571D2280C4AC00FEDBA1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D51A57102280C4AC00FEDBA1 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE46019693E190098E6F3;
+			remoteInfo = Tests;
+		};
+		D51A571F2280C4AC00FEDBA1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D51A57102280C4AC00FEDBA1 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7595C14A2072E48C00EA1A5F;
+			remoteInfo = "TestsPerformance-Mac";
+		};
+		D51A57212280C4AC00FEDBA1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D51A57102280C4AC00FEDBA1 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7564F0602072EAEB00CA5A96;
+			remoteInfo = "TestsPerformance-iOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -147,9 +131,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				D51A57252280C6F900FEDBA1 /* CryptoSwift.framework in Embed Frameworks */,
+				D51A57242280C6DF00FEDBA1 /* SwiftyJSON.framework in Embed Frameworks */,
 				D5A2A195227B5BA500F61239 /* GoogleMobileAds.framework in Embed Frameworks */,
-				D51A515821C1822700A59FFB /* SwiftyJSON.framework in Embed Frameworks */,
-				D51A515D21C1823C00A59FFB /* CryptoSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 1;
@@ -161,6 +145,8 @@
 		D50ECC8F21F0C5E700EF0B86 /* TurmaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurmaController.swift; sourceTree = "<group>"; };
 		D519991321E6652600BC42F5 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		D51A514021C17BF000A59FFB /* Funcoes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Funcoes.swift; sourceTree = "<group>"; };
+		D51A56F72280C49400FEDBA1 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = "../../../Downloads/SwiftyJSON-master/SwiftyJSON.xcodeproj"; sourceTree = "<group>"; };
+		D51A57102280C4AC00FEDBA1 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = "../../../Downloads/CryptoSwift-1.0.0/CryptoSwift.xcodeproj"; sourceTree = "<group>"; };
 		D520435521F77F3B00CDD1D9 /* MuscDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuscDetailController.swift; sourceTree = "<group>"; };
 		D520436921F7936C00CDD1D9 /* ExMuscController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExMuscController.swift; sourceTree = "<group>"; };
 		D5259B5B21C7F57B00B3811D /* Auto-Gym.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Auto-Gym.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -178,8 +164,6 @@
 		D5B5238721C03FFA00B2EAF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D5B5238A21C03FFA00B2EAF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D5B5238C21C03FFA00B2EAF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D5B523BD21C0403F00B2EAF2 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = "../../CryptoSwift-master/CryptoSwift.xcodeproj"; sourceTree = "<group>"; };
-		D5B523CF21C0404900B2EAF2 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = "../../SwiftyJSON-master/SwiftyJSON.xcodeproj"; sourceTree = "<group>"; };
 		D5B5241D21C0443600B2EAF2 /* JMMaskTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JMMaskTextField.swift; sourceTree = "<group>"; };
 		D5B5241E21C0443600B2EAF2 /* JMStringMask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JMStringMask.swift; sourceTree = "<group>"; };
 		D5DEAAC221F64109000920B4 /* MuscController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuscController.swift; sourceTree = "<group>"; };
@@ -195,20 +179,44 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5A2A194227B4BF300F61239 /* GoogleMobileAds.framework in Frameworks */,
-				D51A515721C1822700A59FFB /* SwiftyJSON.framework in Frameworks */,
-				D51A515C21C1823C00A59FFB /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D51A56F82280C49400FEDBA1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D51A57032280C49400FEDBA1 /* SwiftyJSON.framework */,
+				D51A57052280C49400FEDBA1 /* SwiftyJSON iOS Tests.xctest */,
+				D51A57072280C49400FEDBA1 /* SwiftyJSON.framework */,
+				D51A57092280C49400FEDBA1 /* SwiftyJSON macOS Tests.xctest */,
+				D51A570B2280C49400FEDBA1 /* SwiftyJSON.framework */,
+				D51A570D2280C49400FEDBA1 /* SwiftyJSON.framework */,
+				D51A570F2280C49400FEDBA1 /* SwiftyJSON tvOS Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D51A57112280C4AC00FEDBA1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D51A571A2280C4AC00FEDBA1 /* CryptoSwift.framework */,
+				D51A571C2280C4AC00FEDBA1 /* CryptoSwift-TestHostApp.app */,
+				D51A571E2280C4AC00FEDBA1 /* Tests.xctest */,
+				D51A57202280C4AC00FEDBA1 /* TestsPerformance-Mac.xctest */,
+				D51A57222280C4AC00FEDBA1 /* TestsPerformance-iOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		D5B5237421C03FF900B2EAF2 = {
 			isa = PBXGroup;
 			children = (
+				D51A57102280C4AC00FEDBA1 /* CryptoSwift.xcodeproj */,
+				D51A56F72280C49400FEDBA1 /* SwiftyJSON.xcodeproj */,
 				D5A2A188227B4BF300F61239 /* GoogleMobileAds.framework */,
-				D5B523CF21C0404900B2EAF2 /* SwiftyJSON.xcodeproj */,
-				D5B523BD21C0403F00B2EAF2 /* CryptoSwift.xcodeproj */,
 				D5B5237F21C03FF900B2EAF2 /* Auto-Gym_for_Members */,
 				D5B5237E21C03FF900B2EAF2 /* Products */,
 			);
@@ -255,32 +263,6 @@
 			path = "Auto-Gym_for_Members";
 			sourceTree = "<group>";
 		};
-		D5B523BE21C0403F00B2EAF2 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D5B523C621C0404000B2EAF2 /* CryptoSwift.framework */,
-				D5B523C821C0404000B2EAF2 /* CryptoSwift-TestHostApp.app */,
-				D5B523CA21C0404000B2EAF2 /* Tests.xctest */,
-				D5B523CC21C0404000B2EAF2 /* TestsPerformance-Mac.xctest */,
-				D5B523CE21C0404000B2EAF2 /* TestsPerformance-iOS.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		D5B523D021C0404900B2EAF2 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D5B523DB21C0404900B2EAF2 /* SwiftyJSON.framework */,
-				D5B523DD21C0404900B2EAF2 /* SwiftyJSON iOS Tests.xctest */,
-				D5B523DF21C0404900B2EAF2 /* SwiftyJSON.framework */,
-				D5B523E121C0404900B2EAF2 /* SwiftyJSON macOS Tests.xctest */,
-				D5B523E321C0404900B2EAF2 /* SwiftyJSON.framework */,
-				D5B523E521C0404900B2EAF2 /* SwiftyJSON.framework */,
-				D5B523E721C0404900B2EAF2 /* SwiftyJSON tvOS Tests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -296,8 +278,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				D51A515A21C1822700A59FFB /* PBXTargetDependency */,
-				D51A515F21C1823C00A59FFB /* PBXTargetDependency */,
 			);
 			name = "Auto-Gym_for_Members";
 			productName = "Auto-Gym_for_Members";
@@ -332,12 +312,12 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = D5B523BE21C0403F00B2EAF2 /* Products */;
-					ProjectRef = D5B523BD21C0403F00B2EAF2 /* CryptoSwift.xcodeproj */;
+					ProductGroup = D51A57112280C4AC00FEDBA1 /* Products */;
+					ProjectRef = D51A57102280C4AC00FEDBA1 /* CryptoSwift.xcodeproj */;
 				},
 				{
-					ProductGroup = D5B523D021C0404900B2EAF2 /* Products */;
-					ProjectRef = D5B523CF21C0404900B2EAF2 /* SwiftyJSON.xcodeproj */;
+					ProductGroup = D51A56F82280C49400FEDBA1 /* Products */;
+					ProjectRef = D51A56F72280C49400FEDBA1 /* SwiftyJSON.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -348,88 +328,88 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		D5B523C621C0404000B2EAF2 /* CryptoSwift.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CryptoSwift.framework;
-			remoteRef = D5B523C521C0404000B2EAF2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D5B523C821C0404000B2EAF2 /* CryptoSwift-TestHostApp.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "CryptoSwift-TestHostApp.app";
-			remoteRef = D5B523C721C0404000B2EAF2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D5B523CA21C0404000B2EAF2 /* Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = Tests.xctest;
-			remoteRef = D5B523C921C0404000B2EAF2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D5B523CC21C0404000B2EAF2 /* TestsPerformance-Mac.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "TestsPerformance-Mac.xctest";
-			remoteRef = D5B523CB21C0404000B2EAF2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D5B523CE21C0404000B2EAF2 /* TestsPerformance-iOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "TestsPerformance-iOS.xctest";
-			remoteRef = D5B523CD21C0404000B2EAF2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D5B523DB21C0404900B2EAF2 /* SwiftyJSON.framework */ = {
+		D51A57032280C49400FEDBA1 /* SwiftyJSON.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = SwiftyJSON.framework;
-			remoteRef = D5B523DA21C0404900B2EAF2 /* PBXContainerItemProxy */;
+			remoteRef = D51A57022280C49400FEDBA1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D5B523DD21C0404900B2EAF2 /* SwiftyJSON iOS Tests.xctest */ = {
+		D51A57052280C49400FEDBA1 /* SwiftyJSON iOS Tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "SwiftyJSON iOS Tests.xctest";
-			remoteRef = D5B523DC21C0404900B2EAF2 /* PBXContainerItemProxy */;
+			remoteRef = D51A57042280C49400FEDBA1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D5B523DF21C0404900B2EAF2 /* SwiftyJSON.framework */ = {
+		D51A57072280C49400FEDBA1 /* SwiftyJSON.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = SwiftyJSON.framework;
-			remoteRef = D5B523DE21C0404900B2EAF2 /* PBXContainerItemProxy */;
+			remoteRef = D51A57062280C49400FEDBA1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D5B523E121C0404900B2EAF2 /* SwiftyJSON macOS Tests.xctest */ = {
+		D51A57092280C49400FEDBA1 /* SwiftyJSON macOS Tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "SwiftyJSON macOS Tests.xctest";
-			remoteRef = D5B523E021C0404900B2EAF2 /* PBXContainerItemProxy */;
+			remoteRef = D51A57082280C49400FEDBA1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D5B523E321C0404900B2EAF2 /* SwiftyJSON.framework */ = {
+		D51A570B2280C49400FEDBA1 /* SwiftyJSON.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = SwiftyJSON.framework;
-			remoteRef = D5B523E221C0404900B2EAF2 /* PBXContainerItemProxy */;
+			remoteRef = D51A570A2280C49400FEDBA1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D5B523E521C0404900B2EAF2 /* SwiftyJSON.framework */ = {
+		D51A570D2280C49400FEDBA1 /* SwiftyJSON.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = SwiftyJSON.framework;
-			remoteRef = D5B523E421C0404900B2EAF2 /* PBXContainerItemProxy */;
+			remoteRef = D51A570C2280C49400FEDBA1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D5B523E721C0404900B2EAF2 /* SwiftyJSON tvOS Tests.xctest */ = {
+		D51A570F2280C49400FEDBA1 /* SwiftyJSON tvOS Tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "SwiftyJSON tvOS Tests.xctest";
-			remoteRef = D5B523E621C0404900B2EAF2 /* PBXContainerItemProxy */;
+			remoteRef = D51A570E2280C49400FEDBA1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D51A571A2280C4AC00FEDBA1 /* CryptoSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CryptoSwift.framework;
+			remoteRef = D51A57192280C4AC00FEDBA1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D51A571C2280C4AC00FEDBA1 /* CryptoSwift-TestHostApp.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "CryptoSwift-TestHostApp.app";
+			remoteRef = D51A571B2280C4AC00FEDBA1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D51A571E2280C4AC00FEDBA1 /* Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tests.xctest;
+			remoteRef = D51A571D2280C4AC00FEDBA1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D51A57202280C4AC00FEDBA1 /* TestsPerformance-Mac.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "TestsPerformance-Mac.xctest";
+			remoteRef = D51A571F2280C4AC00FEDBA1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D51A57222280C4AC00FEDBA1 /* TestsPerformance-iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "TestsPerformance-iOS.xctest";
+			remoteRef = D51A57212280C4AC00FEDBA1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -477,19 +457,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D51A515A21C1822700A59FFB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "SwiftyJSON iOS";
-			targetProxy = D51A515921C1822700A59FFB /* PBXContainerItemProxy */;
-		};
-		D51A515F21C1823C00A59FFB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CryptoSwift;
-			targetProxy = D51A515E21C1823C00A59FFB /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D5B5238421C03FF900B2EAF2 /* Main.storyboard */ = {
@@ -634,7 +601,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T6ZRQ479XJ;
+				DEVELOPMENT_TEAM = T7CRNMJTBC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -660,7 +627,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T6ZRQ479XJ;
+				DEVELOPMENT_TEAM = T7CRNMJTBC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

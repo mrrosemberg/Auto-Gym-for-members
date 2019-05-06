@@ -24,8 +24,11 @@ var rawAval = ""
 var rawSerie = ""
 var rawAero = ""
 var rawTurmas = ""
-let adId = "ca-app-pub-3940256099942544/4411468910"
+let adId = "ca-app-pub-4425679828859390/3663886726"
 var qtdFalhasGoogleAd = 0
+var AppIsValid = true
+var jaChecouVersao = false
+let AppVersion = "1.0.1" //current AppVersion
 
 class MainController: UIViewController, GADInterstitialDelegate {
     
@@ -47,6 +50,7 @@ class MainController: UIViewController, GADInterstitialDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         //print(view.frame.size.width)
+        self.AppValidate()
         let file = File(fileName: "config", fileExt: "dat")
         if file.exists(){
             config = file.read()
@@ -356,6 +360,10 @@ class MainController: UIViewController, GADInterstitialDelegate {
     }
     
     @IBAction func btnGoClick(_ sender: Any) {
+        if AppIsValid==false{
+            _ = warning(view: self, title: "Aplicativo Obsoleto", message: "A versão do seu APP está desatualziada. Por favor, atualize-a na Apple Store", buttons: 1)
+            return
+        }
         lbConnect.setCaption("Conectando Servidor1...")
         let job = httpJob()
         server = config["server1"]!
@@ -427,4 +435,24 @@ class MainController: UIViewController, GADInterstitialDelegate {
         return
     }
 
+    func AppValidate() {
+        if jaChecouVersao{
+            return
+        }
+        let job = httpJob()
+        job.setServer("sysnetweb.com.br:4443")
+        job.setProtocolHttps()
+        job.setPath("/asp/versiongym.aspx")
+        job.setParameters(["objeto":"aspGetMinValidVersion","version":AppVersion])
+        let resp = job.execute()
+        //print("Resp: "+resp)
+        //print("Lasterror: "+job.getLastError())
+        if resp.count>0{
+            jaChecouVersao = true
+        }
+        if resp == "OBSOLETE VERSION"{
+           AppIsValid = false
+        }
+        return
+    }
 }
