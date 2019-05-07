@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5EA33A73258C3AC0DD84C052 /* Pods_Auto_Gym_for_Members.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029EC80E2BC05578CA3958E2 /* Pods_Auto_Gym_for_Members.framework */; };
 		D50BCA7121EE19ED00154B0E /* AltUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50BCA7021EE19ED00154B0E /* AltUserController.swift */; };
 		D50ECC9021F0C5E700EF0B86 /* TurmaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50ECC8F21F0C5E700EF0B86 /* TurmaController.swift */; };
 		D519991421E6652600BC42F5 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D519991321E6652600BC42F5 /* MenuController.swift */; };
@@ -17,12 +18,11 @@
 		D520436A21F7936C00CDD1D9 /* ExMuscController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D520436921F7936C00CDD1D9 /* ExMuscController.swift */; };
 		D5259B5D21C8101700B3811D /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5259B5C21C8101700B3811D /* MainController.swift */; };
 		D5259B5F21C81F2500B3811D /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5259B5E21C81F2500B3811D /* Classes.swift */; };
+		D5264EAF2281E0A4004C4FBE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5264EAE2281E0A3004C4FBE /* GoogleService-Info.plist */; };
 		D574FD4021F8AC9900B8044E /* TurmaDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D574FD3F21F8AC9900B8044E /* TurmaDetailController.swift */; };
 		D574FD4221F8B5B900B8044E /* AeroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D574FD4121F8B5B900B8044E /* AeroController.swift */; };
 		D574FD4421F8B5DE00B8044E /* AeroDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D574FD4321F8B5DE00B8044E /* AeroDetailController.swift */; };
 		D574FD4621F8B60900B8044E /* ExAeroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D574FD4521F8B60900B8044E /* ExAeroController.swift */; };
-		D5A2A194227B4BF300F61239 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A2A188227B4BF300F61239 /* GoogleMobileAds.framework */; };
-		D5A2A195227B5BA500F61239 /* GoogleMobileAds.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5A2A188227B4BF300F61239 /* GoogleMobileAds.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D5A4CC1221C3EAD0000C9358 /* ConfigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A4CC1121C3EAD0000C9358 /* ConfigController.swift */; };
 		D5B5238121C03FF900B2EAF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B5238021C03FF900B2EAF2 /* AppDelegate.swift */; };
 		D5B5238621C03FF900B2EAF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B5238421C03FF900B2EAF2 /* Main.storyboard */; };
@@ -133,7 +133,6 @@
 			files = (
 				D51A57252280C6F900FEDBA1 /* CryptoSwift.framework in Embed Frameworks */,
 				D51A57242280C6DF00FEDBA1 /* SwiftyJSON.framework in Embed Frameworks */,
-				D5A2A195227B5BA500F61239 /* GoogleMobileAds.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 1;
@@ -141,6 +140,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		029EC80E2BC05578CA3958E2 /* Pods_Auto_Gym_for_Members.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Auto_Gym_for_Members.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C7ABF756CB435375092AFE1 /* Pods-Auto-Gym_for_Members.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Auto-Gym_for_Members.release.xcconfig"; path = "Pods/Target Support Files/Pods-Auto-Gym_for_Members/Pods-Auto-Gym_for_Members.release.xcconfig"; sourceTree = "<group>"; };
 		D50BCA7021EE19ED00154B0E /* AltUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltUserController.swift; sourceTree = "<group>"; };
 		D50ECC8F21F0C5E700EF0B86 /* TurmaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurmaController.swift; sourceTree = "<group>"; };
 		D519991321E6652600BC42F5 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
@@ -152,11 +153,11 @@
 		D5259B5B21C7F57B00B3811D /* Auto-Gym.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Auto-Gym.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D5259B5C21C8101700B3811D /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		D5259B5E21C81F2500B3811D /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
+		D5264EAE2281E0A3004C4FBE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D574FD3F21F8AC9900B8044E /* TurmaDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurmaDetailController.swift; sourceTree = "<group>"; };
 		D574FD4121F8B5B900B8044E /* AeroController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AeroController.swift; sourceTree = "<group>"; };
 		D574FD4321F8B5DE00B8044E /* AeroDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AeroDetailController.swift; sourceTree = "<group>"; };
 		D574FD4521F8B60900B8044E /* ExAeroController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExAeroController.swift; sourceTree = "<group>"; };
-		D5A2A188227B4BF300F61239 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		D5A4CC1121C3EAD0000C9358 /* ConfigController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigController.swift; sourceTree = "<group>"; };
 		D5B5237D21C03FF900B2EAF2 /* Auto-Gym_for_Members.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Auto-Gym_for_Members.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B5238021C03FF900B2EAF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +172,7 @@
 		D5F03B8121FB3CAE007D794A /* AvalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvalController.swift; sourceTree = "<group>"; };
 		D5F7539A21FB3415005D5A85 /* AvalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvalCell.swift; sourceTree = "<group>"; };
 		D5F7539B21FB3415005D5A85 /* AvalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvalCell.xib; sourceTree = "<group>"; };
+		F938A6A46D001369EE402E63 /* Pods-Auto-Gym_for_Members.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Auto-Gym_for_Members.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Auto-Gym_for_Members/Pods-Auto-Gym_for_Members.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,13 +180,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5A2A194227B4BF300F61239 /* GoogleMobileAds.framework in Frameworks */,
+				5EA33A73258C3AC0DD84C052 /* Pods_Auto_Gym_for_Members.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7760AD8ACD0F7228BBBAD454 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F938A6A46D001369EE402E63 /* Pods-Auto-Gym_for_Members.debug.xcconfig */,
+				4C7ABF756CB435375092AFE1 /* Pods-Auto-Gym_for_Members.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		85921BABA5E4F95B085BD2EC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				029EC80E2BC05578CA3958E2 /* Pods_Auto_Gym_for_Members.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D51A56F82280C49400FEDBA1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,9 +235,10 @@
 			children = (
 				D51A57102280C4AC00FEDBA1 /* CryptoSwift.xcodeproj */,
 				D51A56F72280C49400FEDBA1 /* SwiftyJSON.xcodeproj */,
-				D5A2A188227B4BF300F61239 /* GoogleMobileAds.framework */,
 				D5B5237F21C03FF900B2EAF2 /* Auto-Gym_for_Members */,
 				D5B5237E21C03FF900B2EAF2 /* Products */,
+				7760AD8ACD0F7228BBBAD454 /* Pods */,
+				85921BABA5E4F95B085BD2EC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -255,6 +275,7 @@
 				D5B5238721C03FFA00B2EAF2 /* Assets.xcassets */,
 				D5B5238921C03FFA00B2EAF2 /* LaunchScreen.storyboard */,
 				D5B5238C21C03FFA00B2EAF2 /* Info.plist */,
+				D5264EAE2281E0A3004C4FBE /* GoogleService-Info.plist */,
 				D5B5241D21C0443600B2EAF2 /* JMMaskTextField.swift */,
 				D5B5241E21C0443600B2EAF2 /* JMStringMask.swift */,
 				D51A514021C17BF000A59FFB /* Funcoes.swift */,
@@ -270,10 +291,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5B5238F21C03FFA00B2EAF2 /* Build configuration list for PBXNativeTarget "Auto-Gym_for_Members" */;
 			buildPhases = (
+				035E00915966DC0FB26FB30F /* [CP] Check Pods Manifest.lock */,
 				D5B5237921C03FF900B2EAF2 /* Sources */,
 				D5B5237A21C03FF900B2EAF2 /* Frameworks */,
 				D5B5237B21C03FF900B2EAF2 /* Resources */,
 				D51A515B21C1822800A59FFB /* Embed Frameworks */,
+				A90C9830FCD45599A1F063F5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -421,12 +444,62 @@
 			files = (
 				D5B5238B21C03FFA00B2EAF2 /* LaunchScreen.storyboard in Resources */,
 				D5F7539D21FB3415005D5A85 /* AvalCell.xib in Resources */,
+				D5264EAF2281E0A4004C4FBE /* GoogleService-Info.plist in Resources */,
 				D5B5238821C03FFA00B2EAF2 /* Assets.xcassets in Resources */,
 				D5B5238621C03FF900B2EAF2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		035E00915966DC0FB26FB30F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Auto-Gym_for_Members-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A90C9830FCD45599A1F063F5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Auto-Gym_for_Members/Pods-Auto-Gym_for_Members-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Auto-Gym_for_Members/Pods-Auto-Gym_for_Members-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D5B5237921C03FF900B2EAF2 /* Sources */ = {
@@ -596,6 +669,7 @@
 		};
 		D5B5239021C03FFA00B2EAF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F938A6A46D001369EE402E63 /* Pods-Auto-Gym_for_Members.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -612,7 +686,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sysnet.Auto-Gym-for-Members";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sysnet.auto-gym";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -622,6 +696,7 @@
 		};
 		D5B5239121C03FFA00B2EAF2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C7ABF756CB435375092AFE1 /* Pods-Auto-Gym_for_Members.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -638,7 +713,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sysnet.Auto-Gym-for-Members";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sysnet.auto-gym";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -656,7 +731,7 @@
 				D5B5238E21C03FFA00B2EAF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		D5B5238F21C03FFA00B2EAF2 /* Build configuration list for PBXNativeTarget "Auto-Gym_for_Members" */ = {
 			isa = XCConfigurationList;
@@ -665,7 +740,7 @@
 				D5B5239121C03FFA00B2EAF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

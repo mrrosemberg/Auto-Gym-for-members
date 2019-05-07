@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1067250422628-4hu3vlk4c2ao66ksuo05k9j7a2he026v.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1067250422628-4hu3vlk4c2ao66ksuo05k9j7a2he026v</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD5opSyBh8RKE_she59tLVsG2_KFs7CZ7o</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1067250422628</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.sysnet.auto-gym</string>
+	<key>PROJECT_ID</key>
+	<string>auto-gym-firebase</string>
+	<key>STORAGE_BUCKET</key>
+	<string>auto-gym-firebase.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1067250422628:ios:cf0c4fa25962a53f</string>
+	<key>DATABASE_URL</key>
+	<string>https://auto-gym-firebase.firebaseio.com</string>
+	<key>ADMOB_APP_ID</key>
+	<string>ca-app-pub-4425679828859390~7079588799</string>
+</dict>
+</plist>
