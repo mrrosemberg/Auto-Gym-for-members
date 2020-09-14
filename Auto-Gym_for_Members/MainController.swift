@@ -24,11 +24,11 @@ var rawAval = ""
 var rawSerie = ""
 var rawAero = ""
 var rawTurmas = ""
-let adId = "ca-app-pub-4425679828859390/8719973529"
+let adId = "ca-app-pub-4425679828859390/8719973529" // Interstitial Key
 var qtdFalhasGoogleAd = 0
 var AppIsValid = true
 var jaChecouVersao = false
-let AppVersion = "1.0.1" //current AppVersion
+let AppVersion = "1.0.2" //current AppVersion
 
 class MainController: UIViewController, GADInterstitialDelegate {
     
@@ -38,7 +38,7 @@ class MainController: UIViewController, GADInterstitialDelegate {
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var lbConnect: UILabel!
     @IBOutlet weak var btnGo: UIButton!
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         interstitial = GADInterstitial(adUnitID: adId)
@@ -55,7 +55,7 @@ class MainController: UIViewController, GADInterstitialDelegate {
         if file.exists(){
             config = file.read()
             if config["academia"]!.isEmpty==false{
-               self.lbTitle.text = config["academia"]!
+                self.lbTitle.text = config["academia"]!
             }
             if config["logo"]!.isEmpty==false{
                 self.imgLogo.image = base64ImgFromString(config["logo"]!)
@@ -70,14 +70,14 @@ class MainController: UIViewController, GADInterstitialDelegate {
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     func trataResp(_ resposta:String, _ contentType:String){
         lbConnect.setCaption("Carregando Dados...")
@@ -90,41 +90,71 @@ class MainController: UIViewController, GADInterstitialDelegate {
                 if json["accessaero"].boolValue{
                     myParam.accessAero = json["accessaero"].boolValue
                     jsonOk += 1 //2
+                }else{
+                    myParam.accessAero =  false
+                    jsonOk += 1 //2
                 }
                 if json["accessergo"].boolValue{
                     myParam.accessErgo = json["accessergo"].boolValue
+                    jsonOk += 1 //3
+                }else{
+                    myParam.accessErgo = false
                     jsonOk += 1 //3
                 }
                 if json["accessfin"].boolValue{
                     myParam.accessFin = json["accessfin"].boolValue
                     jsonOk += 1 //4
+                }else{
+                    myParam.accessFin = false
+                    jsonOk += 1 //4
                 }
                 if json["accessmusc"].boolValue{
                     myParam.accessMusc = json["accessmusc"].boolValue
+                    jsonOk += 1 //5
+                }else{
+                    myParam.accessMusc = false
                     jsonOk += 1 //5
                 }
                 if json["accessturma"].boolValue{
                     myParam.accessTurma = json["accessturma"].boolValue
                     jsonOk += 1 //6
+                }else{
+                    myParam.accessTurma = false
+                    jsonOk += 1 //6
                 }
                 if json["accessaval"].boolValue{
                     myParam.accessAval = json["accessaval"].boolValue
+                    jsonOk += 1 //7
+                }else{
+                    myParam.accessAval = false
                     jsonOk += 1 //7
                 }
                 if json["validaero"].boolValue{
                     myParam.validAero = json["validaero"].boolValue
                     jsonOk += 1 //8
+                }else{
+                    myParam.validAero = false
+                    jsonOk += 1 //8
                 }
                 if json["validaval"].boolValue{
                     myParam.validAval = json["validaval"].boolValue
+                    jsonOk += 1 //9
+                }else{
+                    myParam.validAval = false
                     jsonOk += 1 //9
                 }
                 if json["validserie"].boolValue{
                     myParam.validSerie = json["validserie"].boolValue
                     jsonOk += 1 //10
+                }else{
+                    myParam.validSerie = false
+                    jsonOk += 1 //10
                 }
                 if json["validturma"].boolValue{
                     myParam.validTurma = json["validturma"].boolValue
+                    jsonOk += 1 //11
+                }else{
+                    myParam.validTurma = false
                     jsonOk += 1 //11
                 }
                 if json["status"].intValue > -1{
@@ -182,18 +212,18 @@ class MainController: UIViewController, GADInterstitialDelegate {
                 }
                 parcela.clear()
                 let dict = json["parc"].dictionaryValue
-                if dict.count>0{
+                if dict.count>0 && myParam.accessFin{
                     let list = dict["rows"]!.arrayValue
                     for item in list{
                         parcela.addParc(item["data"].stringValue, item["valor"].stringValue)
                     }
                 }
-               
-                if jsonOk<24{
+                
+                if jsonOk<0{ //não checa mais
                     _=warning(view:self, title:"Erro", message:"JSON inválido nível: " + String(jsonOk), buttons:1)
                 }else{
                     if self.pegaAval()==false{
-                       return
+                        return
                     }
                     if self.pegaAero()==false{
                         return
@@ -213,8 +243,17 @@ class MainController: UIViewController, GADInterstitialDelegate {
                             qtdFalhasGoogleAd = 0
                         }
                         else{
-                            _ = warning(view: self, title: "Erro", message: "Rede sobrecarregada. Tente novamente", buttons: 1)
+                            //_ = warning(view: self, title: "Erro", message: "Rede sobrecarregada. Tente novamente", buttons: 1)
                             qtdFalhasGoogleAd += 1
+                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
+                                if self.interstitial.isReady{
+                                    self.interstitial.present(fromRootViewController: self)
+                                }
+                                else{
+                                    self.performSegue(withIdentifier: "MenuController", sender: nil)
+                                    qtdFalhasGoogleAd = 0
+                                }
+                            })
                         }
                         
                     }
@@ -244,7 +283,7 @@ class MainController: UIViewController, GADInterstitialDelegate {
         job.setParameters(["objeto":"aspAval","aluno":aluno,"timestamp":agora,"sha-256":authStr])
         rawAval = job.execute()
         if rawAval.isEmpty{
-            _ = warning(view: self, title: "Erro", message: "Sem conexão com o servidor", buttons:1)
+            _ = warning(view: self, title: "Erro", message: "Servidor não respondeu à busca de avaliações funcionais", buttons:1)
             lbConnect.setCaption(" ")
             return false
         }
@@ -272,7 +311,7 @@ class MainController: UIViewController, GADInterstitialDelegate {
         rawAero = job.execute()
         aero.clear()
         if rawAero.isEmpty{
-            _ = warning(view: self, title: "Erro", message: "Servidor não respondeu", buttons: 1)
+            _ = warning(view: self, title: "Erro", message: "Servidor não respondeu à busca pelo programa aeróbio", buttons: 1)
             lbConnect.setCaption(" ")
             return false
         }else{
@@ -306,8 +345,8 @@ class MainController: UIViewController, GADInterstitialDelegate {
         job.setParameters(["objeto":"aspSerie","aluno":aluno,"timestamp":agora,"sha-256":authStr, "dia":"8"])
         rawSerie = job.execute()
         serie.clear()
-        if rawAero.isEmpty{
-            _ = warning(view: self, title: "Erro", message: "Servidor não respondeu", buttons: 1)
+        if rawSerie.isEmpty{
+            _ = warning(view: self, title: "Erro", message: "Servidor não respondeu à carga de séries", buttons: 1)
             lbConnect.setCaption(" ")
             return false
         }else{
@@ -341,7 +380,7 @@ class MainController: UIViewController, GADInterstitialDelegate {
         job.setParameters(["objeto":"aspTurma","aluno":aluno,"timestamp":agora,"sha-256":authStr, "dia":"8"])
         rawTurmas = job.execute()
         if rawTurmas.isEmpty{
-            _ = warning(view: self, title: "Erro", message: "Servidor não respondeu", buttons: 1)
+            _ = warning(view: self, title: "Erro", message: "Servidor não respondeu à busca de turmas coletivas", buttons: 1)
             lbConnect.setCaption(" ")
             return false
         }else{
@@ -378,6 +417,7 @@ class MainController: UIViewController, GADInterstitialDelegate {
         job.setParameters(["objeto":"aspAuthAluno","aluno":aluno,"timestamp":agora,"sha-256":authStr])
         var resp = job.execute()
         if resp.isEmpty{
+            print("Sem conexão com servidor 1")
             lbConnect.setCaption("Conectando Servidor2...")
             server = config["server2"]!
             job.setServer(server)
@@ -434,7 +474,7 @@ class MainController: UIViewController, GADInterstitialDelegate {
         //print("interstitialWillLeaveApplication")
         return
     }
-
+    
     func AppValidate() {
         if jaChecouVersao{
             return
@@ -451,8 +491,9 @@ class MainController: UIViewController, GADInterstitialDelegate {
             jaChecouVersao = true
         }
         if resp == "OBSOLETE VERSION"{
-           AppIsValid = false
+            AppIsValid = false
         }
         return
     }
 }
+

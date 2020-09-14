@@ -47,10 +47,12 @@ class AltUserController: UIViewController, UITableViewDelegate, UITableViewDataS
         self.alData.elemento[0].linhas.append(linha("E-mail: " + myAluno.email))
         self.alData.elemento[0].linhas.append(linha("Plano: " + myAluno.plano))
         montaVencimento()
-        if parcela.parcela.count>0{
+        if parcela.parcela.count>0 && myAluno.plano.lowercased().contains("bolsista")==false {
            alData.addLinha(lista("Parcelas do Plano",[linha("Data: " + parcela.getParc(0).data + " Valor: " +  parcela.getParc(0).valor)]))
-            for i in 1 ... parcela.parcela.count-1 {
-               alData.elemento[1].linhas.append(linha("Data: " + parcela.getParc(i).data + " Valor: " +  parcela.getParc(i).valor))
+            if parcela.parcela.count>1{
+                for i in 1 ... parcela.parcela.count-1 {
+                    alData.elemento[1].linhas.append(linha("Data: " + parcela.getParc(i).data + " Valor: " +  parcela.getParc(i).valor))
+                }
             }
         }
     }

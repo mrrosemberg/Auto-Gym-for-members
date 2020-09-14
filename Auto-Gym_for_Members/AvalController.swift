@@ -118,8 +118,14 @@ class AvalController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let list = dict["rows"]!.arrayValue
             var tit = "Data"
             var lft = list[0]["data"].stringValue
-            var ctr = list[1]["data"].stringValue
-            var rgh = list[2]["data"].stringValue
+            var ctr = ""
+            var rgh = ""
+            if qtdAval>1{
+                ctr = list[1]["data"].stringValue
+            }
+            if qtdAval>2{
+                rgh = list[2]["data"].stringValue
+            }
             aval.appendSection("Perimetria")
             aval.appendRowInSection(0, tit, lft, ctr, rgh)
             aval.appendSection("Composição Corporal")
@@ -130,136 +136,292 @@ class AvalController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             tit = "Tórax"
             lft = list[0]["torax"].stringValue
-            ctr = list[1]["torax"].stringValue
-            rgh = list[2]["torax"].stringValue
+            ctr = ""
+            rgh = ""
+            if qtdAval>1{
+                ctr = list[1]["torax"].stringValue
+            }
+            if qtdAval>2{
+                rgh = list[2]["torax"].stringValue
+            }
             aval.appendRowInSection(0, tit, lft, ctr, rgh)
             tit = "Braço Direito"
             lft = list[0]["braco_d"].stringValue
-            ctr = list[1]["braco_d"].stringValue
-            rgh = list[2]["braco_d"].stringValue
+            ctr = ""
+            rgh = ""
+            if qtdAval>1{
+                ctr = list[1]["braco_d"].stringValue
+            }
+            if qtdAval>2{
+                rgh = list[2]["braco_d"].stringValue
+            }
             aval.appendRowInSection(0, tit, lft, ctr, rgh)
             tit = "Braço Esquerdo"
             lft = list[0]["braco_e"].stringValue
-            ctr = list[1]["braco_e"].stringValue
-            rgh = list[2]["braco_e"].stringValue
+            ctr = ""
+            rgh = ""
+            if qtdAval>1{
+                ctr = list[1]["braco_e"].stringValue
+            }
+            if qtdAval>2{
+                rgh = list[2]["braco_e"].stringValue
+            }
             aval.appendRowInSection(0, tit, lft, ctr, rgh)
             if myAluno.sexo==1{
                 tit = "Antebraço Direito"
                 lft = list[0]["antbraco_d"].stringValue
-                ctr = list[1]["antbraco_d"].stringValue
-                rgh = list[2]["antbraco_d"].stringValue
+                ctr = ""
+                rgh = ""
+                if qtdAval>1{
+                    ctr = list[1]["antbraco_d"].stringValue
+                }
+                if qtdAval>2{
+                    rgh = list[2]["antbraco_d"].stringValue
+                }
                 aval.appendRowInSection(0, tit, lft, ctr, rgh)
                 tit = "Antebraço Esquerdo"
                 lft = list[0]["antbraco_e"].stringValue
-                ctr = list[1]["antbraco_e"].stringValue
-                rgh = list[2]["antbraco_e"].stringValue
+                ctr = ""
+                rgh = ""
+                if qtdAval>1{
+                    ctr = list[1]["antbraco_e"].stringValue
+                }
+                if qtdAval>2{
+                    rgh = list[2]["antbraco_e"].stringValue
+                }
                 aval.appendRowInSection(0, tit, lft, ctr, rgh)
             }
             tit = "Abdome"
             lft = list[0]["abdome"].stringValue
-            ctr = list[1]["abdome"].stringValue
-            rgh = list[2]["abdome"].stringValue
+            ctr = ""
+            rgh = ""
+            if qtdAval>1{
+                ctr = list[1]["abdome"].stringValue
+            }
+            if qtdAval>2{
+                rgh = list[2]["abdome"].stringValue
+            }
             aval.appendRowInSection(0, tit, lft, ctr, rgh)
             if myAluno.sexo==2{
                 tit = "Quadril"
                 lft = list[0]["quadril"].stringValue
-                ctr = list[1]["quadril"].stringValue
-                rgh = list[2]["quadril"].stringValue
+                ctr = ""
+                rgh = ""
+                if qtdAval>1{
+                    ctr = list[1]["quadril"].stringValue
+                }
+                if qtdAval>2{
+                    rgh = list[2]["quadril"].stringValue
+                }
                 aval.appendRowInSection(0, tit, lft, ctr, rgh)
             }
             tit = "Coxa Superior Direita"
             lft = list[0]["coxasup_d"].stringValue
-            ctr = list[1]["coxasup_d"].stringValue
-            rgh = list[2]["coxasup_d"].stringValue
+            ctr = ""
+            rgh = ""
+            if qtdAval>1{
+                ctr = list[1]["coxasup_d"].stringValue
+            }
+            if qtdAval>2{
+                rgh = list[2]["coxasup_d"].stringValue
+            }
             aval.appendRowInSection(0, tit, lft, ctr, rgh)
             tit = "Coxa Superior Esquerda"
             lft = list[0]["coxasup_e"].stringValue
-            ctr = list[1]["coxasup_e"].stringValue
-            rgh = list[2]["coxasup_e"].stringValue
+            ctr = ""
+            rgh = ""
+            if qtdAval>1{
+                ctr = list[1]["coxasup_e"].stringValue
+            }
+            if qtdAval>2{
+                rgh = list[2]["coxasup_e"].stringValue
+            }
             tit = "Coxa Inferior Direita"
             lft = list[0]["coxainf_d"].stringValue
-            ctr = list[1]["coxainf_d"].stringValue
-            rgh = list[2]["coxainf_d"].stringValue
+            ctr = ""
+            rgh = ""
+            if qtdAval>1{
+                ctr = list[1]["coxainf_d"].stringValue
+            }
+            if qtdAval>2{
+                rgh = list[2]["coxainf_d"].stringValue
+            }
             aval.appendRowInSection(0, tit, lft, ctr, rgh)
             tit = "Coxa Inferior Esquerda"
             lft = list[0]["coxainf_e"].stringValue
-            ctr = list[1]["coxainf_e"].stringValue
-            rgh = list[2]["coxainf_e"].stringValue
+            ctr = ""
+            rgh = ""
+            if qtdAval>1{
+                ctr = list[1]["coxainf_e"].stringValue
+            }
+            if qtdAval>2{
+                rgh = list[2]["coxainf_e"].stringValue
+            }
             tit = "Perna Direita"
             lft = list[0]["perna_d"].stringValue
-            ctr = list[1]["perna_d"].stringValue
-            rgh = list[2]["perna_d"].stringValue
+            ctr = ""
+            rgh = ""
+            if qtdAval>1{
+                ctr = list[1]["perna_d"].stringValue
+            }
+            if qtdAval>2{
+                rgh = list[2]["perna_d"].stringValue
+            }
             aval.appendRowInSection(0, tit, lft, ctr, rgh)
             tit = "Perna Esquerda"
             lft = list[0]["perna_e"].stringValue
-            ctr = list[1]["perna_e"].stringValue
-            rgh = list[2]["perna_e"].stringValue
+            ctr = ""
+            rgh = ""
+            if qtdAval>1{
+                ctr = list[1]["perna_e"].stringValue
+            }
+            if qtdAval>2{
+                rgh = list[2]["perna_e"].stringValue
+            }
             aval.appendRowInSection(0, tit, lft, ctr, rgh)
             tit = "Peso (Kg)"
             lft = String(list[0]["peso"].intValue)
-            ctr = String(list[1]["peso"].intValue)
-            rgh = String(list[2]["peso"].intValue)
+            ctr = ""
+            rgh = ""
+            if qtdAval>1{
+                ctr = String(list[1]["peso"].intValue)
+            }
+            if qtdAval>2{
+                rgh = String(list[2]["peso"].intValue)
+            }
             aval.appendRowInSection(1, tit, lft, ctr, rgh)
             tit = "Estatura (m)"
             lft = list[0]["estatura"].stringValue
-            ctr = list[1]["estatura"].stringValue
-            rgh = list[2]["estatura"].stringValue
+            ctr = ""
+            rgh = ""
+            if qtdAval>1{
+                ctr = list[1]["estatura"].stringValue
+            }
+            if qtdAval>2{
+                rgh = list[2]["estatura"].stringValue
+            }
             aval.appendRowInSection(1, tit, lft, ctr, rgh)
             tit = "% de Gordura"
             lft = list[0]["gordura"].stringValue
-            ctr = list[1]["gordura"].stringValue
-            rgh = list[2]["gordura"].stringValue
+            ctr = ""
+            rgh = ""
+            if qtdAval>1{
+                ctr = list[1]["gordura"].stringValue
+            }
+            if qtdAval>2{
+                rgh = list[2]["gordura"].stringValue
+            }
             aval.appendRowInSection(1, tit, lft, ctr, rgh)
             tit = "Classificação"
             lft = list[0]["class_grd"].stringValue
-            ctr = list[1]["class_grd"].stringValue
-            rgh = list[2]["class_grd"].stringValue
+            ctr = ""
+            rgh = ""
+            if qtdAval>1{
+                ctr = list[1]["class_grd"].stringValue
+            }
+            if qtdAval>2{
+                rgh = list[2]["class_grd"].stringValue
+            }
             aval.appendRowInSection(1, tit, lft, ctr, rgh)
             if myParam.accessErgo{
                 tit = "Pressão Arterial Repouso (S)"
                 lft = list[0]["pars"].stringValue
-                ctr = list[1]["pars"].stringValue
-                rgh = list[2]["pars"].stringValue
+                ctr = ""
+                rgh = ""
+                if qtdAval>1{
+                    ctr = list[1]["pars"].stringValue
+                }
+                if qtdAval>2{
+                    rgh = list[2]["pars"].stringValue
+                }
                 aval.appendRowInSection(2, tit, lft, ctr, rgh)
                 tit = "Pressão Arterial Repouso (D)"
                 lft = list[0]["pard"].stringValue
-                ctr = list[1]["pard"].stringValue
-                rgh = list[2]["pard"].stringValue
+                ctr = ""
+                rgh = ""
+                if qtdAval>1{
+                    ctr = list[1]["pard"].stringValue
+                }
+                if qtdAval>2{
+                    rgh = list[2]["pard"].stringValue
+                }
                 aval.appendRowInSection(2, tit, lft, ctr, rgh)
                 tit = "Frequência Cardíaca Repouso (BPM)"
                 lft = list[0]["fcr"].stringValue
-                ctr = list[1]["fcr"].stringValue
-                rgh = list[2]["fcr"].stringValue
+                ctr = ""
+                rgh = ""
+                if qtdAval>1{
+                    ctr = list[1]["fcr"].stringValue
+                }
+                if qtdAval>2{
+                    rgh = list[2]["fcr"].stringValue
+                }
                 aval.appendRowInSection(2, tit, lft, ctr, rgh)
                 tit = "Pressão Arterial Máxima (S)"
                 lft = list[0]["pams"].stringValue
-                ctr = list[1]["pams"].stringValue
-                rgh = list[2]["pams"].stringValue
+                ctr = ""
+                rgh = ""
+                if qtdAval>1{
+                    ctr = list[1]["pams"].stringValue
+                }
+                if qtdAval>2{
+                    rgh = list[2]["pams"].stringValue
+                }
                 aval.appendRowInSection(2, tit, lft, ctr, rgh)
                 tit = "Pressão Arterial Máxima (D)"
                 lft = list[0]["pamd"].stringValue
-                ctr = list[1]["pamd"].stringValue
-                rgh = list[2]["pamd"].stringValue
+                ctr = ""
+                rgh = ""
+                if qtdAval>1{
+                    ctr = list[1]["pamd"].stringValue
+                }
+                if qtdAval>2{
+                    rgh = list[2]["pamd"].stringValue
+                }
                 aval.appendRowInSection(2, tit, lft, ctr, rgh)
                 tit = "Frequência Cardíaca Máxima (BPM)"
                 lft = list[0]["fcmax"].stringValue
-                ctr = list[1]["fcmax"].stringValue
-                rgh = list[2]["fcmax"].stringValue
+                ctr = ""
+                rgh = ""
+                if qtdAval>1{
+                    ctr = list[1]["fcmax"].stringValue
+                }
+                if qtdAval>2{
+                    rgh = list[2]["fcmax"].stringValue
+                }
                 aval.appendRowInSection(2, tit, lft, ctr, rgh)
                 tit = "Carga (Watts)"
                 lft = list[0]["carga"].stringValue
-                ctr = list[1]["carga"].stringValue
-                rgh = list[2]["carga"].stringValue
+                ctr = ""
+                rgh = ""
+                if qtdAval>1{
+                    ctr = list[1]["carga"].stringValue
+                }
+                if qtdAval>2{
+                    rgh = list[2]["carga"].stringValue
+                }
                 aval.appendRowInSection(2, tit, lft, ctr, rgh)
                 tit = "VO2"
                 lft = list[0]["vo2"].stringValue
-                ctr = list[1]["vo2"].stringValue
-                rgh = list[2]["vo2"].stringValue
+                ctr = ""
+                rgh = ""
+                if qtdAval>1{
+                    ctr = list[1]["vo2"].stringValue
+                }
+                if qtdAval>2{
+                    rgh = list[2]["vo2"].stringValue
+                }
                 aval.appendRowInSection(2, tit, lft, ctr, rgh)
                 tit = "Classificação"
                 lft = list[0]["class_vo2"].stringValue
-                ctr = list[1]["class_vo2"].stringValue
-                rgh = list[2]["class_vo2"].stringValue
+                ctr = ""
+                rgh = ""
+                if qtdAval>1{
+                    ctr = list[1]["class_vo2"].stringValue
+                }
+                if qtdAval>2{
+                    rgh = list[2]["class_vo2"].stringValue
+                }
                 aval.appendRowInSection(2, tit, lft, ctr, rgh)
             }
         }

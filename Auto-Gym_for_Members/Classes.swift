@@ -181,7 +181,7 @@ open class httpJob{
         self.parameters = param
     }
     
-    public func setServer(_ timeoutInSeconds:Double){
+    public func setTimeout(_ timeoutInSeconds:Double){
         self.timeOut = timeoutInSeconds
     }
     
