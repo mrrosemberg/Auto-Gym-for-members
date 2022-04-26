@@ -21,7 +21,8 @@ fileprivate class Det{
 class ExMuscController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var list1: UITableView!
-    
+    @IBOutlet weak var btnNext: UIButton!
+    @IBOutlet weak var btNprev: UIButton!
     fileprivate var exDet = [Det("","")]
     
     public func numberOfSections(in tableView: UITableView) -> Int {
@@ -55,6 +56,15 @@ class ExMuscController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        montaTela()
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        list1.contentInset = UIEdgeInsets(top: 0, left: -15, bottom: 0, right: 0)
+    }
+    
+    func montaTela(){
         exDet.removeAll()
         var ex = Exercicio()
         for item in serie.exercicios{
@@ -69,14 +79,8 @@ class ExMuscController: UIViewController, UITableViewDelegate, UITableViewDataSo
         exDet.append(Det("Repetições:", ex.repeticoes))
         exDet.append(Det("Carga:", ex.carga))
         exDet.append(Det("Regulagem:", ex.regulagem))
-        
-        // Do any additional setup after loading the view.
+        list1.reloadData()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        list1.contentInset = UIEdgeInsets(top: 0, left: -15, bottom: 0, right: 0)
-    }
-    
     /*
      // MARK: - Navigation
      
@@ -86,6 +90,12 @@ class ExMuscController: UIViewController, UITableViewDelegate, UITableViewDataSo
      // Pass the selected object to the new view controller.
      }
      */
+    
+    @IBAction func btnPrevClick(_ sender: Any) {
+    }
+    
+    @IBAction func btnNextClick(_ sender: Any) {
+    }
     
     @IBAction func btnBackClick(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
