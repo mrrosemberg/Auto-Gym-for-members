@@ -130,27 +130,35 @@ class MuscDetailController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         listaMusc.removeAll()
+        muscElements.removeAll()
         for item in serie.exercicios{
             if item.domingo && serie.header.dia==1{
                 listaMusc.append(item)
+                muscElements.append(item.seq)
             }
             if item.segunda && serie.header.dia==2{
                 listaMusc.append(item)
+                muscElements.append(item.seq)
             }
             if item.terca && serie.header.dia==3{
                 listaMusc.append(item)
+                muscElements.append(item.seq)
             }
             if item.quarta && serie.header.dia==4{
                 listaMusc.append(item)
+                muscElements.append(item.seq)
             }
             if item.quinta && serie.header.dia==5{
                 listaMusc.append(item)
+                muscElements.append(item.seq)
             }
             if item.sexta && serie.header.dia==6{
                 listaMusc.append(item)
+                muscElements.append(item.seq)
             }
             if item.sabado && serie.header.dia==7{
                 listaMusc.append(item)
+                muscElements.append(item.seq)
             }
         }
         // Do any additional setup after loading the view.

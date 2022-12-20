@@ -33,6 +33,12 @@ class AeroController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return aeroData.elemento[section].section
     }
     
+    public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        view.tintColor = UIColor.gray
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.white
+    }
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return aero.exercicios.count
         return aeroData.elemento[section].linhas.count

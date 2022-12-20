@@ -20,10 +20,12 @@ fileprivate class Det{
 
 class ExMuscController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var list1: UITableView!
+    @IBOutlet weak var btnPrev: UIButton!
     @IBOutlet weak var btnNext: UIButton!
-    @IBOutlet weak var btNprev: UIButton!
+    @IBOutlet weak var list1: UITableView!
+    
     fileprivate var exDet = [Det("","")]
+    var muscPointer = 0
     
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -35,6 +37,12 @@ class ExMuscController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Detalhes do Exercício"
+    }
+    
+    public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        view.tintColor = UIColor.gray
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.white
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,7 +64,7 @@ class ExMuscController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        montaTela()
+        montaExercicio()
         // Do any additional setup after loading the view.
     }
     
@@ -64,23 +72,6 @@ class ExMuscController: UIViewController, UITableViewDelegate, UITableViewDataSo
         list1.contentInset = UIEdgeInsets(top: 0, left: -15, bottom: 0, right: 0)
     }
     
-    func montaTela(){
-        exDet.removeAll()
-        var ex = Exercicio()
-        for item in serie.exercicios{
-            if item.seq==serie.header.selectedSeq{
-                ex = item
-                break
-            }
-        }
-        exDet.append(Det("Exercício:", ex.exercicio))
-        exDet.append(Det("Região Muscular:", ex.regiao))
-        exDet.append(Det("Séries:", ex.series))
-        exDet.append(Det("Repetições:", ex.repeticoes))
-        exDet.append(Det("Carga:", ex.carga))
-        exDet.append(Det("Regulagem:", ex.regulagem))
-        list1.reloadData()
-    }
     /*
      // MARK: - Navigation
      
@@ -90,11 +81,59 @@ class ExMuscController: UIViewController, UITableViewDelegate, UITableViewDataSo
      // Pass the selected object to the new view controller.
      }
      */
-    
-    @IBAction func btnPrevClick(_ sender: Any) {
+    func montaExercicio(){
+        exDet.removeAll()
+        var ex = Exercicio()
+        
+        for item in serie.exercicios{
+            if item.seq==serie.header.selectedSeq{
+                ex = item
+                break
+            }
+        }
+        for i in 0...muscElements.count-1{
+            if muscElements[i]==serie.header.selectedSeq{
+                muscPointer = i
+                break
+            }
+        }
+                
+        exDet.append(Det("Exercício:", ex.exercicio))
+        exDet.append(Det("Região Muscular:", ex.regiao))
+        exDet.append(Det("Séries:", ex.series))
+        exDet.append(Det("Repetições:", ex.repeticoes))
+        exDet.append(Det("Carga:", ex.carga))
+        exDet.append(Det("Regulagem:", ex.regulagem))
+        if muscPointer > 0{
+            btnPrev.isHidden = false
+        }
+        else{
+            btnPrev.isHidden = true
+        }
+        if muscPointer < (muscElements.count-1){
+            btnNext.isHidden = false
+        }
+        else{
+            btnNext.isHidden = true
+        }
     }
     
     @IBAction func btnNextClick(_ sender: Any) {
+        if muscPointer < (muscElements.count-1){
+            muscPointer+=1
+            serie.header.selectedSeq=muscElements[muscPointer]
+        }
+        montaExercicio()
+        list1.reloadData()
+    }
+    
+    @IBAction func btnPrevClick(_ sender: Any) {
+        if muscPointer > 0{
+            muscPointer-=1
+            serie.header.selectedSeq=muscElements[muscPointer]
+        }
+        montaExercicio()
+        list1.reloadData()
     }
     
     @IBAction func btnBackClick(_ sender: Any) {

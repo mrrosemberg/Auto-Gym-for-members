@@ -3,36 +3,39 @@
 //  Auto-Gym_for_Members
 //
 //  Created by Marcio R. Rosemberg on 17/12/18.
-//  Copyright © 2018 Marcio R. Rosemberg. All rights reserved.
+//  Last update: 20/12/22
+//  Copyright © 2022 SYSNET Sistemas e Redes. All rights reserved.
 //
 
 import UIKit
 import SwiftyJSON
 import CryptoSwift
-import GoogleMobileAds
+//import GoogleMobileAds
 
 public var server=""
 //public var googleAdDisplayed = false
-public var config=["server1":"", "server2":"", "logo":"", "icon":"", "user":"", "password":"", "academia":"", "cnpj":""]
-let myParam = Param() //Coleção de parâmetros
+//Global classes and variables
+public var config=["server1":"", "server2":"", "logo":"", "icon":"", "user":"", "password":"", "academia":"", "cnpj":""] // parâmetros da academia
+let myParam = Param() //Coleção de parâmetros configurados no Auto-Gym
 let myAluno = Aluno() //Dados do Aluno
 let parcela = Parcela() // parcelas do último pagamento
-var turmaDetail = ListaSecao([lista("Detalhes da Turma",[linha("Turma: ")])])
-var serie = Serie([Exercicio()],MyMusc())
-var aero = Aero([ExAero()],MyAero())
-var rawAval = ""
-var rawSerie = ""
-var rawAero = ""
-var rawTurmas = ""
+var turmaDetail = ListaSecao([lista("Detalhes da Turma",[linha("Turma: ")])]) // detalhes da turma da atividade coletiva
+var serie = Serie([Exercicio()],MyMusc()) // Série de Musculação
+var aero = Aero([ExAero()],MyAero()) // Programa aeróbio
+var rawAval = "" //json da avaliação a ser processado
+var rawSerie = "" //json da série de musculação a ser processado
+var rawAero = "" //json do programa aeróbio a ser processado
+var rawTurmas = "" //json das turmas cadastradas
 let adId = "ca-app-pub-4425679828859390/8719973529" // Interstitial Key
-var qtdFalhasGoogleAd = 0
-var AppIsValid = true
-var jaChecouVersao = false
-let AppVersion = "1.0.2" //current AppVersion
+var qtdFalhasGoogleAd = 0 // contador de falhas de carregamento do anúncio
+var AppIsValid = true // Se o APP for false, precisa de atualização pela última versão da loja
+var jaChecouVersao = false // só checa a versão uma vez por sessão.
+let AppVersion = "1.0.5" //current AppVersion
+var muscElements = [Int]() // lista de exercícios de uma rotina ou dia
 
-class MainController: UIViewController, GADInterstitialDelegate {
+class MainController: UIViewController/*, GADInterstitialDelegate*/ {
     
-    var interstitial: GADInterstitial!
+    //var interstitial: GADInterstitial!
     
     @IBOutlet weak var imgLogo: UIImageView!
     @IBOutlet weak var lbTitle: UILabel!
@@ -41,11 +44,11 @@ class MainController: UIViewController, GADInterstitialDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        interstitial = GADInterstitial(adUnitID: adId)
-        let request = GADRequest()
-        interstitial.load(request)
-        interstitial = createAndLoadInterstitial()
-        interstitial.delegate = self
+        //interstitial = GADInterstitial(adUnitID: adId)
+        //let request = GADRequest()
+        //interstitial.load(request)
+        //interstitial = createAndLoadInterstitial()
+        //interstitial.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,12 +82,16 @@ class MainController: UIViewController, GADInterstitialDelegate {
      }
      */
     
+    // trata a resposta do http post
+    // carrega os acessos ao APP configurados no Auto-Gym
+    // carrega os dados básicos e financeiros do aluno
     func trataResp(_ resposta:String, _ contentType:String){
         lbConnect.setCaption("Carregando Dados...")
         if contentType.uppercased().contains("JSON"){
             //_ = warning(view: self, title: "Aviso", message: "Autenticação Ok", buttons:1)
             var jsonOk = 0
             //print(resposta)
+            // carrega acessos ao App definidos no Auto-Gym
             if let json = try? JSON(data: resposta.data(using: .utf8)!){
                 jsonOk += 1
                 if json["accessaero"].boolValue{
@@ -157,6 +164,7 @@ class MainController: UIViewController, GADInterstitialDelegate {
                     myParam.validTurma = false
                     jsonOk += 1 //11
                 }
+                // Processa os dados do aluno
                 if json["status"].intValue > -1{
                     myParam.status = json["status"].intValue
                     myAluno.Status = myParam.status
@@ -211,6 +219,7 @@ class MainController: UIViewController, GADInterstitialDelegate {
                     jsonOk += 1 //24
                 }
                 parcela.clear()
+                // processa o último pagamento
                 let dict = json["parc"].dictionaryValue
                 if dict.count>0 && myParam.accessFin{
                     let list = dict["rows"]!.arrayValue
@@ -222,6 +231,7 @@ class MainController: UIViewController, GADInterstitialDelegate {
                 if jsonOk<0{ //não checa mais
                     _=warning(view:self, title:"Erro", message:"JSON inválido nível: " + String(jsonOk), buttons:1)
                 }else{
+                    // Carega Avaliações, Programa Aeróbio, Série de Musculação e Turmas coletivas.
                     if self.pegaAval()==false{
                         return
                     }
@@ -234,13 +244,14 @@ class MainController: UIViewController, GADInterstitialDelegate {
                     if self.pegaTurmas()==false{
                         return
                     }
-                    if interstitial.isReady{
+                    /*if interstitial.isReady{
                         interstitial.present(fromRootViewController: self)
                     }
                     else{
-                        if qtdFalhasGoogleAd>0{
+                        if qtdFalhasGoogleAd>0{*/
+                            // carrega o menu principal.
                             performSegue(withIdentifier: "MenuController", sender: nil)
-                            qtdFalhasGoogleAd = 0
+                            /*qtdFalhasGoogleAd = 0
                         }
                         else{
                             //_ = warning(view: self, title: "Erro", message: "Rede sobrecarregada. Tente novamente", buttons: 1)
@@ -256,7 +267,7 @@ class MainController: UIViewController, GADInterstitialDelegate {
                             })
                         }
                         
-                    }
+                    }*/
                     
                 }
             }else{
@@ -295,7 +306,7 @@ class MainController: UIViewController, GADInterstitialDelegate {
         return true // valid json
     }
     
-    //Programa Aeróbio
+    //Carrega Programa Aeróbio
     func pegaAero()->Bool{
         if (myParam.accessAero && myParam.validAero) == false{
             return true
@@ -330,7 +341,7 @@ class MainController: UIViewController, GADInterstitialDelegate {
         }
     }
     
-    // Série de Musculação
+    //Carrega Série de Musculação
     func pegaSerie()->Bool{
         if (myParam.accessMusc && myParam.validSerie) == false{
             return true
@@ -365,7 +376,7 @@ class MainController: UIViewController, GADInterstitialDelegate {
         }
     }
     
-    // Turmas
+    //Carrega Turmas
     func pegaTurmas()->Bool{
         if (myParam.accessTurma && myParam.validTurma) == false{
             return true
@@ -434,7 +445,7 @@ class MainController: UIViewController, GADInterstitialDelegate {
         }
     }// action Go
     
-    func createAndLoadInterstitial() -> GADInterstitial{
+   /* func createAndLoadInterstitial() -> GADInterstitial{
         let interstitial = GADInterstitial(adUnitID: adId)
         interstitial.delegate = self
         interstitial.load(GADRequest())
@@ -473,14 +484,16 @@ class MainController: UIViewController, GADInterstitialDelegate {
     func interstitialWillLeaveApplication(_ ad: GADInterstitial) {
         //print("interstitialWillLeaveApplication")
         return
-    }
+    }*/
     
+    // Valida o App
     func AppValidate() {
         if jaChecouVersao{
             return
         }
         let job = httpJob()
-        job.setServer("sysnetweb.com.br:4443")
+        //job.setServer("sysnetweb.com.br:4443")
+        job.setServer("sysnetweb.com.br")
         job.setProtocolHttps()
         job.setPath("/asp/versiongym.aspx")
         job.setParameters(["objeto":"aspGetMinValidVersion","version":AppVersion])

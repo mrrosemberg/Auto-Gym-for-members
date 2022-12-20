@@ -33,6 +33,12 @@ class MuscController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return serieData.elemento[section].section
     }
     
+    public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        view.tintColor = UIColor.gray
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.white
+    }
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return serie.exercicios.count
         return serieData.elemento[section].linhas.count

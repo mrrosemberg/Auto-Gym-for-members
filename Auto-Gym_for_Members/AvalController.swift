@@ -86,7 +86,13 @@ class AvalController: UIViewController, UITableViewDelegate, UITableViewDataSour
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return aval.elemento[section].section
     }
-    
+ 
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        view.tintColor = UIColor.gray
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.white
+    }
+
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("AvalCell", owner: self, options: nil)?.first as! AvalCell
         let pointer = indexPath.row
