@@ -1,10 +1,10 @@
 //
 //  AeroDetailController.swift
 //  Auto-Gym_for_Members
-//
+//  Displays the details of the exercise (outdoor - aerobic)
 //  Created by Marcio R. Rosemberg on 23/01/19.
 //  Copyright © 2019 Marcio R. Rosemberg. All rights reserved.
-//
+//  Last Update: 21/12/2022
 
 import Foundation
 import UIKit
@@ -129,27 +129,35 @@ class AeroDetailController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         listaAero.removeAll()
+        aeroElements.removeAll()
         for item in aero.exercicios{
             if item.domingo && aero.header.dia==1{
                 listaAero.append(item)
+                aeroElements.append(item.seq)
             }
             if item.segunda && aero.header.dia==2{
                 listaAero.append(item)
+                aeroElements.append(item.seq)
             }
             if item.terca && aero.header.dia==3{
                 listaAero.append(item)
+                aeroElements.append(item.seq)
             }
             if item.quarta && aero.header.dia==4{
                 listaAero.append(item)
+                aeroElements.append(item.seq)
             }
             if item.quinta && aero.header.dia==5{
                 listaAero.append(item)
+                aeroElements.append(item.seq)
             }
             if item.sexta && aero.header.dia==6{
                 listaAero.append(item)
+                aeroElements.append(item.seq)
             }
             if item.sabado && aero.header.dia==7{
                 listaAero.append(item)
+                aeroElements.append(item.seq)
             }
         }
         // Do any additional setup after loading the view.

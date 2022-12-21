@@ -1,10 +1,10 @@
 //
 //  ExMuscController.swift
 //  Auto-Gym_for_Members
-//
+//  Displays de details of the exercise (indoor).
 //  Created by Marcio R. Rosemberg on 22/01/19.
 //  Copyright © 2019 Marcio R. Rosemberg. All rights reserved.
-//
+//  Last update: 20/12/2022
 
 import Foundation
 import UIKit
@@ -25,7 +25,7 @@ class ExMuscController: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var list1: UITableView!
     
     fileprivate var exDet = [Det("","")]
-    var muscPointer = 0
+    var muscIndex = 0
     
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -93,7 +93,7 @@ class ExMuscController: UIViewController, UITableViewDelegate, UITableViewDataSo
         }
         for i in 0...muscElements.count-1{
             if muscElements[i]==serie.header.selectedSeq{
-                muscPointer = i
+                muscIndex = i
                 break
             }
         }
@@ -104,13 +104,13 @@ class ExMuscController: UIViewController, UITableViewDelegate, UITableViewDataSo
         exDet.append(Det("Repetições:", ex.repeticoes))
         exDet.append(Det("Carga:", ex.carga))
         exDet.append(Det("Regulagem:", ex.regulagem))
-        if muscPointer > 0{
+        if muscIndex > 0{
             btnPrev.isHidden = false
         }
         else{
             btnPrev.isHidden = true
         }
-        if muscPointer < (muscElements.count-1){
+        if muscIndex < (muscElements.count-1){
             btnNext.isHidden = false
         }
         else{
@@ -119,18 +119,18 @@ class ExMuscController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     @IBAction func btnNextClick(_ sender: Any) {
-        if muscPointer < (muscElements.count-1){
-            muscPointer+=1
-            serie.header.selectedSeq=muscElements[muscPointer]
+        if muscIndex < (muscElements.count-1){
+            muscIndex+=1
+            serie.header.selectedSeq=muscElements[muscIndex]
         }
         montaExercicio()
         list1.reloadData()
     }
     
     @IBAction func btnPrevClick(_ sender: Any) {
-        if muscPointer > 0{
-            muscPointer-=1
-            serie.header.selectedSeq=muscElements[muscPointer]
+        if muscIndex > 0{
+            muscIndex-=1
+            serie.header.selectedSeq=muscElements[muscIndex]
         }
         montaExercicio()
         list1.reloadData()

@@ -1,10 +1,10 @@
 //
 //  AltUserController.swift
 //  Auto-Gym_for_Members
-//
+//  Displays Member data
 //  Created by Marcio R. Rosemberg on 15/01/19.
 //  Copyright © 2019 Marcio R. Rosemberg. All rights reserved.
-//
+//  Last Update: 21/12/2022
 
 import Foundation
 import UIKit
@@ -18,6 +18,12 @@ class AltUserController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     public func numberOfSections(in tableView: UITableView) -> Int {
         return alData.elemento.count
+    }
+    
+    public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        view.tintColor = UIColor.gray
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.white
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

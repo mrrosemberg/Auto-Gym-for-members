@@ -3,7 +3,7 @@
 //  Auto-Gym_for_Members
 //
 //  Created by Marcio R. Rosemberg on 17/12/18.
-//  Last update: 20/12/22
+//  Last update: 21/12/22
 //  Copyright © 2022 SYSNET Sistemas e Redes. All rights reserved.
 //
 
@@ -31,7 +31,8 @@ var qtdFalhasGoogleAd = 0 // contador de falhas de carregamento do anúncio
 var AppIsValid = true // Se o APP for false, precisa de atualização pela última versão da loja
 var jaChecouVersao = false // só checa a versão uma vez por sessão.
 let AppVersion = "1.0.5" //current AppVersion
-var muscElements = [Int]() // lista de exercícios de uma rotina ou dia
+var muscElements = [Int]() // lista de exercícios de musculação de uma rotina ou dia
+var aeroElements = [Int]() // lista de exercícios aeróbios de uma rotina ou dia
 
 class MainController: UIViewController/*, GADInterstitialDelegate*/ {
     

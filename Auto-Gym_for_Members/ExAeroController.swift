@@ -21,8 +21,11 @@ fileprivate class Det{
 class ExAeroController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var list1: UITableView!
-    
+    @IBOutlet weak var btnPrev: UIButton!
+    @IBOutlet weak var btnNext: UIButton!
+  
     fileprivate var exDet = [Det("","")]
+    var aeroIndex = 0
     
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -34,6 +37,12 @@ class ExAeroController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Detalhes do Exercício"
+    }
+    
+    public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        view.tintColor = UIColor.gray
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.white
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -55,22 +64,8 @@ class ExAeroController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        exDet.removeAll()
-        var ex = ExAero()
-        for item in aero.exercicios{
-            if item.seq==aero.header.selectedSeq{
-                ex = item
-                break
-            }
-        }
-        exDet.append(Det("Exercício:", ex.exbio))
-        exDet.append(Det("Zona Alvo:", aero.header.zonaalvo))
-        exDet.append(Det("Frequencia Cardíaca:", ex.fc))
-        exDet.append(Det("Tempo de Execução:", ex.tempo))
-        exDet.append(Det("Escala de Borg:", ex.borg))
-        exDet.append(Det("Regulagem:", ex.regulagem))
-        
-        // Do any additional setup after loading the view.
+        montaAero()
+                // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -86,8 +81,58 @@ class ExAeroController: UIViewController, UITableViewDelegate, UITableViewDataSo
      // Pass the selected object to the new view controller.
      }
      */
+    public func montaAero(){
+        exDet.removeAll()
+        var ex = ExAero()
+        for item in aero.exercicios{
+            if item.seq==aero.header.selectedSeq{
+                ex = item
+                break
+            }
+        }
+        for i in 0...aeroElements.count-1{
+            if aeroElements[i]==aero.header.selectedSeq{
+                aeroIndex = i
+                break
+            }
+        }
+        exDet.append(Det("Exercício:", ex.exbio))
+        exDet.append(Det("Zona Alvo:", aero.header.zonaalvo))
+        exDet.append(Det("Frequencia Cardíaca:", ex.fc))
+        exDet.append(Det("Tempo de Execução:", ex.tempo))
+        exDet.append(Det("Escala de Borg:", ex.borg))
+        exDet.append(Det("Regulagem:", ex.regulagem))
+        if aeroIndex > 0{
+            btnPrev.isHidden = false
+        }
+        else{
+            btnPrev.isHidden = true
+        }
+        if aeroIndex < (aeroElements.count-1){
+            btnNext.isHidden = false
+        }
+        else{
+            btnNext.isHidden = true
+        }
+    }
     
     @IBAction func btnBackClick(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func btnPrevClik(_ sender: Any) {
+        if aeroIndex > 0{
+            aeroIndex-=1
+            aero.header.selectedSeq=aeroElements[aeroIndex]
+        }
+        montaAero()
+        list1.reloadData()    }
+    
+    @IBAction func btnNextClick(_ sender: Any) {
+        if aeroIndex < (aeroElements.count-1){
+            aeroIndex+=1
+            aero.header.selectedSeq=aeroElements[aeroIndex]
+        }
+        montaAero()
+        list1.reloadData()
     }
 }
