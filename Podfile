@@ -6,6 +6,8 @@ target 'Auto-Gym_for_Members' do
   use_frameworks!
 
   # Pods for Auto-Gym_for_Members
-    pod 'Firebase/Core'
-    pod 'Firebase/AdMob'
+    #pod 'Firebase/Core'
+    #pod 'Firebase/AdMob'
+    pod 'SwiftyJSON'
+    pod 'CryptoSwift'
 end

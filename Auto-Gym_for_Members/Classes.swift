@@ -82,9 +82,17 @@ open class File {
     
     public func write(writeDict:[String:String]){
         
-        let filePath = self.getFileURL(fileName: self.fileName + "." + self.fileExt)
+        //let filePath = self.getFileURL(fileName: self.fileName + "." + self.fileExt)
+        let fileURL = DocumentDirURl.appendingPathComponent(self.fileName).appendingPathExtension(self.fileExt)
         self.lastError = ""
-        NSKeyedArchiver.archiveRootObject(writeDict, toFile: filePath)
+        
+        do {
+            let data = try NSKeyedArchiver.archivedData(withRootObject: writeDict, requiringSecureCoding: false)
+            try data.write(to: fileURL)
+           } catch {
+             self.lastError = "Erro gravando arquivo " + self.fileName + "." + self.fileExt + "\n" + error.localizedDescription
+           }
+        //NSKeyedArchiver.archiveRootObject(writeDict, toFile: filePath)
         return
     }
     
@@ -126,7 +134,31 @@ open class File {
         }
         return false
     }
-}
+    
+    public func delete()->Bool{
+        self.lastError = ""
+        if !self.exists(){
+            return false
+        }
+        var ret = false
+        let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+        let url = NSURL(fileURLWithPath: path)
+        if let pathComponent = url.appendingPathComponent(self.fileName + "." + self.fileExt) {
+             let filePath = pathComponent.path
+             let fileManager = FileManager.default
+            do {
+                try fileManager.removeItem(atPath: filePath)
+                    ret = true
+              } catch {
+                self.lastError = "Erro deletando arquivo " + self.fileName + "." + self.fileExt + "\n" + error.localizedDescription
+              }
+            return ret
+         } else {
+             self.lastError = "Path not Found"
+         }
+         return false
+    }//delete method
+}//file class
 
 extension URLSession {
     func synchronousDataTask(urlrequest: URLRequest) -> (data: Data?, response: URLResponse?, error: Error?) {

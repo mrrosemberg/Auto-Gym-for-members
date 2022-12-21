@@ -141,7 +141,18 @@ class ConfigController: UIViewController {
             return
         }
         server = config["server1"]!
-        self.dismiss(animated:true, completion: nil)
+        self.dismiss(animated:true, completion:
+            {
+        self.presentingViewController?.viewDidAppear(false)
+        }
+        )
     }// actionOk
     
+    // apaga o arquivo de configurações para debug
+    @IBAction func btnLimpa(_ sender: Any) {
+        let file = File(fileName:"config", fileExt:"dat")
+        if !file.delete(){
+            _=warning(view: self, title: "Erro", message: "Incapaz de deletar "+file.fileName+"."+file.fileExt+". "+file.getLastError(), buttons: 1)
+        }
+    }//action limpa
 }//ConfigController

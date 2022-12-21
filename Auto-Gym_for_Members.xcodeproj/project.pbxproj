@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5EA33A73258C3AC0DD84C052 /* Pods_Auto_Gym_for_Members.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029EC80E2BC05578CA3958E2 /* Pods_Auto_Gym_for_Members.framework */; };
+		6B49CD22AB4D83C8BBB890B0 /* Pods_Auto_Gym_for_Members.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB9973C98316A17CFB36527B /* Pods_Auto_Gym_for_Members.framework */; };
 		D50BCA7121EE19ED00154B0E /* AltUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50BCA7021EE19ED00154B0E /* AltUserController.swift */; };
 		D50ECC9021F0C5E700EF0B86 /* TurmaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50ECC8F21F0C5E700EF0B86 /* TurmaController.swift */; };
 		D519991421E6652600BC42F5 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D519991321E6652600BC42F5 /* MenuController.swift */; };
@@ -35,93 +35,6 @@
 		D5F7539D21FB3415005D5A85 /* AvalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5F7539B21FB3415005D5A85 /* AvalCell.xib */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		D52F58BA295214ED0013930E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D52F58B2295214ED0013930E /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 754BE45519693E190098E6F3;
-			remoteInfo = CryptoSwift;
-		};
-		D52F58BC295214ED0013930E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D52F58B2295214ED0013930E /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 75211F92207249D8004E41F8;
-			remoteInfo = "CryptoSwift-TestHostApp";
-		};
-		D52F58BE295214ED0013930E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D52F58B2295214ED0013930E /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 754BE46019693E190098E6F3;
-			remoteInfo = Tests;
-		};
-		D52F58C0295214ED0013930E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D52F58B2295214ED0013930E /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7595C14A2072E48C00EA1A5F;
-			remoteInfo = "TestsPerformance-Mac";
-		};
-		D52F58C2295214ED0013930E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D52F58B2295214ED0013930E /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7564F0602072EAEB00CA5A96;
-			remoteInfo = "TestsPerformance-iOS";
-		};
-		D52F58E82952151A0013930E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D52F58DD2952151A0013930E /* SwiftyJSON.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2E4FEFDB19575BE100351305;
-			remoteInfo = "SwiftyJSON iOS";
-		};
-		D52F58EA2952151A0013930E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D52F58DD2952151A0013930E /* SwiftyJSON.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2E4FEFE619575BE100351305;
-			remoteInfo = "SwiftyJSON iOS Tests";
-		};
-		D52F58EC2952151A0013930E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D52F58DD2952151A0013930E /* SwiftyJSON.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9C7DFC5B1A9102BD005AA3F7;
-			remoteInfo = "SwiftyJSON macOS";
-		};
-		D52F58EE2952151A0013930E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D52F58DD2952151A0013930E /* SwiftyJSON.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9C7DFC651A9102BD005AA3F7;
-			remoteInfo = "SwiftyJSON macOS Tests";
-		};
-		D52F58F02952151A0013930E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D52F58DD2952151A0013930E /* SwiftyJSON.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E4D7CCE81B9465A700EE7221;
-			remoteInfo = "SwiftyJSON watchOS";
-		};
-		D52F58F22952151A0013930E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D52F58DD2952151A0013930E /* SwiftyJSON.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7236B4F61BAC14150020529B;
-			remoteInfo = "SwiftyJSON tvOS";
-		};
-		D52F58F42952151A0013930E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D52F58DD2952151A0013930E /* SwiftyJSON.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A8580F741BCF5C5B00DA927B;
-			remoteInfo = "SwiftyJSON tvOS Tests";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		D51A515B21C1822800A59FFB /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -136,7 +49,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		029EC80E2BC05578CA3958E2 /* Pods_Auto_Gym_for_Members.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Auto_Gym_for_Members.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C7ABF756CB435375092AFE1 /* Pods-Auto-Gym_for_Members.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Auto-Gym_for_Members.release.xcconfig"; path = "Pods/Target Support Files/Pods-Auto-Gym_for_Members/Pods-Auto-Gym_for_Members.release.xcconfig"; sourceTree = "<group>"; };
 		D50BCA7021EE19ED00154B0E /* AltUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltUserController.swift; sourceTree = "<group>"; };
 		D50ECC8F21F0C5E700EF0B86 /* TurmaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurmaController.swift; sourceTree = "<group>"; };
@@ -147,8 +59,6 @@
 		D5259B5B21C7F57B00B3811D /* Auto-Gym.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Auto-Gym.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D5259B5C21C8101700B3811D /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		D5259B5E21C81F2500B3811D /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
-		D52F58B2295214ED0013930E /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = "../../CryptoSwift-master/CryptoSwift.xcodeproj"; sourceTree = "<group>"; };
-		D52F58DD2952151A0013930E /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = "../../SwiftyJSON-master/SwiftyJSON.xcodeproj"; sourceTree = "<group>"; };
 		D574FD3F21F8AC9900B8044E /* TurmaDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurmaDetailController.swift; sourceTree = "<group>"; };
 		D574FD4121F8B5B900B8044E /* AeroController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AeroController.swift; sourceTree = "<group>"; };
 		D574FD4321F8B5DE00B8044E /* AeroDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AeroDetailController.swift; sourceTree = "<group>"; };
@@ -168,6 +78,7 @@
 		D5F03B8121FB3CAE007D794A /* AvalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvalController.swift; sourceTree = "<group>"; };
 		D5F7539A21FB3415005D5A85 /* AvalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvalCell.swift; sourceTree = "<group>"; };
 		D5F7539B21FB3415005D5A85 /* AvalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvalCell.xib; sourceTree = "<group>"; };
+		DB9973C98316A17CFB36527B /* Pods_Auto_Gym_for_Members.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Auto_Gym_for_Members.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F938A6A46D001369EE402E63 /* Pods-Auto-Gym_for_Members.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Auto-Gym_for_Members.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Auto-Gym_for_Members/Pods-Auto-Gym_for_Members.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,7 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EA33A73258C3AC0DD84C052 /* Pods_Auto_Gym_for_Members.framework in Frameworks */,
+				6B49CD22AB4D83C8BBB890B0 /* Pods_Auto_Gym_for_Members.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,42 +106,14 @@
 		85921BABA5E4F95B085BD2EC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				029EC80E2BC05578CA3958E2 /* Pods_Auto_Gym_for_Members.framework */,
+				DB9973C98316A17CFB36527B /* Pods_Auto_Gym_for_Members.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D52F58B3295214ED0013930E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D52F58BB295214ED0013930E /* CryptoSwift.framework */,
-				D52F58BD295214ED0013930E /* CryptoSwift-TestHostApp.app */,
-				D52F58BF295214ED0013930E /* Tests.xctest */,
-				D52F58C1295214ED0013930E /* TestsPerformance-Mac.xctest */,
-				D52F58C3295214ED0013930E /* TestsPerformance-iOS.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		D52F58DE2952151A0013930E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D52F58E92952151A0013930E /* SwiftyJSON.framework */,
-				D52F58EB2952151A0013930E /* SwiftyJSON iOS Tests.xctest */,
-				D52F58ED2952151A0013930E /* SwiftyJSON.framework */,
-				D52F58EF2952151A0013930E /* SwiftyJSON macOS Tests.xctest */,
-				D52F58F12952151A0013930E /* SwiftyJSON.framework */,
-				D52F58F32952151A0013930E /* SwiftyJSON.framework */,
-				D52F58F52952151A0013930E /* SwiftyJSON tvOS Tests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		D5B5237421C03FF900B2EAF2 = {
 			isa = PBXGroup;
 			children = (
-				D52F58DD2952151A0013930E /* SwiftyJSON.xcodeproj */,
-				D52F58B2295214ED0013930E /* CryptoSwift.xcodeproj */,
 				D5B5237F21C03FF900B2EAF2 /* Auto-Gym_for_Members */,
 				D5B5237E21C03FF900B2EAF2 /* Products */,
 				7760AD8ACD0F7228BBBAD454 /* Pods */,
@@ -330,109 +213,12 @@
 			mainGroup = D5B5237421C03FF900B2EAF2;
 			productRefGroup = D5B5237E21C03FF900B2EAF2 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = D52F58B3295214ED0013930E /* Products */;
-					ProjectRef = D52F58B2295214ED0013930E /* CryptoSwift.xcodeproj */;
-				},
-				{
-					ProductGroup = D52F58DE2952151A0013930E /* Products */;
-					ProjectRef = D52F58DD2952151A0013930E /* SwiftyJSON.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				D5B5237C21C03FF900B2EAF2 /* Auto-Gym_for_Members */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		D52F58BB295214ED0013930E /* CryptoSwift.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CryptoSwift.framework;
-			remoteRef = D52F58BA295214ED0013930E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D52F58BD295214ED0013930E /* CryptoSwift-TestHostApp.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "CryptoSwift-TestHostApp.app";
-			remoteRef = D52F58BC295214ED0013930E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D52F58BF295214ED0013930E /* Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = Tests.xctest;
-			remoteRef = D52F58BE295214ED0013930E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D52F58C1295214ED0013930E /* TestsPerformance-Mac.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "TestsPerformance-Mac.xctest";
-			remoteRef = D52F58C0295214ED0013930E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D52F58C3295214ED0013930E /* TestsPerformance-iOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "TestsPerformance-iOS.xctest";
-			remoteRef = D52F58C2295214ED0013930E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D52F58E92952151A0013930E /* SwiftyJSON.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SwiftyJSON.framework;
-			remoteRef = D52F58E82952151A0013930E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D52F58EB2952151A0013930E /* SwiftyJSON iOS Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SwiftyJSON iOS Tests.xctest";
-			remoteRef = D52F58EA2952151A0013930E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D52F58ED2952151A0013930E /* SwiftyJSON.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SwiftyJSON.framework;
-			remoteRef = D52F58EC2952151A0013930E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D52F58EF2952151A0013930E /* SwiftyJSON macOS Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SwiftyJSON macOS Tests.xctest";
-			remoteRef = D52F58EE2952151A0013930E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D52F58F12952151A0013930E /* SwiftyJSON.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SwiftyJSON.framework;
-			remoteRef = D52F58F02952151A0013930E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D52F58F32952151A0013930E /* SwiftyJSON.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SwiftyJSON.framework;
-			remoteRef = D52F58F22952151A0013930E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D52F58F52952151A0013930E /* SwiftyJSON tvOS Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SwiftyJSON tvOS Tests.xctest";
-			remoteRef = D52F58F42952151A0013930E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D5B5237B21C03FF900B2EAF2 /* Resources */ = {
@@ -481,15 +267,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Auto-Gym_for_Members/Pods-Auto-Gym_for_Members-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

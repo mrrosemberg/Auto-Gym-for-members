@@ -147,6 +147,14 @@
                                                     <segue destination="HZg-Ov-IJ3" kind="presentation" modalTransitionStyle="crossDissolve" id="Ejj-EB-Gnh"/>
                                                 </connections>
                                             </button>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G8Y-VY-U0y">
+                                                <rect key="frame" x="70" y="218.5" width="0.0" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Limpar Config"/>
+                                                <connections>
+                                                    <action selector="btnLimpa:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vBl-id-7sg"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1R-JF-QxR" userLabel="ok">
                                                 <rect key="frame" x="250" y="189.5" width="60" height="60"/>
                                                 <state key="normal" image="ok"/>
@@ -172,6 +180,7 @@
                             <constraint firstItem="ehd-VN-8Z5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gIj-ic-P1O"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="p0O-GU-EEL"/>
                     <connections>
                         <outlet property="lbAcademia" destination="sZp-0K-ueY" id="LOb-v3-7dH"/>
                         <outlet property="lbAddress1" destination="9ax-gg-bMD" id="1Dk-4O-BZ1"/>
@@ -228,7 +237,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="310" height="60"/>
                                                 <state key="normal" image="config"/>
                                                 <connections>
-                                                    <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="crossDissolve" id="kRO-K8-DCL"/>
+                                                    <action selector="btnConfigClick:" destination="HZg-Ov-IJ3" eventType="touchUpInside" id="YbX-h9-hp9"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -258,11 +267,12 @@
                         <outlet property="lbConnect" destination="3Md-cY-XUb" id="wdB-Eg-yKw"/>
                         <outlet property="lbTitle" destination="RhN-3Q-pKl" id="6Jm-Cn-vRS"/>
                         <segue destination="cqf-Qt-uJw" kind="show" identifier="MenuController" id="SYU-T0-U87"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="ConfigController" id="l2C-bV-cqw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GVq-X2-wIC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1458.4000000000001" y="145.27736131934034"/>
+            <point key="canvasLocation" x="-1429" y="136"/>
         </scene>
         <!--Menu Controller-->
         <scene sceneID="pkh-Om-KUq">
@@ -1786,8 +1796,8 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="feP-a5-J1v">
-                                <rect key="frame" x="0.0" y="16" width="335" height="484"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="feP-a5-J1v">
+                                <rect key="frame" x="0.0" y="0.0" width="335" height="482"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="295" id="0hd-dM-NMW"/>
@@ -1933,8 +1943,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="35D-Sf-cKp"/>
-        <segue reference="c9G-QA-E3Y"/>
+        <segue reference="SYU-T0-U87"/>
+        <segue reference="Ejj-EB-Gnh"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="aval" width="60" height="60"/>

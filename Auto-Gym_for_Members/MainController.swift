@@ -57,6 +57,7 @@ class MainController: UIViewController/*, GADInterstitialDelegate*/ {
         self.AppValidate()
         let file = File(fileName: "config", fileExt: "dat")
         if file.exists(){
+            print("config.dat existe")
             config = file.read()
             if config["academia"]!.isEmpty==false{
                 self.lbTitle.text = config["academia"]!
@@ -64,11 +65,15 @@ class MainController: UIViewController/*, GADInterstitialDelegate*/ {
             if config["logo"]!.isEmpty==false{
                 self.imgLogo.image = base64ImgFromString(config["logo"]!)
             }
+            print(config["server1"])
             if config["server1"]!.isEmpty{
                 btnGo.isHidden = true
             }else{
                 btnGo.isHidden = false
             }
+        }
+        else{
+            print("config.dat NÃO existe")
         }
         lbConnect.isHidden = true
     }
@@ -486,6 +491,12 @@ class MainController: UIViewController/*, GADInterstitialDelegate*/ {
         //print("interstitialWillLeaveApplication")
         return
     }*/
+    
+    @IBAction func btnConfigClick(_ sender: Any) {
+        
+        btnGo.isHidden = false
+        performSegue(withIdentifier: "ConfigController", sender: nil)
+    }
     
     // Valida o App
     func AppValidate() {
